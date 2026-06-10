@@ -1,0 +1,131 @@
+{
+  "id": 7,
+  "slug": "linkedin-makeover",
+  "name": "InMakeover",
+  "category": "productized service",
+  "renderAs": "offer",
+  "route": "/services/linkedin-makeover",
+  "accent": "#0E7490",
+  "accentInk": "#062E3A",
+  "eyebrow": "productized service",
+  "headline": "LinkedIn profile rewrite that turns views into DMs",
+  "subheadline": "Pipeline & inbound leads from a better profile. Built for founders, sales reps, consultants, job seekers.",
+  "painPoint": "Profile gets views but no inbound.",
+  "solution": "LinkedIn profile rewrite that turns views into DMs.",
+  "proofPoints": [
+    "Fixed scope, fixed price",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "One-page offer",
+      "body": "One-page offer: outcome headline."
+    },
+    {
+      "title": "3 proof points",
+      "body": "3 proof points."
+    },
+    {
+      "title": "Fixed scope",
+      "body": "fixed scope."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "FAQ",
+      "body": "FAQ."
+    },
+    {
+      "title": "Stripe link + booking form",
+      "body": "Stripe link + booking form."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "productized service"
+    },
+    {
+      "k": "Price",
+      "v": "$99"
+    },
+    {
+      "k": "Turnaround",
+      "v": "48–72 hours"
+    },
+    {
+      "k": "Monetization",
+      "v": "Stripe Payment Link"
+    },
+    {
+      "k": "Channel",
+      "v": "LinkedIn DMs"
+    }
+  ],
+  "pricing": {
+    "note": "One fixed price. No retainers, no surprises.",
+    "tiers": [
+      {
+        "name": "The package",
+        "price": "$99",
+        "summary": "LinkedIn profile rewrite that turns views into DMs.",
+        "features": [
+          "One-page offer: outcome headline",
+          "3 proof points",
+          "fixed scope",
+          "price",
+          "FAQ"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "payment",
+    "label": "Book it now",
+    "href": "#",
+    "note": "Fixed price. Stripe secure checkout. 48–72h turnaround."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "InMakeover — LinkedIn profile rewrite that turns views into DMs",
+  "seoDescription": "LinkedIn profile rewrite that turns views into DMs. Built for founders, sales reps, consultants, job seekers. From $99.",
+  "keywords": [
+    "inmakeover",
+    "linkedin dms",
+    "founder communities",
+    "productized service"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Founders, sales reps, consultants, job seekers. If that's you and \"profile gets views but no inbound\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Pipeline & inbound leads from a better profile."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Within 48–72 hours of ordering. You'll get a confirmation immediately and the deliverable by email."
+    },
+    {
+      "q": "What if I'm not happy?",
+      "a": "One free revision round is included. If the deliverable misses the agreed scope, you get a full refund — no argument."
+    }
+  ],
+  "launchChannel": "LinkedIn DMs, founder communities",
+  "validationMetric": "Send 50 personalised outreach touches; target 1+ paid order or 3+ booked calls in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 7,
+  "frs": 7.35,
+  "revenueSpeed": 8,
+  "profitPotential": 7,
+  "killCriteria": "0 paid orders AND <2 booked calls after 100 outreach touches in 14 days",
+  "biggestRisk": "Fulfillment time caps scale; low cold-reply rates; you trade hours for money until productised further",
+  "first10": "DM/cold-email 30-50 ideal-fit businesses with a free mini-teardown; post the offer in 2 niche communities",
+  "price": "$99"
+}

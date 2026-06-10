@@ -1,0 +1,131 @@
+{
+  "id": 6,
+  "slug": "freelancekit",
+  "name": "FreelanceKit",
+  "category": "template pack",
+  "renderAs": "offer",
+  "route": "/templates/freelancekit",
+  "accent": "#6D28D9",
+  "accentInk": "#27104F",
+  "eyebrow": "template pack",
+  "headline": "Contract + invoice + proposal template pack for freelancers",
+  "subheadline": "Look pro & get paid faster. Built for new & solo freelancers.",
+  "painPoint": "Unprofessional docs; unpaid invoices.",
+  "solution": "Contract + invoice + proposal template pack for freelancers.",
+  "proofPoints": [
+    "No signup required",
+    "Instant download",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Product page",
+      "body": "Product page: hero preview."
+    },
+    {
+      "title": "What's-inside list",
+      "body": "what's-inside list."
+    },
+    {
+      "title": "3 screenshots",
+      "body": "3 screenshots."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "Buy button",
+      "body": "buy button."
+    },
+    {
+      "title": "Refund note",
+      "body": "refund note."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "template pack"
+    },
+    {
+      "k": "Price",
+      "v": "$24"
+    },
+    {
+      "k": "Delivery",
+      "v": "Instant download"
+    },
+    {
+      "k": "Monetization",
+      "v": "Gumroad"
+    },
+    {
+      "k": "Channel",
+      "v": "r/freelance"
+    }
+  ],
+  "pricing": {
+    "note": "Pay once, use forever. Free updates included.",
+    "tiers": [
+      {
+        "name": "Full pack",
+        "price": "$24",
+        "summary": "Everything inside, instant download.",
+        "features": [
+          "Product page: hero preview",
+          "what's-inside list",
+          "3 screenshots",
+          "price",
+          "buy button"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "download",
+    "label": "Get the pack",
+    "href": "#",
+    "note": "Instant download. Free updates. 14-day refund."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "FreelanceKit — Contract + invoice + proposal template pack for…",
+  "seoDescription": "Contract + invoice + proposal template pack for freelancers. Built for new & solo freelancers. From $24.",
+  "keywords": [
+    "freelancekit",
+    "r/freelance",
+    "upwork communities",
+    "template pack"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "New & solo freelancers. If that's you and \"unprofessional docs; unpaid invoices\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Look pro & get paid faster."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Instantly. The download link arrives the moment payment clears."
+    },
+    {
+      "q": "What's the refund policy?",
+      "a": "14 days, no questions asked. If it doesn't fit your workflow, reply to the receipt email and we refund you."
+    }
+  ],
+  "launchChannel": "r/freelance, Upwork communities",
+  "validationMetric": "Drive 300-500 targeted visits; target 5+ sales in 14 days at list price",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 6,
+  "frs": 7.35,
+  "revenueSpeed": 8,
+  "profitPotential": 8,
+  "killCriteria": "<1% conversion after 500 targeted visits, or <2 sales in 14 days",
+  "biggestRisk": "Commoditised; piracy & refunds; needs constant distribution to keep selling",
+  "first10": "Post a free sample in 3 relevant subreddits/Discords; list on Gumroad Discover; 1 short demo clip",
+  "price": "$24"
+}

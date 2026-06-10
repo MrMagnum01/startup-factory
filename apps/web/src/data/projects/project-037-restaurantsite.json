@@ -1,0 +1,108 @@
+{
+  "id": 37,
+  "slug": "restaurantsite",
+  "name": "RestaurantSite",
+  "category": "lead-gen site",
+  "renderAs": "offer",
+  "route": "/projects/restaurantsite",
+  "accent": "#B45309",
+  "accentInk": "#3F1D03",
+  "eyebrow": "lead-gen site",
+  "headline": "Web-design lead-gen targeting restaurants without sites",
+  "subheadline": "More covers from a real site. Built for restaurants w/ poor/no website.",
+  "painPoint": "Losing orders to better-presented rivals.",
+  "solution": "Web-design lead-gen targeting restaurants without sites.",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Niche landing",
+      "body": "Niche landing."
+    },
+    {
+      "title": "Trust signals",
+      "body": "trust signals."
+    },
+    {
+      "title": "Short quote form",
+      "body": "short quote form."
+    },
+    {
+      "title": "Thank-you page",
+      "body": "thank-you page."
+    },
+    {
+      "title": "1 follow-up email template",
+      "body": "1 follow-up email template."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "lead-gen site"
+    },
+    {
+      "k": "Price",
+      "v": "$0 (feeds service)"
+    },
+    {
+      "k": "Turnaround",
+      "v": "5-8h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Feeds your own web-design service"
+    },
+    {
+      "k": "Channel",
+      "v": "Local outreach + walk-ins"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": []
+  },
+  "cta": {
+    "type": "leadform",
+    "label": "Get free quotes",
+    "href": "#lead",
+    "note": "Free, no obligation. Reply within one business day."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "RestaurantSite — Web-design lead-gen targeting restaurants without…",
+  "seoDescription": "Web-design lead-gen targeting restaurants without sites. Built for restaurants w/ poor/no website. From $0 (feeds service).",
+  "keywords": [
+    "restaurantsite",
+    "local outreach + walk-ins",
+    "lead-gen site"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Restaurants w/ poor/no website. If that's you and \"losing orders to better-presented rivals\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "More covers from a real site."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    }
+  ],
+  "launchChannel": "Local outreach + walk-ins",
+  "validationMetric": "Generate 5+ qualified leads in 14 days AND get 1 business to agree a per-lead price",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 37,
+  "frs": 6.3,
+  "revenueSpeed": 6,
+  "profitPotential": 7,
+  "killCriteria": "<3 leads in 14 days OR no buyer will commit to a per-lead price",
+  "biggestRisk": "Two-sided cold start; lead quality disputes; ad costs can exceed lead value",
+  "first10": "Line up ONE buyer business first; then drive niche traffic (local SEO + 1 paid test) to generate leads",
+  "price": "$0 (feeds service)"
+}

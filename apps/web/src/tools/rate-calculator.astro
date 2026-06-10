@@ -1,0 +1,65 @@
+---
+// Freelance rate calculator — 100% client-side.
+---
+<div class="grid lg:grid-cols-[1fr_0.9fr] gap-8">
+  <form id="rc-form" class="grid gap-4" autocomplete="off">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="grid gap-1.5">
+        <label for="rc-income" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Target yearly income ($)</label>
+        <input id="rc-income" type="number" min="1000" step="1000" value="80000" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="rc-hours" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Billable hours / week</label>
+        <input id="rc-hours" type="number" min="1" max="60" value="25" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="rc-weeks" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Weeks off / year</label>
+        <input id="rc-weeks" type="number" min="0" max="26" value="5" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="rc-overhead" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Overhead % (tools, insurance…)</label>
+        <input id="rc-overhead" type="number" min="0" max="80" value="15" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+      </div>
+    </div>
+    <div class="grid gap-1.5">
+      <label for="rc-tax" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Tax buffer % <span class="normal-case tracking-normal">(self-employment etc.)</span></label>
+      <input id="rc-tax" type="range" min="0" max="50" value="25" class="accent-[var(--accent)]" />
+      <span class="mono text-[0.78rem] text-muted"><span id="rc-tax-v">25</span>% set aside for tax</span>
+    </div>
+  </form>
+
+  <div class="card !bg-surface-2 self-start" aria-live="polite">
+    <p class="eyebrow mb-5">Your floor rates</p>
+    <div class="spec">
+      <div class="spec-row"><span class="k">Hourly</span><span class="dot"></span><span class="v text-display !text-[1.8rem]" id="rc-hourly">—</span></div>
+      <div class="spec-row"><span class="k">Day (7h)</span><span class="dot"></span><span class="v tnum" id="rc-day">—</span></div>
+      <div class="spec-row"><span class="k">Week</span><span class="dot"></span><span class="v tnum" id="rc-week">—</span></div>
+      <div class="spec-row"><span class="k">10h project</span><span class="dot"></span><span class="v tnum" id="rc-proj">—</span></div>
+    </div>
+    <p class="text-[0.82rem] text-ink-soft mt-4 mb-0" id="rc-note">Charging less than this means missing your income target.</p>
+  </div>
+</div>
+
+<script>
+  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const fmt = (n: number) => "$" + Math.ceil(n).toLocaleString("en-US");
+  function calc() {
+    const income = +$("rc-income").value || 0;
+    const hours = Math.max(1, +$("rc-hours").value || 1);
+    const weeksOff = Math.min(51, +$("rc-weeks").value || 0);
+    const overhead = (+$("rc-overhead").value || 0) / 100;
+    const tax = (+$("rc-tax").value || 0) / 100;
+    $("rc-tax-v")!.textContent = String(Math.round(tax * 100));
+    const billableHours = hours * (52 - weeksOff);
+    const grossNeeded = income * (1 + overhead) / Math.max(0.05, 1 - tax);
+    const hourly = grossNeeded / billableHours;
+    ($("rc-hourly") as any).textContent = fmt(hourly) + "/h";
+    ($("rc-day") as any).textContent = fmt(hourly * 7);
+    ($("rc-week") as any).textContent = fmt(hourly * hours);
+    ($("rc-proj") as any).textContent = fmt(hourly * 10);
+    ($("rc-note") as any).textContent = `Based on ${billableHours.toLocaleString()} billable hours/year. Quote projects, not hours, where you can.`;
+    try { (window as any).track && (window as any).track("tool_used", { tool: "rate-calculator" }); } catch {}
+  }
+  ["rc-income","rc-hours","rc-weeks","rc-overhead","rc-tax"].forEach((id) => $(id)?.addEventListener("input", calc));
+  calc();
+</script>

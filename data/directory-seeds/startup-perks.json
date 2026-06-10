@@ -1,0 +1,125 @@
+{
+  "facets": ["Cloud credits", "SaaS discounts", "Banking/Legal", "Dev tools"],
+  "items": [
+    {
+      "name": "AWS Activate",
+      "category": "Cloud credits",
+      "tag": "Free credits",
+      "blurb": "Amazon program providing AWS service credits and support to early-stage and funded startups.",
+      "url": "https://aws.amazon.com/activate",
+      "featured": true
+    },
+    {
+      "name": "Google Cloud for Startups",
+      "category": "Cloud credits",
+      "tag": "Free credits",
+      "blurb": "Google program offering GCP credits to startups at various stages from seed to Series A+.",
+      "url": "https://cloud.google.com/startups",
+      "featured": false
+    },
+    {
+      "name": "Microsoft for Startups Founders Hub",
+      "category": "Cloud credits",
+      "tag": "Free credits",
+      "blurb": "Microsoft program offering Azure credits, GitHub, and software benefits to early-stage startups.",
+      "url": "https://foundershub.startups.microsoft.com",
+      "featured": false
+    },
+    {
+      "name": "Stripe Atlas",
+      "category": "Banking/Legal",
+      "tag": "Paid service",
+      "blurb": "Stripe service that incorporates a US company, sets up a bank account, and issues equity documents.",
+      "url": "https://stripe.com/atlas",
+      "featured": false
+    },
+    {
+      "name": "Notion for Startups",
+      "category": "SaaS discounts",
+      "tag": "Discounted",
+      "blurb": "Notion's startup program offering discounted or free Plus plan access to early-stage companies.",
+      "url": "https://www.notion.com/startups",
+      "featured": false
+    },
+    {
+      "name": "HubSpot for Startups",
+      "category": "SaaS discounts",
+      "tag": "Discounted",
+      "blurb": "HubSpot program providing CRM and marketing software at a discount for eligible seed-stage startups.",
+      "url": "https://www.hubspot.com/startups",
+      "featured": false
+    },
+    {
+      "name": "Segment Startup Program",
+      "category": "SaaS discounts",
+      "tag": "Free credits",
+      "blurb": "Twilio Segment program offering customer data platform credits to qualifying early-stage startups.",
+      "url": "https://segment.com/industry/startups",
+      "featured": false
+    },
+    {
+      "name": "Airtable for Startups",
+      "category": "SaaS discounts",
+      "tag": "Discounted",
+      "blurb": "Airtable startup program offering discounted access to its database and workflow platform.",
+      "url": "https://www.airtable.com/lp/startups",
+      "featured": false
+    },
+    {
+      "name": "Intercom Early Stage",
+      "category": "SaaS discounts",
+      "tag": "Discounted",
+      "blurb": "Intercom program offering discounted customer messaging platform access to early-stage startups.",
+      "url": "https://www.intercom.com/early-stage",
+      "featured": false
+    },
+    {
+      "name": "GitHub for Startups",
+      "category": "Dev tools",
+      "tag": "Free access",
+      "blurb": "GitHub program giving eligible startups free access to GitHub Team for their entire organization.",
+      "url": "https://github.com/solutions/startups",
+      "featured": false
+    },
+    {
+      "name": "Brex for Startups",
+      "category": "Banking/Legal",
+      "tag": "Free tier",
+      "blurb": "Corporate card and banking platform built for startups with no personal guarantee required.",
+      "url": "https://www.brex.com/solutions/startups",
+      "featured": false
+    },
+    {
+      "name": "Salesforce for Startups",
+      "category": "SaaS discounts",
+      "tag": "Discounted",
+      "blurb": "Salesforce program offering CRM credits and resources to early-stage venture-backed startups.",
+      "url": "https://www.salesforce.com/solutions/small-business-solutions/startup",
+      "featured": false
+    },
+    {
+      "name": "Freshworks for Startups",
+      "category": "SaaS discounts",
+      "tag": "Free credits",
+      "blurb": "Freshworks startup program offering CRM and support software credits to qualifying companies.",
+      "url": "https://www.freshworks.com/freshworks-for-startups",
+      "featured": false
+    },
+    {
+      "name": "Cloudflare for Startups",
+      "category": "Dev tools",
+      "tag": "Free credits",
+      "blurb": "Cloudflare program providing service credits to startups accepted through partner accelerators.",
+      "url": "https://www.cloudflare.com/forstartups",
+      "featured": false
+    },
+    {
+      "name": "MongoDB for Startups",
+      "category": "Dev tools",
+      "tag": "Free credits",
+      "blurb": "MongoDB Atlas credit program for early-stage startups to build on its cloud database platform.",
+      "url": "https://www.mongodb.com/startups",
+      "featured": false
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+---
+import Button from "./Button.astro";
+import { resolveForm, hiddenFields } from "@factory/forms";
+interface Props { project: any; title?: string; fields?: string[]; }
+const { project, title = "Get your free quote", fields = ["name", "email", "detail"] } = Astro.props;
+const f = resolveForm(project);
+const hidden = hiddenFields(project);
+const data: Record<string, string> = {};
+if (f.placeholder) data["data-placeholder"] = "true";
+const action = f.mode === "post" ? f.endpoint : "#";
+---
+<form id="lead" action={action} method="POST" class="card reveal grid gap-3" data-lead {...data}>
+  <h3 class="text-[1.2rem] mb-1">{title}</h3>
+  {hidden.map((h) => <input type="hidden" name={h.name} value={h.value} />)}
+
+  {fields.includes("name") && (
+    <div class="grid gap-1">
+      <label class="mono text-[0.72rem] uppercase tracking-widest text-muted" for="lead-name">Name</label>
+      <input id="lead-name" name="name" type="text" required autocomplete="name"
+        class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper focus:outline-none focus-visible:outline-accent" />
+    </div>
+  )}
+  {fields.includes("email") && (
+    <div class="grid gap-1">
+      <label class="mono text-[0.72rem] uppercase tracking-widest text-muted" for="lead-email">Email</label>
+      <input id="lead-email" name="email" type="email" required autocomplete="email"
+        class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper focus:outline-none focus-visible:outline-accent" />
+    </div>
+  )}
+  {fields.includes("phone") && (
+    <div class="grid gap-1">
+      <label class="mono text-[0.72rem] uppercase tracking-widest text-muted" for="lead-phone">Phone</label>
+      <input id="lead-phone" name="phone" type="tel" autocomplete="tel"
+        class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper focus:outline-none focus-visible:outline-accent" />
+    </div>
+  )}
+  {fields.includes("detail") && (
+    <div class="grid gap-1">
+      <label class="mono text-[0.72rem] uppercase tracking-widest text-muted" for="lead-detail">What do you need?</label>
+      <textarea id="lead-detail" name="detail" rows="3"
+        class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper focus:outline-none focus-visible:outline-accent"></textarea>
+    </div>
+  )}
+  <Button type="submit" variant="accent" class="justify-self-start mt-1">Send request</Button>
+  <p class="text-[0.78rem] text-muted m-0">We reply within one business day. Your details are never sold.</p>
+</form>

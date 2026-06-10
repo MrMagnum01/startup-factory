@@ -1,0 +1,31 @@
+---
+import Button from "./Button.astro";
+import { resolveCta } from "@factory/payments";
+interface Props {
+  project: any;
+  size?: "md" | "lg";
+  variant?: "primary" | "accent" | "ghost";
+  block?: boolean;
+  label?: string;
+}
+const { project, size = "lg", variant = "accent", block = false, label } = Astro.props;
+const c = resolveCta(project);
+const data: Record<string, string> = { "data-cta": c.type };
+if (c.placeholder) data["data-placeholder"] = "true";
+---
+<div class:list={["flex flex-col gap-2", block && "w-full"]}>
+  <Button
+    href={c.href}
+    variant={variant}
+    size={size}
+    external={c.external}
+    rel={c.rel}
+    target={c.target}
+    class={block ? "w-full" : ""}
+    dataAttrs={data}
+  >
+    {label || c.label}
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+  </Button>
+  {c.note && <span class="text-[0.8rem] text-muted">{c.note}</span>}
+</div>

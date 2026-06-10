@@ -1,0 +1,97 @@
+---
+// Meta/OpenGraph tag generator with live SERP + social preview. Client-side.
+---
+<div class="grid lg:grid-cols-[1fr_1fr] gap-8">
+  <form class="grid gap-4" autocomplete="off">
+    <div class="grid gap-1.5">
+      <label for="mt-title" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Page title <span id="mt-title-c" class="normal-case tracking-normal">(0/60)</span></label>
+      <input id="mt-title" maxlength="90" placeholder="My product — what it does for whom" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="mt-desc" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Description <span id="mt-desc-c" class="normal-case tracking-normal">(0/160)</span></label>
+      <textarea id="mt-desc" rows="3" maxlength="220" placeholder="One compelling sentence with the main keyword and the payoff." class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]"></textarea>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="grid gap-1.5">
+        <label for="mt-url" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Canonical URL</label>
+        <input id="mt-url" type="url" placeholder="https://example.com/page" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.9rem]" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="mt-img" class="mono text-[0.7rem] uppercase tracking-widest text-muted">OG image URL (1200×630)</label>
+        <input id="mt-img" type="url" placeholder="https://example.com/og.png" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.9rem]" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="mt-site" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Site name</label>
+        <input id="mt-site" placeholder="Example Inc." class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.9rem]" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="mt-type" class="mono text-[0.7rem] uppercase tracking-widest text-muted">OG type</label>
+        <select id="mt-type" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper"><option>website</option><option>article</option><option>product</option></select>
+      </div>
+    </div>
+  </form>
+
+  <div class="grid gap-4 content-start">
+    <div class="card">
+      <p class="mono text-[0.66rem] uppercase tracking-widest text-muted mb-3">Google preview</p>
+      <p class="text-[0.8rem] text-[#1a6e32] m-0 truncate" id="mt-prev-url">example.com</p>
+      <p class="text-[1.15rem] text-[#1a0dab] dark:text-blue-400 leading-snug m-0 mt-0.5" id="mt-prev-title">Your title appears here</p>
+      <p class="text-[0.85rem] text-ink-soft m-0 mt-1" id="mt-prev-desc">Your description appears here — make it earn the click.</p>
+    </div>
+    <div class="card !p-0 overflow-hidden">
+      <div class="h-36 bg-surface-2 grid place-items-center text-muted mono text-[0.7rem] uppercase tracking-widest" id="mt-prev-imgbox">og:image preview</div>
+      <div class="p-4 border-t border-line">
+        <p class="mono text-[0.64rem] uppercase tracking-widest text-muted m-0" id="mt-prev-host">example.com</p>
+        <p class="font-medium text-[0.95rem] m-0 mt-0.5" id="mt-prev-card-title">Your title</p>
+      </div>
+    </div>
+    <div class="relative">
+      <pre class="card !bg-ink text-paper/90 text-[0.78rem] leading-relaxed overflow-x-auto no-scrollbar m-0"><code id="mt-code"></code></pre>
+      <button type="button" id="mt-copy" class="btn btn--accent absolute top-3 right-3 !py-1.5 !px-3 text-[0.8rem]">Copy</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const $$ = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+  function gen() {
+    const t = $$("mt-title").value.trim(), d = $$("mt-desc").value.trim();
+    const u = $$("mt-url").value.trim(), img = $$("mt-img").value.trim();
+    const site = $$("mt-site").value.trim(), type = $$("mt-type").value;
+    $$("mt-title-c").textContent = `(${t.length}/60${t.length > 60 ? " — too long" : ""})`;
+    $$("mt-desc-c").textContent = `(${d.length}/160${d.length > 160 ? " — too long" : ""})`;
+    $$("mt-prev-title").textContent = t || "Your title appears here";
+    $$("mt-prev-desc").textContent = d || "Your description appears here — make it earn the click.";
+    let host = "example.com"; try { host = new URL(u).hostname; } catch {}
+    $$("mt-prev-url").textContent = host + (u ? new URL(u).pathname : "");
+    $$("mt-prev-host").textContent = host;
+    $$("mt-prev-card-title").textContent = t || "Your title";
+    const box = $$("mt-prev-imgbox");
+    box.innerHTML = img ? `<img src="${esc(img)}" alt="" style="width:100%;height:100%;object-fit:cover" onerror="this.replaceWith('image failed to load')">` : "og:image preview";
+    const L: string[] = [];
+    if (t) L.push(`<title>${esc(t)}</title>`);
+    if (d) L.push(`<meta name="description" content="${esc(d)}">`);
+    if (u) L.push(`<link rel="canonical" href="${esc(u)}">`);
+    L.push(`<meta property="og:type" content="${type}">`);
+    if (site) L.push(`<meta property="og:site_name" content="${esc(site)}">`);
+    if (t) L.push(`<meta property="og:title" content="${esc(t)}">`);
+    if (d) L.push(`<meta property="og:description" content="${esc(d)}">`);
+    if (u) L.push(`<meta property="og:url" content="${esc(u)}">`);
+    if (img) L.push(`<meta property="og:image" content="${esc(img)}">`, `<meta property="og:image:width" content="1200">`, `<meta property="og:image:height" content="630">`);
+    L.push(`<meta name="twitter:card" content="${img ? "summary_large_image" : "summary"}">`);
+    if (t) L.push(`<meta name="twitter:title" content="${esc(t)}">`);
+    if (d) L.push(`<meta name="twitter:description" content="${esc(d)}">`);
+    if (img) L.push(`<meta name="twitter:image" content="${esc(img)}">`);
+    document.getElementById("mt-code")!.textContent = L.join("\n");
+  }
+  ["mt-title","mt-desc","mt-url","mt-img","mt-site","mt-type"].forEach((i) => $$(i).addEventListener("input", gen));
+  document.getElementById("mt-copy")!.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(document.getElementById("mt-code")!.textContent || "");
+      const b = document.getElementById("mt-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy"), 1500);
+      (window as any).track && (window as any).track("tool_used", { tool: "meta-tags" });
+    } catch {}
+  });
+  gen();
+</script>

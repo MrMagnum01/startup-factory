@@ -1,0 +1,80 @@
+---
+// Resume bullet generator — XYZ-formula templates, no AI API, client-side.
+---
+<div class="grid lg:grid-cols-[1fr_1fr] gap-8">
+  <form class="grid gap-4" autocomplete="off">
+    <div class="grid gap-1.5">
+      <label for="rb-task" class="mono text-[0.7rem] uppercase tracking-widest text-muted">What did you do? *</label>
+      <input id="rb-task" placeholder="managed the company newsletter" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="grid gap-1.5">
+        <label for="rb-metric" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Measurable result *</label>
+        <input id="rb-metric" placeholder="open rate from 18% to 31%" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="rb-how" class="mono text-[0.7rem] uppercase tracking-widest text-muted">How / with what?</label>
+        <input id="rb-how" placeholder="A/B testing subject lines" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="rb-scope" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Scope (team/budget/users)</label>
+        <input id="rb-scope" placeholder="for a 40k-subscriber list" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="rb-tone" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Verb style</label>
+        <select id="rb-tone" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper">
+          <option value="impact" selected>Impact (Drove, Boosted…)</option>
+          <option value="build">Builder (Built, Shipped…)</option>
+          <option value="lead">Leadership (Led, Directed…)</option>
+          <option value="analyze">Analytical (Analyzed, Optimized…)</option>
+        </select>
+      </div>
+    </div>
+    <button type="button" id="rb-gen" class="btn btn--accent justify-self-start">Generate bullets</button>
+  </form>
+
+  <div class="card !bg-surface-2 self-start">
+    <div class="flex items-center justify-between mb-4">
+      <p class="eyebrow !mb-0">Your bullets</p>
+      <button type="button" id="rb-copy" class="btn btn--ghost !py-1.5 !px-3 text-[0.8rem]">Copy all</button>
+    </div>
+    <ul id="rb-out" class="grid gap-3 list-none p-0 m-0 text-[0.95rem] leading-relaxed">
+      <li class="text-muted">Fill the form and hit generate — you'll get 5 quantified, ATS-friendly variants.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const v = (id: string) => (document.getElementById(id) as HTMLInputElement).value.trim();
+  const VERBS: Record<string, string[]> = {
+    impact: ["Drove", "Boosted", "Increased", "Accelerated", "Delivered"],
+    build: ["Built", "Shipped", "Launched", "Engineered", "Created"],
+    lead: ["Led", "Directed", "Owned", "Coordinated", "Spearheaded"],
+    analyze: ["Analyzed", "Optimized", "Streamlined", "Redesigned", "Automated"],
+  };
+  const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+  const strip = (s: string) => s.replace(/^(i\s+|we\s+)/i, "").replace(/\.+$/, "");
+  function gen() {
+    const task = strip(v("rb-task")), metric = strip(v("rb-metric"));
+    const how = strip(v("rb-how")), scope = strip(v("rb-scope"));
+    const out = document.getElementById("rb-out")!;
+    if (!task || !metric) { out.innerHTML = '<li class="text-muted">Both “what you did” and a measurable result are required — numbers are what recruiters scan for.</li>'; return; }
+    const verbs = VERBS[v("rb-tone")] ?? VERBS.impact;
+    const W = (s: string) => s.replace(/\s+/g, " ").trim().replace(/\s,/g, ",");
+    const bullets = [
+      W(`${verbs[0]} ${metric} by ${how || task}${scope ? ", " + scope : ""}.`),
+      W(`${verbs[1]} ${task}${scope ? " " + scope : ""}, ${metric.match(/^\d|%|\$/) ? "achieving " : "resulting in "}${metric}.`),
+      W(`${verbs[2]} ${metric} ${how ? `through ${how}` : `by ${task}`}.`),
+      W(`${verbs[3]} ${task}${how ? ` using ${how}` : ""} — ${metric}${scope ? ` (${scope})` : ""}.`),
+      W(`${verbs[4]} measurable gains (${metric})${how ? ` via ${how}` : ""} while ${task.replace(/^([a-z]+)(ed|ing)?\b/i, (m) => m.replace(/ed$/, "ing"))}.`),
+    ];
+    out.innerHTML = bullets.map((b) => `<li class="flex gap-2.5"><span class="text-accent mt-0.5">▪</span><span>${cap(b)}</span></li>`).join("");
+    try { (window as any).track && (window as any).track("tool_used", { tool: "resume-bullets" }); } catch {}
+  }
+  document.getElementById("rb-gen")!.addEventListener("click", gen);
+  document.getElementById("rb-copy")!.addEventListener("click", async () => {
+    const text = [...document.querySelectorAll("#rb-out li span:last-child")].map((s) => "• " + s.textContent).join("\n");
+    if (!text.includes("•")) return;
+    try { await navigator.clipboard.writeText(text); const b = document.getElementById("rb-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy all"), 1500); } catch {}
+  });
+</script>

@@ -1,0 +1,80 @@
+---
+// Project quote estimator for freelancers/agencies — client-side.
+---
+<div class="grid lg:grid-cols-[1fr_0.9fr] gap-8">
+  <form class="grid gap-4" autocomplete="off">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="grid gap-1.5">
+        <label for="qe-rate" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Your hourly rate ($)</label>
+        <input id="qe-rate" type="number" min="5" value="85" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="qe-hours" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Estimated hours</label>
+        <input id="qe-hours" type="number" min="1" value="24" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+      </div>
+    </div>
+    <div class="grid gap-1.5">
+      <label for="qe-complex" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Complexity</label>
+      <select id="qe-complex" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper">
+        <option value="1">Routine — done it many times (×1.0)</option>
+        <option value="1.2" selected>Standard — some unknowns (×1.2)</option>
+        <option value="1.45">Complex — new territory (×1.45)</option>
+        <option value="1.8">R&D — genuinely uncertain (×1.8)</option>
+      </select>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <label class="flex items-center gap-3 card !py-3.5 cursor-pointer">
+        <input id="qe-rush" type="checkbox" class="accent-[var(--accent)] w-4 h-4" />
+        <span class="text-[0.92rem]">Rush delivery <span class="text-muted">(+25%)</span></span>
+      </label>
+      <label class="flex items-center gap-3 card !py-3.5 cursor-pointer">
+        <input id="qe-client" type="checkbox" class="accent-[var(--accent)] w-4 h-4" />
+        <span class="text-[0.92rem]">High-touch client <span class="text-muted">(+15%)</span></span>
+      </label>
+    </div>
+  </form>
+
+  <div class="card !bg-surface-2 self-start" aria-live="polite">
+    <p class="eyebrow mb-5">Quote this</p>
+    <div class="text-center py-2">
+      <p class="mono text-[0.7rem] uppercase tracking-widest text-muted mb-1">Recommended fixed price</p>
+      <p class="text-display !text-[2.6rem] !leading-none tnum m-0" id="qe-quote">—</p>
+      <p class="mono text-[0.78rem] text-muted mt-2" id="qe-range">—</p>
+    </div>
+    <div class="spec mt-4">
+      <div class="spec-row"><span class="k">Base (rate × hours)</span><span class="dot"></span><span class="v tnum" id="qe-base">—</span></div>
+      <div class="spec-row"><span class="k">Risk buffer (20%)</span><span class="dot"></span><span class="v tnum" id="qe-buffer">—</span></div>
+      <div class="spec-row"><span class="k">50% deposit</span><span class="dot"></span><span class="v tnum" id="qe-deposit">—</span></div>
+    </div>
+    <button type="button" id="qe-copy" class="btn btn--accent w-full mt-5">Copy quote summary</button>
+  </div>
+</div>
+
+<script>
+  const q = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const usd = (n: number) => "$" + (Math.round(n / 5) * 5).toLocaleString("en-US");
+  let summary = "";
+  function run() {
+    const rate = +q("qe-rate").value || 0;
+    const hours = +q("qe-hours").value || 0;
+    const cx = +(q("qe-complex") as any).value || 1;
+    const rush = (q("qe-rush") as any).checked ? 1.25 : 1;
+    const hi = (q("qe-client") as any).checked ? 1.15 : 1;
+    const base = rate * hours;
+    const buffered = base * 1.2;
+    const total = buffered * cx * rush * hi;
+    const lo = total * 0.95, hideR = total * 1.15;
+    q("qe-quote").textContent = usd(total);
+    q("qe-range").textContent = `sane range: ${usd(lo)} – ${usd(hideR)}`;
+    q("qe-base").textContent = usd(base);
+    q("qe-buffer").textContent = usd(buffered - base);
+    q("qe-deposit").textContent = usd(total / 2);
+    summary = `Project quote\n— Scope estimate: ${hours}h\n— Fixed price: ${usd(total)}\n— 50% deposit to start: ${usd(total / 2)}\n— Balance on delivery.\n(Price includes complexity & risk buffer; scope changes re-quoted.)`;
+    try { (window as any).track && (window as any).track("tool_used", { tool: "quote-estimator" }); } catch {}
+  }
+  ["qe-rate","qe-hours","qe-complex","qe-rush","qe-client"].forEach((i) => q(i)?.addEventListener("input", run));
+  document.getElementById("qe-copy")?.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(summary); const b = document.getElementById("qe-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy quote summary"), 1600); } catch {}
+  });
+  run();
+</script>

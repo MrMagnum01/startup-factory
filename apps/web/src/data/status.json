@@ -1,0 +1,399 @@
+{
+  "generatedAt": "2026-06-10 00:27 UTC",
+  "phases": [
+    {
+      "name": "Assessment",
+      "state": "done"
+    },
+    {
+      "name": "Architecture",
+      "state": "done"
+    },
+    {
+      "name": "Build 50",
+      "state": "done"
+    },
+    {
+      "name": "QA",
+      "state": "done"
+    },
+    {
+      "name": "Deploy",
+      "state": "pending"
+    },
+    {
+      "name": "Growth",
+      "state": "pending"
+    }
+  ],
+  "projects": {
+    "resume-rewrite": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "google-business-profile-setup": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "shopify-speed-fix": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "local-seo-audit": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "pageteardown": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "freelancekit": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "linkedin-makeover": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "coldswipe-100": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "coldseq": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "etsyboost": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "hostbook": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "etsyops": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "shownotes": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "ats-resume-kit": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "weddingsheet": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "ugc-kit": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "secondbrain-os": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "a11yquick": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "contentcal": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "notionfit": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "pitchten": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "listingflyer": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "jobtrackr": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "staticmove": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "4 placeholder link(s) to fill"
+      ]
+    },
+    "7daylaunch": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "3 placeholder link(s) to fill"
+      ]
+    },
+    "solarquote": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "roofleads": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "restaurantsite": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "saasmetrics": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "bulletboost": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "payoffplus": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "policygen": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "quoteestimator": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "buildinpublic-kit": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "3 placeholder link(s) to fill"
+      ]
+    },
+    "rateright": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "reficheck": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "trialdesk": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "coldgen": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "boilerhub": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "1 placeholder link(s) to fill"
+      ]
+    },
+    "ai-tools-for-lawyers": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "1 placeholder link(s) to fill"
+      ]
+    },
+    "sponsor-list": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "1 placeholder link(s) to fill"
+      ]
+    },
+    "movequote": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "invoicenow": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "inboxzero-waitlist": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "3 placeholder link(s) to fill"
+      ]
+    },
+    "remote-first-companies": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "1 placeholder link(s) to fill"
+      ]
+    },
+    "ai-ml-jobs": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "1 placeholder link(s) to fill"
+      ]
+    },
+    "free-tier-dev": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "1 placeholder link(s) to fill"
+      ]
+    },
+    "startup-perks": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": [
+        "1 placeholder link(s) to fill"
+      ]
+    },
+    "metapreview": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    },
+    "utm-link-builder": {
+      "build": "pass",
+      "tests": "pass",
+      "deployed": false,
+      "issues": []
+    }
+  }
+}

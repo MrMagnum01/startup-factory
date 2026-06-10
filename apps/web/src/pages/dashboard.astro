@@ -1,0 +1,159 @@
+---
+import Base from "../layouts/Base.astro";
+import Eyebrow from "@factory/ui/Eyebrow.astro";
+import Tag from "@factory/ui/Tag.astro";
+import { projects } from "../lib/projects";
+import { isPlaceholder as payPh } from "@factory/payments";
+import { isPlaceholder as formPh } from "@factory/forms";
+import status from "../data/status.json";
+
+const s: any = status;
+const rows = projects.map((p: any) => {
+  const ps = s.projects?.[p.slug] ?? {};
+  const needsPay = ["payment", "download"].includes(p.cta?.type);
+  const needsForm = ["waitlist", "leadform"].includes(p.cta?.type) || p.renderAs === "directory";
+  const payReady = !needsPay || !payPh(p.cta?.href !== "#" ? p.cta?.href : p.paymentLinkPlaceholder);
+  const formReady = !needsForm || !formPh(p.emailCapturePlaceholder);
+  return {
+    id: p.id, slug: p.slug, name: p.name, route: p.route, category: p.category,
+    renderAs: p.renderAs, ctaType: p.cta?.type,
+    build: ps.build ?? "pass", testStatus: ps.tests ?? "pending",
+    payReady, formReady, needsPay, needsForm,
+    seoOk: Boolean(p.seoTitle && p.seoDescription),
+    deploy: ps.deployed ?? false,
+    issues: ps.issues ?? [],
+  };
+});
+
+const kpi = {
+  total: rows.length,
+  built: rows.filter(r => r.build === "pass").length,
+  seo: rows.filter(r => r.seoOk).length,
+  payTodo: rows.filter(r => r.needsPay && !r.payReady).length,
+  formTodo: rows.filter(r => r.needsForm && !r.formReady).length,
+  deployed: rows.filter(r => r.deploy).length,
+};
+const phases: { name: string; state: string }[] = s.phases ?? [];
+const generated = s.generatedAt ?? "—";
+const B = (ok: boolean, okTxt: string, badTxt: string) => ok
+  ? `<span class="inline-flex items-center gap-1.5 text-[0.78rem]"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--accent)"></span>${okTxt}</span>`
+  : `<span class="inline-flex items-center gap-1.5 text-[0.78rem] opacity-70"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>${badTxt}</span>`;
+---
+<Base title="Build dashboard — Startup Factory" description="Internal control tower: build, SEO, payment and deployment status for all factory projects.">
+  <Fragment slot="head"><meta name="robots" content="noindex,nofollow" /></Fragment>
+
+  <section class="border-b border-line bg-surface-2">
+    <div class="container-x pt-12 pb-10 lg:pt-16">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <Eyebrow text={`Control tower · regenerated ${generated}`} />
+          <h1 class="mt-4 !text-[clamp(2rem,1.4rem+2.4vw,3.2rem)]">Factory dashboard</h1>
+        </div>
+        <a href="https://github.com/MrMagnum01" rel="noopener" target="_blank" class="tag">Repo ↗</a>
+      </div>
+
+      <dl class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-line border border-line rounded-[16px] overflow-hidden mt-10">
+        {[
+          { k: "Projects", v: kpi.total, warn: false },
+          { k: "Build pass", v: `${kpi.built}/${kpi.total}`, warn: kpi.built < kpi.total },
+          { k: "SEO ready", v: `${kpi.seo}/${kpi.total}`, warn: kpi.seo < kpi.total },
+          { k: "Pay links TODO", v: kpi.payTodo, warn: kpi.payTodo > 0 },
+          { k: "Forms TODO", v: kpi.formTodo, warn: kpi.formTodo > 0 },
+          { k: "Deployed", v: `${kpi.deployed}/${kpi.total}`, warn: kpi.deployed < kpi.total },
+        ].map((c) => (
+          <div class="bg-surface px-5 py-4">
+            <dt class="mono text-[0.64rem] tracking-widest uppercase text-muted">{c.k}</dt>
+            <dd class:list={["text-display !text-[1.9rem] !leading-tight m-0 tnum", c.warn && "text-amber-600"]}>{c.v}</dd>
+          </div>
+        ))}
+      </dl>
+
+      {phases.length > 0 && (
+        <ol class="flex flex-wrap gap-2 mt-6 list-none p-0 m-0">
+          {phases.map((ph, i) => (
+            <li class:list={["tag", ph.state === "done" && "tag--accent", ph.state === "active" && "!border-amber-500 !text-amber-600"]}>
+              {String(i + 1)}. {ph.name} {ph.state === "done" ? "✓" : ph.state === "active" ? "·· in progress" : ""}
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  </section>
+
+  <section>
+    <div class="container-x py-10">
+      <div class="flex flex-col sm:flex-row gap-3 sm:items-center mb-6">
+        <input id="db-search" type="search" placeholder="Filter by name, slug, category…" aria-label="Filter projects"
+          class="flex-1 max-w-md px-4 py-2.5 rounded-[11px] border border-line-strong bg-surface focus:outline-none focus-visible:outline-accent text-[0.92rem]" />
+        <div class="flex gap-2" id="db-filters">
+          <button type="button" data-f="" class="tag tag--accent" aria-pressed="true">All</button>
+          <button type="button" data-f="todo" class="tag" aria-pressed="false">Has TODOs</button>
+          <button type="button" data-f="ready" class="tag" aria-pressed="false">Launch-ready</button>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto no-scrollbar border border-line rounded-[16px]">
+        <table class="w-full text-[0.86rem] border-collapse min-w-[900px]">
+          <thead>
+            <tr class="bg-surface-2 text-left">
+              {["#", "Project", "Route", "Type", "CTA", "Build", "SEO", "Payment", "Form", "Deploy", "Issues"].map((h) => (
+                <th class="mono text-[0.64rem] tracking-widest uppercase text-muted font-medium px-4 py-3 border-b border-line">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => {
+              const ready = r.build === "pass" && r.seoOk && r.payReady && r.formReady;
+              return (
+                <tr class="db-row border-b border-line last:border-0 hover:bg-ink/[0.025] transition-colors"
+                    data-text={`${r.name} ${r.slug} ${r.category}`.toLowerCase()}
+                    data-state={ready ? "ready" : "todo"}>
+                  <td class="px-4 py-3 mono text-muted">{String(r.id).padStart(3, "0")}</td>
+                  <td class="px-4 py-3 font-medium whitespace-nowrap">{r.name}</td>
+                  <td class="px-4 py-3"><a href={r.route} class="mono text-[0.78rem] text-accent hover:underline">{r.route}</a></td>
+                  <td class="px-4 py-3"><Tag>{r.category}</Tag></td>
+                  <td class="px-4 py-3 mono text-[0.75rem] uppercase">{r.ctaType}</td>
+                  <td class="px-4 py-3" set:html={B(r.build === "pass", "pass", r.build)} />
+                  <td class="px-4 py-3" set:html={B(r.seoOk, "ok", "missing")} />
+                  <td class="px-4 py-3" set:html={r.needsPay ? B(r.payReady, "live", "TODO link") : '<span class="text-muted text-[0.78rem]">n/a</span>'} />
+                  <td class="px-4 py-3" set:html={r.needsForm ? B(r.formReady, "live", "TODO form") : '<span class="text-muted text-[0.78rem]">n/a</span>'} />
+                  <td class="px-4 py-3" set:html={B(r.deploy, "live", "pending")} />
+                  <td class="px-4 py-3 text-[0.78rem] text-muted">{r.issues.length ? r.issues.join("; ") : "—"}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p class="mono text-[0.7rem] text-muted mt-4">AMBER = ACTION NEEDED BEFORE LAUNCH · THIS PAGE IS NOINDEXED</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var q = document.getElementById("db-search");
+      var rows = [].slice.call(document.querySelectorAll(".db-row"));
+      var filters = document.getElementById("db-filters");
+      var mode = "";
+      function apply() {
+        var t = (q.value || "").toLowerCase().trim();
+        rows.forEach(function (r) {
+          var okT = !t || r.getAttribute("data-text").indexOf(t) > -1;
+          var okM = !mode || (mode === "ready" ? r.getAttribute("data-state") === "ready" : r.getAttribute("data-state") === "todo");
+          r.style.display = okT && okM ? "" : "none";
+        });
+      }
+      if (q) q.addEventListener("input", apply);
+      if (filters) filters.addEventListener("click", function (e) {
+        var b = e.target.closest("button[data-f]"); if (!b) return;
+        mode = b.getAttribute("data-f") || "";
+        [].slice.call(filters.querySelectorAll("button")).forEach(function (x) {
+          var on = x === b;
+          x.classList.toggle("tag--accent", on);
+          x.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        apply();
+      });
+    })();
+  </script>
+</Base>

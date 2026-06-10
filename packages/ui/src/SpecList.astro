@@ -1,0 +1,13 @@
+---
+interface Props { rows?: { k: string; v: string }[]; class?: string; }
+const { rows = [], class: cls = "" } = Astro.props;
+---
+<dl class:list={["spec", cls]}>
+  {rows.map((r) => (
+    <div class="spec-row">
+      <dt class="k">{r.k}</dt>
+      <span class="dot" aria-hidden="true"></span>
+      <dd class="v">{r.v}</dd>
+    </div>
+  ))}
+</dl>

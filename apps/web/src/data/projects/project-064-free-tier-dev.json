@@ -1,0 +1,257 @@
+{
+  "id": 64,
+  "slug": "free-tier-dev",
+  "name": "FreeTierDev",
+  "category": "directory",
+  "renderAs": "directory",
+  "route": "/directories/free-tier-dev",
+  "accent": "#0E7490",
+  "accentInk": "#062E3A",
+  "eyebrow": "directory",
+  "headline": "Directory of free-tier dev tools & limits, compared",
+  "subheadline": "Build for $0 with the right tools. Built for indie devs, students.",
+  "painPoint": "Hard to compare free limits.",
+  "solution": "Directory of free-tier dev tools & limits, compared.",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Seeded list (40-100 entries)",
+      "body": "Seeded list (40-100 entries)."
+    },
+    {
+      "title": "Search + 2 filters",
+      "body": "search + 2 filters."
+    },
+    {
+      "title": "Detail rows",
+      "body": "detail rows."
+    },
+    {
+      "title": "'submit listing' form",
+      "body": "'submit listing' form."
+    },
+    {
+      "title": "1 sponsor slot",
+      "body": "1 sponsor slot."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "directory"
+    },
+    {
+      "k": "Price",
+      "v": "Free; sponsor"
+    },
+    {
+      "k": "Turnaround",
+      "v": "6-10h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Affiliate + sponsor slot"
+    },
+    {
+      "k": "Channel",
+      "v": "Dev communities"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": []
+  },
+  "cta": {
+    "type": "waitlist",
+    "label": "Submit a listing",
+    "href": "#",
+    "note": "Free submissions reviewed weekly. Featured slots paid."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "directory": {
+    "facets": [
+      "Hosting",
+      "Database",
+      "Backend",
+      "Email",
+      "Observability"
+    ],
+    "items": [
+      {
+        "name": "Vercel",
+        "category": "Hosting",
+        "tag": "Freemium",
+        "blurb": "Deploys frontend frameworks and serverless functions; free tier covers personal and hobby projects.",
+        "url": "https://vercel.com",
+        "featured": true
+      },
+      {
+        "name": "Netlify",
+        "category": "Hosting",
+        "tag": "Freemium",
+        "blurb": "Static site and serverless platform with a free tier suitable for personal sites and prototypes.",
+        "url": "https://www.netlify.com",
+        "featured": false
+      },
+      {
+        "name": "Cloudflare Pages",
+        "category": "Hosting",
+        "tag": "Free tier",
+        "blurb": "Globally distributed static site hosting with unlimited bandwidth on the free plan.",
+        "url": "https://pages.cloudflare.com",
+        "featured": false
+      },
+      {
+        "name": "Cloudflare Workers",
+        "category": "Backend",
+        "tag": "Free tier",
+        "blurb": "Edge serverless compute platform with a generous free tier for running lightweight functions.",
+        "url": "https://workers.cloudflare.com",
+        "featured": false
+      },
+      {
+        "name": "GitHub Pages",
+        "category": "Hosting",
+        "tag": "Free",
+        "blurb": "Hosts static sites directly from a GitHub repository at no cost for public and private repos.",
+        "url": "https://pages.github.com",
+        "featured": false
+      },
+      {
+        "name": "GitHub Actions",
+        "category": "Backend",
+        "tag": "Freemium",
+        "blurb": "CI/CD automation platform with free compute minutes for public repositories and personal accounts.",
+        "url": "https://github.com/features/actions",
+        "featured": false
+      },
+      {
+        "name": "Supabase",
+        "category": "Database",
+        "tag": "Freemium",
+        "blurb": "Open-source Firebase alternative with Postgres, auth, storage, and edge functions on a free tier.",
+        "url": "https://supabase.com",
+        "featured": false
+      },
+      {
+        "name": "Neon",
+        "category": "Database",
+        "tag": "Freemium",
+        "blurb": "Serverless Postgres with branching; free tier is designed to cover development and small workloads.",
+        "url": "https://neon.tech",
+        "featured": false
+      },
+      {
+        "name": "Turso",
+        "category": "Database",
+        "tag": "Freemium",
+        "blurb": "Edge SQLite database platform with a free tier covering multiple databases for side projects.",
+        "url": "https://turso.tech",
+        "featured": false
+      },
+      {
+        "name": "Railway",
+        "category": "Backend",
+        "tag": "Freemium",
+        "blurb": "App hosting platform with a free usage allowance for deploying backends, databases, and workers.",
+        "url": "https://railway.app",
+        "featured": false
+      },
+      {
+        "name": "Render",
+        "category": "Hosting",
+        "tag": "Freemium",
+        "blurb": "Cloud platform for hosting web services and static sites with a free tier for starter projects.",
+        "url": "https://render.com",
+        "featured": false
+      },
+      {
+        "name": "Fly.io",
+        "category": "Backend",
+        "tag": "Freemium",
+        "blurb": "Container deployment platform with free allowances for running small apps close to users globally.",
+        "url": "https://fly.io",
+        "featured": false
+      },
+      {
+        "name": "Upstash",
+        "category": "Database",
+        "tag": "Freemium",
+        "blurb": "Serverless Redis and Kafka with a free tier suited to low-traffic apps and development use.",
+        "url": "https://upstash.com",
+        "featured": false
+      },
+      {
+        "name": "Resend",
+        "category": "Email",
+        "tag": "Freemium",
+        "blurb": "Transactional email API for developers with a free tier covering small sending volumes per month.",
+        "url": "https://resend.com",
+        "featured": false
+      },
+      {
+        "name": "PostHog",
+        "category": "Observability",
+        "tag": "Freemium",
+        "blurb": "Open-source product analytics platform with a generous free tier and self-hosting option.",
+        "url": "https://posthog.com",
+        "featured": false
+      },
+      {
+        "name": "Sentry",
+        "category": "Observability",
+        "tag": "Freemium",
+        "blurb": "Error tracking and performance monitoring platform with a free tier for small development teams.",
+        "url": "https://sentry.io",
+        "featured": false
+      },
+      {
+        "name": "MongoDB Atlas",
+        "category": "Database",
+        "tag": "Freemium",
+        "blurb": "Managed MongoDB cloud service with a shared free cluster for learning and prototype projects.",
+        "url": "https://www.mongodb.com/atlas",
+        "featured": false
+      }
+    ],
+    "sponsorNote": "Get featured at the top of this list."
+  },
+  "seoTitle": "FreeTierDev — Directory of free-tier dev tools & limits, compared",
+  "seoDescription": "Directory of free-tier dev tools & limits, compared. Built for indie devs, students. Free to use.",
+  "keywords": [
+    "freetierdev",
+    "dev communities",
+    "seo",
+    "directory"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Indie devs, students. If that's you and \"hard to compare free limits\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Build for $0 with the right tools."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    }
+  ],
+  "launchChannel": "Dev communities, SEO",
+  "validationMetric": "Index + 200 visits; target 1 paid/featured listing or 3 affiliate clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 64,
+  "frs": 5.5,
+  "revenueSpeed": 5,
+  "profitPotential": 6,
+  "killCriteria": "<150 visits AND 0 listing/affiliate revenue interest after 14 days",
+  "biggestRisk": "Cold-start (needs both content and traffic); affiliate payouts are thin early",
+  "first10": "Seed great entries, then tell each listed brand they're featured (warm outreach for upgrades)",
+  "price": "Free; sponsor"
+}

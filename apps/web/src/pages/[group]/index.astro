@@ -1,0 +1,52 @@
+---
+import Base from "../../layouts/Base.astro";
+import Eyebrow from "@factory/ui/Eyebrow.astro";
+import Tag from "@factory/ui/Tag.astro";
+import { projects, GROUPS, groupOf } from "../../lib/projects";
+
+export function getStaticPaths() {
+  return Object.keys(GROUPS).map((group) => ({ params: { group } }));
+}
+
+const { group } = Astro.params as { group: string };
+const meta = GROUPS[group];
+const list = group === "projects" ? projects : projects.filter((p: any) => groupOf(p) === group);
+const title = `${meta.label} — Startup Factory`;
+const desc = `${meta.blurb} ${list.length} live ${list.length === 1 ? "project" : "projects"}.`;
+const CTA_LABEL: Record<string, string> = {
+  payment: "Paid", download: "Download", waitlist: "Waitlist", leadform: "Quotes", tool: "Free tool",
+};
+---
+<Base title={title} description={desc}>
+  <section class="relative overflow-hidden border-b border-line">
+    <div class="absolute inset-0 grid-lines opacity-[0.5] [mask-image:radial-gradient(70%_60%_at_30%_0%,#000,transparent)]" aria-hidden="true"></div>
+    <div class="container-x relative pt-16 pb-12 lg:pt-24 lg:pb-16">
+      <div class="max-w-3xl reveal">
+        <Eyebrow text={`${String(list.length).padStart(2, "0")} entries`} />
+        <h1 class="mt-6 text-display !text-[clamp(2.6rem,1.5rem+4vw,4.6rem)]">{meta.label}</h1>
+        <p class="lead mt-5">{meta.blurb}</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-x py-12 lg:py-16">
+      <ol class="list-none p-0 m-0 grid gap-3">
+        {list.map((p: any, i: number) => (
+          <li class="card card--hover !p-0 overflow-hidden reveal" style={`transition-delay:${Math.min(i * 35, 350)}ms`}>
+            <a href={p.route} class="grid md:grid-cols-[3rem_1.4fr_2fr_auto] items-center gap-3 md:gap-6 px-5 lg:px-7 py-5">
+              <span class="mono text-[0.75rem] text-muted hidden md:block">{String(p.id).padStart(3, "0")}</span>
+              <span class="font-display text-[1.25rem] leading-tight" style={`color:${p.accent}`}>{p.name}</span>
+              <span class="text-[0.92rem] text-ink-soft">{p.subheadline}</span>
+              <span class="flex items-center gap-2 justify-self-start md:justify-self-end">
+                <Tag>{p.category}</Tag>
+                <Tag accent={true}>{CTA_LABEL[p.cta?.type] ?? "Open"}</Tag>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      {list.length === 0 && <p class="text-center text-muted py-20">Nothing here yet — first batch is being generated.</p>}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,111 @@
+---
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/inter";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { buildMeta, buildJsonLd, siteJsonLd } from "@factory/seo";
+import { getAnalytics, trackHelper } from "@factory/analytics";
+
+interface Props {
+  title: string;
+  description: string;
+  project?: any;
+  type?: string;
+  wide?: boolean;
+}
+const { title, description, project, type = "website" } = Astro.props;
+const site = Astro.site?.toString() || "https://startup-factory.vercel.app";
+const path = Astro.url.pathname;
+const meta = buildMeta({ site, path, title, description, project, type });
+const analytics = getAnalytics(import.meta.env);
+const accent = project?.accent || "#15634C";
+const accentInk = project?.accentInk || "#0B2A20";
+const jsonld = [siteJsonLd({ site }), ...(project ? [buildJsonLd({ site, path, project })] : [])];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="canonical" href={meta.canonical} />
+    <meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121512" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    {Object.entries(meta.og).map(([p, c]) => <meta property={p} content={c} />)}
+    {Object.entries(meta.twitter).map(([n, c]) => <meta name={n} content={c} />)}
+
+    {jsonld.map((node) => (
+      <script type="application/ld+json" set:html={JSON.stringify(node)} />
+    ))}
+
+    {/* per-project accent — drives buttons, rules, focus ring */}
+    <style is:inline set:html={`:root{--accent:${accent};--accent-ink:${accentInk};}`}></style>
+
+    {/* no-flash theme init */}
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem("sf-theme");
+          if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+        } catch (e) {}
+      })();
+    </script>
+
+    {analytics.provider === "plausible" && (
+      <script defer data-domain={analytics.domain} src={analytics.src}></script>
+    )}
+    {analytics.provider === "umami" && (
+      <script defer data-website-id={analytics.websiteId} src={analytics.src}></script>
+    )}
+    {analytics.provider === "ga" && (
+      <Fragment>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.id}`}></script>
+        <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${analytics.id}');`}></script>
+      </Fragment>
+    )}
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:px-4 focus:py-2 focus:rounded-[10px] focus:bg-ink focus:text-paper">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script is:inline set:html={trackHelper}></script>
+    <script is:inline>
+      (function () {
+        var io;
+        var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var els = document.querySelectorAll(".reveal");
+        if (reduce || !("IntersectionObserver" in window)) {
+          els.forEach(function (e) { e.classList.add("in"); });
+        } else {
+          io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+            });
+          }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+          els.forEach(function (e) { io.observe(e); });
+        }
+        // theme toggle
+        var btn = document.getElementById("theme-toggle");
+        if (btn) btn.addEventListener("click", function () {
+          var dark = document.documentElement.getAttribute("data-theme") === "dark";
+          if (dark) { document.documentElement.removeAttribute("data-theme"); try { localStorage.setItem("sf-theme", "light"); } catch (e) {} }
+          else { document.documentElement.setAttribute("data-theme", "dark"); try { localStorage.setItem("sf-theme", "dark"); } catch (e) {} }
+        });
+      })();
+    </script>
+  </body>
+</html>

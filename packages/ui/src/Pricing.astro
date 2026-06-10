@@ -1,0 +1,39 @@
+---
+import Button from "./Button.astro";
+import { resolveCta } from "@factory/payments";
+interface Props { project: any; }
+const { project } = Astro.props;
+const tiers = project?.pricing?.tiers ?? [];
+const note = project?.pricing?.note ?? "";
+const fallback = resolveCta(project);
+const cols = tiers.length >= 3 ? "lg:grid-cols-3" : tiers.length === 2 ? "sm:grid-cols-2" : "max-w-md";
+---
+<div class:list={["grid gap-4", cols]}>
+  {tiers.map((t: any) => {
+    const c = t.cta ? resolveCta({ ...project, cta: t.cta }) : fallback;
+    const data = { "data-cta": c.type };
+    if (c.placeholder) data["data-placeholder"] = "true";
+    return (
+      <div class:list={["card reveal flex flex-col", t.highlighted && "card--ink"]}>
+        {t.highlighted && <span class="tag tag--accent self-start mb-3">Most popular</span>}
+        <h3 class:list={["text-[1.15rem] mb-1", t.highlighted && "text-paper"]}>{t.name}</h3>
+        {t.summary && <p class:list={["text-[0.9rem] mb-4", t.highlighted ? "text-paper/70" : "text-ink-soft"]}>{t.summary}</p>}
+        <div class="flex items-baseline gap-1 mb-4">
+          <span class="text-display !text-[2.4rem] !leading-none tnum">{t.price}</span>
+          {t.cadence && <span class:list={["text-[0.85rem]", t.highlighted ? "text-paper/60" : "text-muted"]}>/{t.cadence}</span>}
+        </div>
+        <ul class="list-none p-0 m-0 grid gap-2 mb-6 flex-1">
+          {t.features.map((ft: string) => (
+            <li class:list={["flex gap-2 text-[0.92rem]", t.highlighted ? "text-paper/85" : "text-ink-soft"]}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 text-accent" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>{ft}</span>
+            </li>
+          ))}
+        </ul>
+        <Button href={c.href} external={c.external} rel={c.rel} target={c.target}
+          variant={t.highlighted ? "accent" : "primary"} class="w-full" dataAttrs={data}>{c.label}</Button>
+      </div>
+    );
+  })}
+</div>
+{note && <p class="text-[0.85rem] text-muted mt-4 text-center">{note}</p>}

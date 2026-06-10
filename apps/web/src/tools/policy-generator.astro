@@ -1,0 +1,101 @@
+---
+// Privacy policy + terms generator — honest template engine, client-side.
+---
+<div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8">
+  <form class="grid gap-4 content-start" autocomplete="off">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="grid gap-1.5">
+        <label for="pg-name" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Site / app name *</label>
+        <input id="pg-name" placeholder="Acme Notes" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="pg-url" class="mono text-[0.7rem] uppercase tracking-widest text-muted">URL *</label>
+        <input id="pg-url" type="url" placeholder="https://acme.app" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.9rem]" />
+      </div>
+    </div>
+    <div class="grid gap-1.5">
+      <label for="pg-email" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Contact email *</label>
+      <input id="pg-email" type="email" placeholder="privacy@acme.app" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.9rem]" />
+    </div>
+    <fieldset class="grid gap-2 border border-line rounded-[14px] p-4">
+      <legend class="mono text-[0.68rem] uppercase tracking-widest text-muted px-2">What does your site do?</legend>
+      {[
+        ["pg-analytics", "Uses analytics (GA, Plausible, Umami…)"],
+        ["pg-forms", "Collects emails via forms / waitlist"],
+        ["pg-payments", "Sells via Stripe / Gumroad / Lemon Squeezy"],
+        ["pg-cookies", "Sets non-essential cookies"],
+        ["pg-accounts", "Has user accounts"],
+      ].map(([id, label]) => (
+        <label class="flex items-center gap-3 cursor-pointer text-[0.92rem]">
+          <input id={id} type="checkbox" class="accent-[var(--accent)] w-4 h-4" checked={id === "pg-analytics" || id === "pg-forms"} />
+          {label}
+        </label>
+      ))}
+    </fieldset>
+    <button type="button" id="pg-gen" class="btn btn--accent justify-self-start">Generate documents</button>
+    <p class="text-[0.78rem] text-muted m-0">⚠ Generated text is a starting template, <strong>not legal advice</strong>. Have a lawyer review it for your jurisdiction (GDPR/CCPA vary).</p>
+  </form>
+
+  <div class="grid gap-3 content-start">
+    <div class="flex gap-2">
+      <button type="button" data-tab="privacy" class="pg-tab tag tag--accent" aria-pressed="true">Privacy policy</button>
+      <button type="button" data-tab="terms" class="pg-tab tag" aria-pressed="false">Terms of service</button>
+      <button type="button" id="pg-copy" class="btn btn--ghost !py-1.5 !px-3 text-[0.8rem] ml-auto">Copy</button>
+    </div>
+    <textarea id="pg-out" rows="22" readonly class="w-full px-4 py-4 rounded-[14px] border border-line-strong bg-surface text-[0.83rem] leading-relaxed font-mono" placeholder="Your documents appear here…"></textarea>
+  </div>
+</div>
+
+<script>
+  const V = (id: string) => (document.getElementById(id) as HTMLInputElement);
+  let docs = { privacy: "", terms: "" }; let tab: "privacy" | "terms" = "privacy";
+  const today = () => new Date().toISOString().slice(0, 10);
+  function gen() {
+    const name = V("pg-name").value.trim() || "[SITE NAME]";
+    const url = V("pg-url").value.trim() || "[URL]";
+    const email = V("pg-email").value.trim() || "[EMAIL]";
+    const has = (id: string) => (V(id) as any).checked;
+    const p: string[] = [];
+    p.push(`PRIVACY POLICY — ${name}\nLast updated: ${today()}\n`);
+    p.push(`This policy explains what ${name} ("we", "us") at ${url} collects and why.\n`);
+    p.push(`1. WHAT WE COLLECT`);
+    const c: string[] = [];
+    if (has("pg-analytics")) c.push("- Aggregate usage analytics (pages visited, referrer, device class). Where possible we use privacy-respecting, cookieless analytics. IP addresses are not stored by us.");
+    if (has("pg-forms")) c.push("- Information you submit through forms (such as your email address when joining a list). We use it only for the purpose stated next to the form.");
+    if (has("pg-payments")) c.push("- Purchases are processed by our payment providers (e.g. Stripe, Gumroad, Lemon Squeezy). We never see or store your full card details; we receive order metadata (item, amount, your email) to fulfil your purchase.");
+    if (has("pg-accounts")) c.push("- Account data you provide (email, display name) and content you create in the product.");
+    if (!c.length) c.push("- We do not collect personal information. This site runs without trackers, forms or accounts.");
+    p.push(c.join("\n"));
+    p.push(`\n2. WHAT WE DON'T DO\n- We do not sell or rent your personal data.\n- We do not use your data for third-party advertising.\n- We collect the minimum needed to operate ${name}.`);
+    if (has("pg-cookies")) p.push(`\n3. COOKIES\nWe set some non-essential cookies (for example to remember preferences${has("pg-analytics") ? " and measure usage" : ""}). You can block cookies in your browser; core functionality will still work.`);
+    else p.push(`\n3. COOKIES\nWe do not set non-essential cookies.`);
+    p.push(`\n4. THIRD PARTIES\nService providers we rely on (hosting${has("pg-payments") ? ", payment processing" : ""}${has("pg-analytics") ? ", analytics" : ""}${has("pg-forms") ? ", form handling" : ""}) process data under their own policies and our instructions.`);
+    p.push(`\n5. YOUR RIGHTS\nDepending on your location (e.g. GDPR/UK GDPR/CCPA) you may have rights to access, correct, export or delete your data. Email ${email} and we will respond within 30 days.`);
+    p.push(`\n6. DATA RETENTION\nForm submissions are kept while relevant to their purpose; you can request deletion at any time.${has("pg-accounts") ? " Account data is deleted within 30 days of account deletion." : ""}`);
+    p.push(`\n7. CHANGES\nWe will post any changes on this page and update the date above.\n\n8. CONTACT\n${email}`);
+    const t: string[] = [];
+    t.push(`TERMS OF SERVICE — ${name}\nLast updated: ${today()}\n`);
+    t.push(`1. AGREEMENT\nBy using ${url} you agree to these terms. If you do not agree, do not use the service.`);
+    t.push(`\n2. THE SERVICE\n${name} is provided "as is" and "as available", without warranties of any kind, express or implied. We may change or discontinue features at any time.`);
+    if (has("pg-payments")) t.push(`\n3. PURCHASES & REFUNDS\nPrices are shown at checkout. Payments are handled by our payment providers. Unless stated otherwise on the product page, digital purchases include a 14-day refund window — contact ${email}.`);
+    if (has("pg-accounts")) t.push(`\n${has("pg-payments") ? "4" : "3"}. ACCOUNTS\nYou are responsible for your account and for keeping credentials secure. We may suspend accounts that abuse the service.`);
+    t.push(`\n${has("pg-payments") && has("pg-accounts") ? "5" : has("pg-payments") || has("pg-accounts") ? "4" : "3"}. ACCEPTABLE USE\nNo unlawful use, no attempts to disrupt the service, no scraping at abusive volumes, no infringing content.`);
+    t.push(`\nLIMITATION OF LIABILITY\nTo the maximum extent permitted by law, our total liability for any claim related to the service is limited to the amount you paid us in the 12 months before the claim (or $0 for free use).`);
+    t.push(`\nGOVERNING LAW\nThese terms are governed by the laws of [YOUR JURISDICTION — fill in].`);
+    t.push(`\nCONTACT\n${email}`);
+    docs = { privacy: p.join("\n"), terms: t.join("\n") };
+    render();
+    try { (window as any).track && (window as any).track("tool_used", { tool: "policy-generator" }); } catch {}
+  }
+  function render() { (document.getElementById("pg-out") as HTMLTextAreaElement).value = docs[tab]; }
+  document.getElementById("pg-gen")!.addEventListener("click", gen);
+  document.querySelectorAll(".pg-tab").forEach((b) => b.addEventListener("click", () => {
+    tab = (b as HTMLElement).dataset.tab as any;
+    document.querySelectorAll(".pg-tab").forEach((x) => { x.classList.toggle("tag--accent", x === b); x.setAttribute("aria-pressed", String(x === b)); });
+    render();
+  }));
+  document.getElementById("pg-copy")!.addEventListener("click", async () => {
+    if (!docs[tab]) return;
+    try { await navigator.clipboard.writeText(docs[tab]); const b = document.getElementById("pg-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy"), 1500); } catch {}
+  });
+</script>

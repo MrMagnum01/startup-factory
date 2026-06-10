@@ -1,0 +1,107 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+import SectionHeader from "./SectionHeader.astro";
+import FeatureGrid from "./FeatureGrid.astro";
+import Faq from "./Faq.astro";
+import PaymentCTA from "./PaymentCTA.astro";
+
+interface Props { project: any; }
+const { project } = Astro.props;
+const p = project;
+const idTag = String(p.id ?? 0).padStart(3, "0");
+const tools = import.meta.glob("/src/tools/*.astro", { eager: true });
+const key = `/src/tools/${p.tool}.astro`;
+const ToolImpl: any = (tools as any)[key]?.default;
+const hasPro = (p.pricing?.tiers?.length ?? 0) > 0;
+---
+<!-- ===================== HERO (compact; tool is the hero) ===================== -->
+<section class="relative overflow-hidden border-b border-line">
+  <div class="absolute inset-0 grid-lines opacity-[0.5] [mask-image:radial-gradient(70%_60%_at_30%_0%,#000,transparent)]" aria-hidden="true"></div>
+  <div class="container-x relative pt-14 pb-10 lg:pt-20 lg:pb-12">
+    <div class="max-w-3xl reveal">
+      <Eyebrow text={`${idTag} · free tool · runs in your browser`} />
+      <h1 class="mt-5 text-display !text-[clamp(2.2rem,1.3rem+3.2vw,3.8rem)]">{p.headline}</h1>
+      <p class="lead mt-5 max-w-2xl">{p.subheadline}</p>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 mt-6">
+        {(p.proofPoints ?? ["100% client-side — nothing is uploaded", "No signup", "Free forever"]).map((pt: string) => (
+          <span class="flex items-center gap-2 text-[0.85rem] text-ink-soft">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            {pt}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE TOOL ===================== -->
+<section id="tool" class="bg-surface-2 border-b border-line">
+  <div class="container-x py-10 lg:py-14">
+    <div class="card !p-0 overflow-hidden shadow-lg reveal">
+      <div class="flex items-center gap-2 px-5 py-3 border-b border-line bg-surface">
+        <span class="w-2.5 h-2.5 rounded-full bg-accent/80"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-line-strong"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-line-strong"></span>
+        <span class="mono text-[0.7rem] tracking-widest text-muted ml-3 uppercase">{p.name}</span>
+        <span class="mono text-[0.66rem] text-muted ml-auto hidden sm:block">LOCAL · PRIVATE</span>
+      </div>
+      <div class="p-5 lg:p-8">
+        {ToolImpl ? <ToolImpl project={p} /> : (
+          <div class="text-center py-16">
+            <p class="mono text-[0.75rem] tracking-widest text-muted uppercase mb-2">Tool module “{p.tool}” not found</p>
+            <p class="text-ink-soft">Add <code class="mono text-[0.85rem]">src/tools/{p.tool}.astro</code> to mount it here.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY / FEATURES ===================== -->
+{p.features?.length > 0 && (
+  <section>
+    <div class="container-x py-16 lg:py-20">
+      <div class="grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-14 mb-10">
+        <SectionHeader num="01" kicker="Why this one" title={p.solution} />
+        <p class="lead text-ink-soft reveal self-end">{p.painPoint}</p>
+      </div>
+      <FeatureGrid features={p.features} />
+    </div>
+  </section>
+)}
+
+<!-- ===================== PRO UPSELL ===================== -->
+{hasPro && (
+  <section class="container-x py-6">
+    <div class="card card--ink reveal relative overflow-hidden">
+      <div class="absolute inset-0 grid-lines opacity-[0.08]" aria-hidden="true"></div>
+      <div class="relative grid lg:grid-cols-[1.4fr_auto] gap-8 p-4 lg:p-8 items-center">
+        <div>
+          <p class="eyebrow mb-3" style="color:var(--paper)">{p.pricing.tiers[0].name}</p>
+          <h2 class="text-paper !text-[clamp(1.5rem,1.2rem+1.4vw,2.2rem)]">{p.pricing.tiers[0].summary ?? "Unlock the Pro version"}</h2>
+          <ul class="flex flex-wrap gap-x-6 gap-y-2 mt-4 list-none p-0 m-0">
+            {p.pricing.tiers[0].features.map((f: string) => (
+              <li class="flex items-center gap-2 text-[0.88rem] text-paper/80">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="flex flex-col gap-2 lg:items-end">
+          <span class="text-display !text-[2.6rem] !leading-none text-paper tnum">{p.pricing.tiers[0].price}</span>
+          <PaymentCTA project={p} size="md" label={`Get ${p.pricing.tiers[0].name}`} />
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{p.faq?.length > 0 && (
+  <section>
+    <div class="container-x py-16 lg:py-20 grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-16">
+      <SectionHeader num="02" kicker="FAQ" title="Good to know" />
+      <div class="reveal"><Faq items={p.faq} /></div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,125 @@
+{
+  "facets": ["Tech", "Dev", "AI", "Business/Marketing", "Design"],
+  "items": [
+    {
+      "name": "TLDR",
+      "category": "Tech",
+      "tag": "1M+",
+      "blurb": "Daily email digest covering tech, startups, and science with multiple vertical newsletters.",
+      "url": "https://advertise.tldr.tech",
+      "featured": true
+    },
+    {
+      "name": "Morning Brew",
+      "category": "Business/Marketing",
+      "tag": "1M+",
+      "blurb": "Daily business news newsletter covering markets, tech, and culture for a professional audience.",
+      "url": "https://www.morningbrew.com/advertise",
+      "featured": false
+    },
+    {
+      "name": "The Hustle",
+      "category": "Business/Marketing",
+      "tag": "1M+",
+      "blurb": "HubSpot-owned daily newsletter covering business and tech news for entrepreneurs and operators.",
+      "url": "https://thehustle.co/advertise",
+      "featured": false
+    },
+    {
+      "name": "JavaScript Weekly",
+      "category": "Dev",
+      "tag": "100k+",
+      "blurb": "Weekly roundup of JavaScript news, articles, and tutorials curated by Peter Cooper.",
+      "url": "https://javascriptweekly.com/advertise",
+      "featured": false
+    },
+    {
+      "name": "Bytes",
+      "category": "Dev",
+      "tag": "100k+",
+      "blurb": "Entertaining weekly JavaScript newsletter blending real news with humor for developers.",
+      "url": "https://bytes.dev/advertise",
+      "featured": false
+    },
+    {
+      "name": "Frontend Focus",
+      "category": "Dev",
+      "tag": "Newsletter",
+      "blurb": "Weekly front-end web development newsletter covering HTML, CSS, and browser platform news.",
+      "url": "https://frontendfocus.co/advertise",
+      "featured": false
+    },
+    {
+      "name": "Lenny's Newsletter",
+      "category": "Business/Marketing",
+      "tag": "500k+",
+      "blurb": "Weekly advice on product management, growth, and career for product and startup professionals.",
+      "url": "https://www.lennysnewsletter.com/sponsor",
+      "featured": false
+    },
+    {
+      "name": "The Neuron",
+      "category": "AI",
+      "tag": "100k+",
+      "blurb": "Daily AI newsletter covering tools, research, and practical use cases for a general audience.",
+      "url": "https://www.theneurondaily.com/advertise",
+      "featured": false
+    },
+    {
+      "name": "Superhuman AI",
+      "category": "AI",
+      "tag": "100k+",
+      "blurb": "Newsletter teaching professionals how to use AI tools to work faster, with sponsor placements.",
+      "url": "https://www.superhumanai.com",
+      "featured": false
+    },
+    {
+      "name": "Marketing Brew",
+      "category": "Business/Marketing",
+      "tag": "Newsletter",
+      "blurb": "Morning Brew vertical focused on advertising, media, and marketing industry news.",
+      "url": "https://www.morningbrew.com/marketing-brew/advertise",
+      "featured": false
+    },
+    {
+      "name": "Dense Discovery",
+      "category": "Design",
+      "tag": "Newsletter",
+      "blurb": "Thoughtful weekly newsletter for designers and creatives covering tools, culture, and ideas.",
+      "url": "https://www.densediscovery.com/advertise",
+      "featured": false
+    },
+    {
+      "name": "Indie Hackers Newsletter",
+      "category": "Business/Marketing",
+      "tag": "Newsletter",
+      "blurb": "Community newsletter for bootstrapped founders sharing revenue milestones and growth stories.",
+      "url": "https://www.indiehackers.com/advertise",
+      "featured": false
+    },
+    {
+      "name": "Console",
+      "category": "Dev",
+      "tag": "Newsletter",
+      "blurb": "Weekly newsletter for developers highlighting interesting open-source tools and devtools products.",
+      "url": "https://console.dev/advertise",
+      "featured": false
+    },
+    {
+      "name": "Pointer",
+      "category": "Dev",
+      "tag": "Newsletter",
+      "blurb": "Curated link digest of engineering leadership and software craft articles for senior developers.",
+      "url": "https://www.pointer.io",
+      "featured": false
+    },
+    {
+      "name": "AI Tool Report",
+      "category": "AI",
+      "tag": "100k+",
+      "blurb": "Daily newsletter showcasing new AI tools and workflows for business and productivity use cases.",
+      "url": "https://aitoolreport.beehiiv.com",
+      "featured": false
+    }
+  ]
+}

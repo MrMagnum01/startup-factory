@@ -1,0 +1,108 @@
+---
+import Base from "../layouts/Base.astro";
+import Eyebrow from "@factory/ui/Eyebrow.astro";
+import Button from "@factory/ui/Button.astro";
+import Tag from "@factory/ui/Tag.astro";
+import { projects, GROUPS, groupOf } from "../lib/projects";
+
+const title = "Startup Factory — 50 small bets, shipped from one codebase";
+const desc = "A config-driven factory publishing 50 monetizable micro-projects: tools, directories, template packs and productized services. Built on free-tier infrastructure.";
+const featured = projects.slice(0, 6);
+const counts = Object.fromEntries(Object.keys(GROUPS).filter(g => g !== "projects").map(g => [g, projects.filter((p:any) => groupOf(p) === g).length]));
+const stats = [
+  { k: "Projects", v: String(projects.length).padStart(2, "0") },
+  { k: "Code-bases", v: "01" },
+  { k: "Databases", v: "00" },
+  { k: "Monthly infra cost", v: "$0" },
+];
+---
+<Base title={title} description={desc}>
+  <!-- ============ HERO ============ -->
+  <section class="relative overflow-hidden border-b border-line">
+    <div class="absolute inset-0 grid-lines opacity-[0.55] [mask-image:radial-gradient(75%_65%_at_35%_0%,#000,transparent)]" aria-hidden="true"></div>
+    <div class="container-x relative pt-20 pb-16 lg:pt-32 lg:pb-24">
+      <div class="max-w-4xl reveal">
+        <Eyebrow text="One factory · many small bets" />
+        <h1 class="mt-7 text-display">Fifty tiny products.<br /><em class="italic-display text-accent">One ruthless machine.</em></h1>
+        <p class="lead mt-7 max-w-2xl">Every page here is generated from a config file: micro-tools, curated directories, template packs and fixed-price services. Each one has a job — earn its keep in 14 days, or get killed.</p>
+        <div class="flex flex-wrap gap-3 mt-9">
+          <Button href="/projects" variant="accent" size="lg">Browse all projects
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </Button>
+          <Button href="/dashboard" variant="ghost" size="lg">Live build dashboard</Button>
+        </div>
+      </div>
+
+      <dl class="grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line rounded-[16px] overflow-hidden mt-16 reveal" style="transition-delay:150ms">
+        {stats.map((s) => (
+          <div class="bg-surface px-6 py-5">
+            <dt class="mono text-[0.68rem] tracking-widest uppercase text-muted">{s.k}</dt>
+            <dd class="text-display !text-[2.2rem] !leading-tight m-0 tnum">{s.v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ GROUPS ============ -->
+  <section>
+    <div class="container-x py-16 lg:py-24">
+      <div class="srule mb-10 reveal"><span class="num">01</span><span class="ln"></span></div>
+      <div class="grid md:grid-cols-2 gap-4">
+        {Object.entries(GROUPS).filter(([g]) => g !== "projects").map(([g, m], i) => (
+          <a href={m.base} class="card card--hover reveal group" style={`transition-delay:${i * 70}ms`}>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="eyebrow eyebrow--plain mb-2">{String(counts[g]).padStart(2, "0")} live</p>
+                <h2 class="!text-[1.6rem] group-hover:text-accent transition-colors">{m.label}</h2>
+                <p class="text-[0.95rem] text-ink-soft mt-2 m-0">{m.blurb}</p>
+              </div>
+              <svg class="mt-2 shrink-0 text-muted group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED ============ -->
+  <section class="bg-surface-2 border-y border-line">
+    <div class="container-x py-16 lg:py-24">
+      <div class="flex items-end justify-between gap-6 mb-10 reveal">
+        <div>
+          <p class="eyebrow mb-3">Highest fast-revenue scores</p>
+          <h2>Front of the queue</h2>
+        </div>
+        <a href="/projects" class="link-underline text-[0.95rem] hidden sm:block">All {projects.length} →</a>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {featured.map((p: any, i: number) => (
+          <a href={p.route} class="card card--hover reveal flex flex-col gap-3 group" style={`transition-delay:${i * 60}ms`}>
+            <div class="flex items-center justify-between">
+              <span class="mono text-[0.72rem] text-muted">{String(p.id).padStart(3, "0")}</span>
+              <Tag>{p.category}</Tag>
+            </div>
+            <h3 class="!text-[1.3rem] group-hover:text-accent transition-colors" style={`color:${p.accent}`}>{p.name}</h3>
+            <p class="text-[0.92rem] text-ink-soft m-0 flex-1">{p.subheadline}</p>
+            <span class="mono text-[0.72rem] tracking-widest uppercase text-muted group-hover:text-accent transition-colors">Open →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO ============ -->
+  <section>
+    <div class="container-x py-16 lg:py-24 grid lg:grid-cols-[0.5fr_1fr] gap-10 lg:gap-16">
+      <div class="reveal">
+        <div class="srule mb-5"><span class="num">02</span><span class="ln"></span></div>
+        <p class="eyebrow">The operating rules</p>
+      </div>
+      <div class="prose-block reveal">
+        <p class="font-display text-[clamp(1.4rem,1.1rem+1.3vw,2rem)] leading-[1.25] text-ink">No guaranteed profit. No growth hacks. No dark patterns.</p>
+        <p>Every project ships with a clear offer, a working call-to-action and honest copy. Each gets a 14-day validation window with a pre-committed kill threshold. Winners get doubled down on; losers get archived without sentiment.</p>
+        <p class="mono text-[0.8rem] tracking-wide text-muted">BUILD → SHIP → MEASURE → KILL OR DOUBLE DOWN</p>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,131 @@
+{
+  "id": 5,
+  "slug": "pageteardown",
+  "name": "PageTeardown",
+  "category": "productized service",
+  "renderAs": "offer",
+  "route": "/services/pageteardown",
+  "accent": "#3F6212",
+  "accentInk": "#1A2A06",
+  "eyebrow": "productized service",
+  "headline": "A 10-min recorded landing-page teardown with 7 fixes",
+  "subheadline": "Specific conversion fixes from an outside eye. Built for indie founders, marketers, course creators.",
+  "painPoint": "They suspect their page leaks money but can't see why.",
+  "solution": "A 10-min recorded landing-page teardown with 7 fixes.",
+  "proofPoints": [
+    "Fixed scope, fixed price",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "One-page offer",
+      "body": "One-page offer: outcome headline."
+    },
+    {
+      "title": "3 proof points",
+      "body": "3 proof points."
+    },
+    {
+      "title": "Fixed scope",
+      "body": "fixed scope."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "FAQ",
+      "body": "FAQ."
+    },
+    {
+      "title": "Stripe link + booking form",
+      "body": "Stripe link + booking form."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "productized service"
+    },
+    {
+      "k": "Price",
+      "v": "$49"
+    },
+    {
+      "k": "Turnaround",
+      "v": "48–72 hours"
+    },
+    {
+      "k": "Monetization",
+      "v": "Stripe/Gumroad"
+    },
+    {
+      "k": "Channel",
+      "v": "Twitter"
+    }
+  ],
+  "pricing": {
+    "note": "One fixed price. No retainers, no surprises.",
+    "tiers": [
+      {
+        "name": "The package",
+        "price": "$49",
+        "summary": "A 10-min recorded landing-page teardown with 7 fixes.",
+        "features": [
+          "One-page offer: outcome headline",
+          "3 proof points",
+          "fixed scope",
+          "price",
+          "FAQ"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "payment",
+    "label": "Book it now",
+    "href": "#",
+    "note": "Fixed price. Stripe secure checkout. 48–72h turnaround."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "PageTeardown — A 10-min recorded landing-page teardown with 7 fixes",
+  "seoDescription": "A 10-min recorded landing-page teardown with 7 fixes. Built for indie founders, marketers, course creators. From $49.",
+  "keywords": [
+    "pageteardown",
+    "twitter",
+    "indie hackers",
+    "productized service"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Indie founders, marketers, course creators. If that's you and \"they suspect their page leaks money but can't see why\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Specific conversion fixes from an outside eye."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Within 48–72 hours of ordering. You'll get a confirmation immediately and the deliverable by email."
+    },
+    {
+      "q": "What if I'm not happy?",
+      "a": "One free revision round is included. If the deliverable misses the agreed scope, you get a full refund — no argument."
+    }
+  ],
+  "launchChannel": "Twitter, Indie Hackers, Reddit",
+  "validationMetric": "Send 50 personalised outreach touches; target 1+ paid order or 3+ booked calls in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 5,
+  "frs": 7.4,
+  "revenueSpeed": 9,
+  "profitPotential": 6,
+  "killCriteria": "0 paid orders AND <2 booked calls after 100 outreach touches in 14 days",
+  "biggestRisk": "Fulfillment time caps scale; low cold-reply rates; you trade hours for money until productised further",
+  "first10": "DM/cold-email 30-50 ideal-fit businesses with a free mini-teardown; post the offer in 2 niche communities",
+  "price": "$49"
+}

@@ -1,0 +1,241 @@
+{
+  "id": 52,
+  "slug": "ai-tools-for-lawyers",
+  "name": "AIToolsForLawyers",
+  "category": "directory",
+  "renderAs": "directory",
+  "route": "/directories/ai-tools-for-lawyers",
+  "accent": "#374151",
+  "accentInk": "#111827",
+  "eyebrow": "directory",
+  "headline": "Curated directory of AI tools for legal professionals",
+  "subheadline": "Save research time; avoid risky tools. Built for lawyers, paralegals, legal ops.",
+  "painPoint": "Hard to find vetted, safe AI tools.",
+  "solution": "Curated directory of AI tools for legal professionals.",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Seeded list (40-100 entries)",
+      "body": "Seeded list (40-100 entries)."
+    },
+    {
+      "title": "Search + 2 filters",
+      "body": "search + 2 filters."
+    },
+    {
+      "title": "Detail rows",
+      "body": "detail rows."
+    },
+    {
+      "title": "'submit listing' form",
+      "body": "'submit listing' form."
+    },
+    {
+      "title": "1 sponsor slot",
+      "body": "1 sponsor slot."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "directory"
+    },
+    {
+      "k": "Price",
+      "v": "Free; $99 featured"
+    },
+    {
+      "k": "Turnaround",
+      "v": "8-12h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Featured listings + affiliate"
+    },
+    {
+      "k": "Channel",
+      "v": "Legal communities"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": []
+  },
+  "cta": {
+    "type": "waitlist",
+    "label": "Submit a listing",
+    "href": "#",
+    "note": "Free submissions reviewed weekly. Featured slots paid."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "directory": {
+    "facets": [
+      "Research",
+      "Contracts",
+      "Drafting",
+      "Litigation",
+      "Practice management"
+    ],
+    "items": [
+      {
+        "name": "Harvey",
+        "category": "Drafting",
+        "tag": "Enterprise",
+        "blurb": "AI platform built for law firms that assists with drafting, research, and document analysis.",
+        "url": "https://harvey.ai",
+        "featured": true
+      },
+      {
+        "name": "CoCounsel by Casetext",
+        "category": "Research",
+        "tag": "Enterprise",
+        "blurb": "Thomson Reuters AI legal assistant for case research, document review, and deposition prep.",
+        "url": "https://casetext.com/cocounsel",
+        "featured": false
+      },
+      {
+        "name": "Spellbook",
+        "category": "Contracts",
+        "tag": "Freemium",
+        "blurb": "AI contract drafting and review tool that works inside Microsoft Word using GPT-4.",
+        "url": "https://www.spellbook.legal",
+        "featured": false
+      },
+      {
+        "name": "Lexis+ AI",
+        "category": "Research",
+        "tag": "Subscription",
+        "blurb": "LexisNexis AI assistant with conversational legal research grounded in its proprietary database.",
+        "url": "https://www.lexisnexis.com/en-us/products/lexis-plus-ai.page",
+        "featured": false
+      },
+      {
+        "name": "Westlaw AI",
+        "category": "Research",
+        "tag": "Subscription",
+        "blurb": "Thomson Reuters AI features within Westlaw for faster case law research and brief summarization.",
+        "url": "https://legal.thomsonreuters.com/en/products/westlaw",
+        "featured": false
+      },
+      {
+        "name": "Luminance",
+        "category": "Contracts",
+        "tag": "Enterprise",
+        "blurb": "AI platform for legal document review and due diligence used by law firms and corporates.",
+        "url": "https://www.luminance.com",
+        "featured": false
+      },
+      {
+        "name": "Ironclad",
+        "category": "Contracts",
+        "tag": "Subscription",
+        "blurb": "Contract lifecycle management platform with AI-assisted redlining, approvals, and analytics.",
+        "url": "https://ironcladapp.com",
+        "featured": false
+      },
+      {
+        "name": "Juro",
+        "category": "Contracts",
+        "tag": "Freemium",
+        "blurb": "Browser-native contract management platform with AI drafting and workflow automation.",
+        "url": "https://juro.com",
+        "featured": false
+      },
+      {
+        "name": "Clearbrief",
+        "category": "Litigation",
+        "tag": "Subscription",
+        "blurb": "AI tool that verifies legal citations in briefs and links factual claims to supporting documents.",
+        "url": "https://www.clearbrief.ai",
+        "featured": false
+      },
+      {
+        "name": "Briefpoint",
+        "category": "Litigation",
+        "tag": "Subscription",
+        "blurb": "Automates drafting of discovery responses and objections from uploaded opposition documents.",
+        "url": "https://briefpoint.ai",
+        "featured": false
+      },
+      {
+        "name": "EvenUp",
+        "category": "Litigation",
+        "tag": "Subscription",
+        "blurb": "AI-generated demand letters for plaintiff personal injury cases using medical records and evidence.",
+        "url": "https://www.evenuplaw.com",
+        "featured": false
+      },
+      {
+        "name": "Diligen",
+        "category": "Contracts",
+        "tag": "Enterprise",
+        "blurb": "AI contract review tool for due diligence that extracts and categorizes key clauses at scale.",
+        "url": "https://www.diligen.com",
+        "featured": false
+      },
+      {
+        "name": "Kira Systems",
+        "category": "Contracts",
+        "tag": "Enterprise",
+        "blurb": "Machine learning contract analysis software used for due diligence and contract management.",
+        "url": "https://kirasystems.com",
+        "featured": false
+      },
+      {
+        "name": "Clio",
+        "category": "Practice management",
+        "tag": "Subscription",
+        "blurb": "Cloud-based practice management suite with AI features for time tracking, billing, and intake.",
+        "url": "https://www.clio.com",
+        "featured": false
+      },
+      {
+        "name": "MyCase",
+        "category": "Practice management",
+        "tag": "Subscription",
+        "blurb": "Legal practice management software with an AI assistant for drafting and case management tasks.",
+        "url": "https://www.mycase.com",
+        "featured": false
+      }
+    ],
+    "sponsorNote": "Get featured at the top of this list."
+  },
+  "seoTitle": "AIToolsForLawyers — Curated directory of AI tools for legal…",
+  "seoDescription": "Curated directory of AI tools for legal professionals. Built for lawyers, paralegals, legal ops. Free to use.",
+  "keywords": [
+    "aitoolsforlawyers",
+    "legal communities",
+    "seo",
+    "directory"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Lawyers, paralegals, legal ops. If that's you and \"hard to find vetted, safe ai tools\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Save research time; avoid risky tools."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    }
+  ],
+  "launchChannel": "Legal communities, SEO, LinkedIn",
+  "validationMetric": "Index + 200 visits; target 1 paid/featured listing or 3 affiliate clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 52,
+  "frs": 5.75,
+  "revenueSpeed": 5,
+  "profitPotential": 7,
+  "killCriteria": "<150 visits AND 0 listing/affiliate revenue interest after 14 days",
+  "biggestRisk": "Cold-start (needs both content and traffic); affiliate payouts are thin early",
+  "first10": "Seed great entries, then tell each listed brand they're featured (warm outreach for upgrades)",
+  "price": "Free; $99 featured"
+}

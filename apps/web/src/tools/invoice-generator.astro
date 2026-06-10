@@ -1,0 +1,133 @@
+---
+// Invoice generator — fill in, add lines, print to PDF. Nothing leaves the browser.
+---
+<div class="grid gap-6">
+  <div class="grid lg:grid-cols-2 gap-4">
+    <div class="grid gap-4">
+      <div class="grid gap-1.5">
+        <label for="iv-from" class="mono text-[0.7rem] uppercase tracking-widest text-muted">From (you)</label>
+        <textarea id="iv-from" rows="3" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]" placeholder="Your name / studio&#10;Street, City&#10;email@you.com"></textarea>
+      </div>
+      <div class="grid gap-1.5">
+        <label for="iv-to" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Bill to (client)</label>
+        <textarea id="iv-to" rows="3" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]" placeholder="Client Co.&#10;Street, City&#10;billing@client.com"></textarea>
+      </div>
+    </div>
+    <div class="grid gap-4 content-start">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="grid gap-1.5">
+          <label for="iv-num" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Invoice #</label>
+          <input id="iv-num" value="INV-001" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+        </div>
+        <div class="grid gap-1.5">
+          <label for="iv-date" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Date</label>
+          <input id="iv-date" type="date" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+        </div>
+        <div class="grid gap-1.5">
+          <label for="iv-due" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Due</label>
+          <input id="iv-due" type="date" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+        </div>
+        <div class="grid gap-1.5">
+          <label for="iv-cur" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Currency</label>
+          <select id="iv-cur" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper"><option>$</option><option>€</option><option>£</option><option>MAD </option></select>
+        </div>
+      </div>
+      <div class="grid gap-1.5">
+        <label for="iv-tax" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Tax / VAT %</label>
+        <input id="iv-tax" type="number" min="0" max="40" value="0" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="iv-notes" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Notes / payment details</label>
+        <textarea id="iv-notes" rows="2" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]" placeholder="Bank/IBAN or PayPal; payment terms"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="flex items-center justify-between mb-2">
+      <p class="eyebrow">Line items</p>
+      <button type="button" id="iv-add" class="btn btn--ghost !py-1.5 !px-3 text-[0.85rem]">+ Add line</button>
+    </div>
+    <div id="iv-lines" class="grid gap-2"></div>
+  </div>
+
+  <div class="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
+    <div class="mono text-[0.85rem] text-ink-soft" aria-live="polite">
+      Subtotal <strong class="tnum" id="iv-sub">0.00</strong> · Tax <strong class="tnum" id="iv-taxv">0.00</strong> · <span class="text-ink">Total <strong class="tnum text-[1.15rem]" id="iv-total">0.00</strong></span>
+    </div>
+    <button type="button" id="iv-print" class="btn btn--accent">Print / save as PDF</button>
+  </div>
+</div>
+
+<!-- print-only clean invoice -->
+<div id="iv-paper" class="hidden print:block"></div>
+
+<style>
+  @media print {
+    body * { visibility: hidden !important; }
+    #iv-paper, #iv-paper * { visibility: visible !important; }
+    #iv-paper { display:block !important; position: absolute; inset: 0; padding: 2.2rem; background:#fff; color:#111; font-family: Georgia, serif; }
+  }
+</style>
+
+<script>
+  const E = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const linesBox = document.getElementById("iv-lines")!;
+  function addLine(desc = "", qty = 1, price = 0) {
+    const row = document.createElement("div");
+    row.className = "grid grid-cols-[1fr_70px_110px_34px] gap-2 iv-line";
+    row.innerHTML = `
+      <input placeholder="Description" value="${desc}" class="iv-d px-3 py-2.5 rounded-[9px] border border-line-strong bg-paper text-[0.92rem]" />
+      <input type="number" min="0" step="0.5" value="${qty}" aria-label="Quantity" class="iv-q px-3 py-2.5 rounded-[9px] border border-line-strong bg-paper tnum text-[0.92rem]" />
+      <input type="number" min="0" step="0.01" value="${price}" aria-label="Unit price" class="iv-p px-3 py-2.5 rounded-[9px] border border-line-strong bg-paper tnum text-[0.92rem]" />
+      <button type="button" aria-label="Remove line" class="iv-x rounded-[9px] border border-line-strong hover:border-ink text-muted">×</button>`;
+    linesBox.appendChild(row);
+    row.querySelectorAll("input").forEach((i) => i.addEventListener("input", calc));
+    row.querySelector(".iv-x")!.addEventListener("click", () => { row.remove(); calc(); });
+    calc();
+  }
+  function lines() {
+    return [...document.querySelectorAll(".iv-line")].map((r) => ({
+      d: (r.querySelector(".iv-d") as HTMLInputElement).value,
+      q: +(r.querySelector(".iv-q") as HTMLInputElement).value || 0,
+      p: +(r.querySelector(".iv-p") as HTMLInputElement).value || 0,
+    }));
+  }
+  function calc() {
+    const cur = E("iv-cur").value;
+    const sub = lines().reduce((s, l) => s + l.q * l.p, 0);
+    const tax = sub * ((+E("iv-tax").value || 0) / 100);
+    E("iv-sub").textContent = cur + sub.toFixed(2);
+    E("iv-taxv").textContent = cur + tax.toFixed(2);
+    E("iv-total").textContent = cur + (sub + tax).toFixed(2);
+  }
+  function paper() {
+    const cur = E("iv-cur").value;
+    const sub = lines().reduce((s, l) => s + l.q * l.p, 0);
+    const tax = sub * ((+E("iv-tax").value || 0) / 100);
+    const rows = lines().filter((l) => l.d || l.p).map((l) =>
+      `<tr><td style="padding:6px 0;border-bottom:1px solid #ddd">${l.d}</td><td style="text-align:right;border-bottom:1px solid #ddd">${l.q}</td><td style="text-align:right;border-bottom:1px solid #ddd">${cur}${l.p.toFixed(2)}</td><td style="text-align:right;border-bottom:1px solid #ddd">${cur}${(l.q * l.p).toFixed(2)}</td></tr>`).join("");
+    document.getElementById("iv-paper")!.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px">
+        <div><div style="font-size:30px;letter-spacing:-0.5px">Invoice</div><div style="font-family:monospace;font-size:12px;color:#555">${E("iv-num").value} · ${E("iv-date").value || ""}${E("iv-due").value ? " · due " + E("iv-due").value : ""}</div></div>
+      </div>
+      <table style="width:100%;font-size:13px;margin-bottom:26px"><tr>
+        <td style="vertical-align:top;white-space:pre-line"><strong>From</strong>\n${E("iv-from").value}</td>
+        <td style="vertical-align:top;white-space:pre-line;text-align:right"><strong>Bill to</strong>\n${E("iv-to").value}</td></tr></table>
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <tr style="font-family:monospace;font-size:11px;text-transform:uppercase;color:#555"><td style="border-bottom:2px solid #111;padding:4px 0">Description</td><td style="text-align:right;border-bottom:2px solid #111">Qty</td><td style="text-align:right;border-bottom:2px solid #111">Price</td><td style="text-align:right;border-bottom:2px solid #111">Amount</td></tr>
+        ${rows}
+      </table>
+      <div style="margin-top:18px;text-align:right;font-size:14px">Subtotal ${cur}${sub.toFixed(2)} &nbsp; Tax ${cur}${tax.toFixed(2)}<div style="font-size:22px;margin-top:6px"><strong>Total ${cur}${(sub + tax).toFixed(2)}</strong></div></div>
+      <div style="margin-top:26px;font-size:12px;color:#444;white-space:pre-line">${E("iv-notes").value}</div>`;
+  }
+  document.getElementById("iv-add")!.addEventListener("click", () => addLine());
+  document.getElementById("iv-print")!.addEventListener("click", () => {
+    paper(); try { (window as any).track && (window as any).track("tool_used", { tool: "invoice-generator" }); } catch {}
+    window.print();
+  });
+  ["iv-tax", "iv-cur"].forEach((i) => E(i).addEventListener("input", calc));
+  const today = new Date().toISOString().slice(0, 10);
+  E("iv-date").value = today;
+  addLine("Design & development", 1, 500);
+</script>

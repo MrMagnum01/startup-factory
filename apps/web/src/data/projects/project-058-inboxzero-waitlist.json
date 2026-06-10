@@ -1,0 +1,109 @@
+{
+  "id": 58,
+  "slug": "inboxzero-waitlist",
+  "name": "InboxZero Waitlist",
+  "category": "landing page",
+  "renderAs": "offer",
+  "route": "/projects/inboxzero-waitlist",
+  "accent": "#9D174D",
+  "accentInk": "#3D0A20",
+  "eyebrow": "landing page",
+  "headline": "Pre-launch waitlist for an inbox-triage tool for founders",
+  "subheadline": "Reclaim hours every week. Built for overwhelmed founders/execs.",
+  "painPoint": "Email overload kills focus.",
+  "solution": "Pre-launch waitlist for an inbox-triage tool for founders.",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Clear promise",
+      "body": "Clear promise."
+    },
+    {
+      "title": "Who-it's-for",
+      "body": "who-it's-for."
+    },
+    {
+      "title": "3 benefits",
+      "body": "3 benefits."
+    },
+    {
+      "title": "Social proof placeholder",
+      "body": "social proof placeholder."
+    },
+    {
+      "title": "Email capture or pre-order",
+      "body": "email capture or pre-order."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "landing page"
+    },
+    {
+      "k": "Price",
+      "v": "Free now; ~$15/mo later"
+    },
+    {
+      "k": "Turnaround",
+      "v": "2-4h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Waitlist -> paid beta (Stripe)"
+    },
+    {
+      "k": "Channel",
+      "v": "Founder Twitter"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": []
+  },
+  "cta": {
+    "type": "waitlist",
+    "label": "Join the waitlist",
+    "href": "#",
+    "note": "Early-bird price locked for the first 50."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "InboxZero Waitlist — Pre-launch waitlist for an inbox-triage tool…",
+  "seoDescription": "Pre-launch waitlist for an inbox-triage tool for founders. Built for overwhelmed founders/execs. Free to use.",
+  "keywords": [
+    "inboxzero waitlist",
+    "founder twitter",
+    "indie hackers",
+    "landing page"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Overwhelmed founders/execs. If that's you and \"email overload kills focus\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Reclaim hours every week."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    }
+  ],
+  "launchChannel": "Founder Twitter, Indie Hackers",
+  "validationMetric": "150+ visits; target 30+ waitlist emails or 3 pre-orders in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 58,
+  "frs": 5.65,
+  "revenueSpeed": 4,
+  "profitPotential": 7,
+  "killCriteria": "<10 waitlist emails AND 0 pre-orders after 150 visits",
+  "biggestRisk": "Waitlist signups != revenue; intent can be soft; you still have to build it",
+  "first10": "Post the promise in 3 niche communities; 10 warm DMs; 1 Product Hunt 'coming soon'",
+  "price": "Free now; ~$15/mo later"
+}

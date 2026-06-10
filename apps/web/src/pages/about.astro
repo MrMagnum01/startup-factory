@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+import Eyebrow from "@factory/ui/Eyebrow.astro";
+import SpecList from "@factory/ui/SpecList.astro";
+import { projects } from "../lib/projects";
+
+const stack = [
+  { k: "Framework", v: "Astro 4 · static output" },
+  { k: "Styling", v: "Tailwind CSS + design tokens" },
+  { k: "Type pairing", v: "Fraunces · Inter · JetBrains Mono" },
+  { k: "Hosting", v: "Vercel (primary) · CF Pages / Netlify" },
+  { k: "Payments", v: "Stripe Links · Gumroad · Lemon Squeezy" },
+  { k: "Forms", v: "Formspree · Tally · Buttondown" },
+  { k: "Analytics", v: "Plausible / Umami / GA (opt-in)" },
+  { k: "Database", v: "None. JSON configs in git." },
+  { k: "CI/CD", v: "GitHub Actions → Vercel" },
+  { k: "Monthly cost", v: "$0 on free tiers" },
+];
+---
+<Base title="How this was built — Startup Factory" description="One config-driven Astro monorepo publishing 50 monetizable micro-projects on free-tier infrastructure.">
+  <section class="relative overflow-hidden border-b border-line">
+    <div class="absolute inset-0 grid-lines opacity-[0.5] [mask-image:radial-gradient(70%_60%_at_30%_0%,#000,transparent)]" aria-hidden="true"></div>
+    <div class="container-x relative pt-16 pb-12 lg:pt-24 lg:pb-16 max-w-3xl">
+      <Eyebrow text="Colophon" />
+      <h1 class="mt-6 text-display !text-[clamp(2.4rem,1.4rem+3.6vw,4.2rem)]">Built like a factory, not like fifty snowflakes.</h1>
+      <p class="lead mt-6">Every project on this site is a JSON config rendered through shared templates. New project = one config file + one commit. The whole estate rebuilds in minutes and costs nothing to run.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-x py-16 lg:py-20 grid lg:grid-cols-[0.5fr_1fr] gap-10 lg:gap-16">
+      <div class="reveal"><p class="eyebrow">The stack</p></div>
+      <div class="reveal max-w-2xl"><SpecList rows={stack} /></div>
+    </div>
+  </section>
+
+  <section class="bg-surface-2 border-y border-line">
+    <div class="container-x py-16 lg:py-20 grid lg:grid-cols-[0.5fr_1fr] gap-10 lg:gap-16">
+      <div class="reveal"><p class="eyebrow">Honesty notes</p></div>
+      <div class="prose-block reveal max-w-2xl">
+        <p>This is an experiment in shipping volume with honest offers. Nothing here promises guaranteed income — each of the {projects.length} projects is a small bet with a public kill-criterion. Free tiers are used within their terms; no fake accounts, no limit-dodging, no dark patterns.</p>
+        <p class="mono text-[0.8rem] tracking-wide text-muted m-0">IF A PROJECT DISAPPEARS, IT MISSED ITS NUMBERS.</p>
+      </div>
+    </div>
+  </section>
+</Base>

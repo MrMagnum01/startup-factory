@@ -1,0 +1,127 @@
+{
+  "id": 57,
+  "slug": "invoicenow",
+  "name": "InvoiceNow",
+  "category": "micro-tool",
+  "renderAs": "tool",
+  "route": "/tools/invoicenow",
+  "accent": "#1D4ED8",
+  "accentInk": "#0B1E4B",
+  "eyebrow": "micro-tool",
+  "headline": "Client-side invoice generator -> PDF, no signup",
+  "subheadline": "Send a clean invoice free, instantly. Built for freelancers, small biz.",
+  "painPoint": "Invoicing apps want subscriptions.",
+  "solution": "Client-side invoice generator -> PDF, no signup.",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Working tool",
+      "body": "Working tool."
+    },
+    {
+      "title": "Privacy note ('runs in your browser')",
+      "body": "privacy note ('runs in your browser')."
+    },
+    {
+      "title": "1 upsell CTA",
+      "body": "1 upsell CTA."
+    },
+    {
+      "title": "SEO metadata",
+      "body": "SEO metadata."
+    },
+    {
+      "title": "Share button",
+      "body": "share button."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "micro-tool"
+    },
+    {
+      "k": "Price",
+      "v": "Free + $9"
+    },
+    {
+      "k": "Turnaround",
+      "v": "5-8h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Affiliate (accounting) + Pro template"
+    },
+    {
+      "k": "Channel",
+      "v": "r/freelance"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": [
+      {
+        "name": "Pro unlock",
+        "price": "$9",
+        "summary": "Support the tool, unlock the extras.",
+        "features": [
+          "Everything in free",
+          "Pro presets & exports",
+          "Lifetime license",
+          "Email support"
+        ],
+        "highlighted": false
+      }
+    ]
+  },
+  "cta": {
+    "type": "tool",
+    "label": "Use the free tool",
+    "href": "#tool",
+    "note": "Free. No signup. Runs entirely in your browser."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "tool": "invoice-generator",
+  "seoTitle": "InvoiceNow — Client-side invoice generator -> PDF, no signup",
+  "seoDescription": "Client-side invoice generator -> PDF, no signup. Built for freelancers, small biz. Free to use.",
+  "keywords": [
+    "invoicenow",
+    "r/freelance",
+    "seo",
+    "micro-tool"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Freelancers, small biz. If that's you and \"invoicing apps want subscriptions\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Send a clean invoice free, instantly."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    },
+    {
+      "q": "Is my data uploaded anywhere?",
+      "a": "No. The tool runs 100% in your browser — nothing you type or upload ever leaves your device. You can verify in DevTools: zero network calls during use."
+    }
+  ],
+  "launchChannel": "r/freelance, SEO",
+  "validationMetric": "200+ visits; target 25+ successful uses & 2+ Pro clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 57,
+  "frs": 5.65,
+  "revenueSpeed": 6,
+  "profitPotential": 6,
+  "killCriteria": "<50 visits AND 0 Pro interest after 14 days",
+  "biggestRisk": "Commodity space, hard to rank; free alternatives everywhere",
+  "first10": "SEO long-tail + answer 5 forum threads; submit to tool directories; 1 launch post",
+  "price": "Free + $9"
+}

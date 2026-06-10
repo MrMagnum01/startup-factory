@@ -1,0 +1,131 @@
+{
+  "id": 20,
+  "slug": "notionfit",
+  "name": "NotionFit",
+  "category": "productized service",
+  "renderAs": "offer",
+  "route": "/services/notionfit",
+  "accent": "#374151",
+  "accentInk": "#111827",
+  "eyebrow": "productized service",
+  "headline": "Custom Notion workspace setup for a freelancer/small team",
+  "subheadline": "Calm, organized ops without DIY hours. Built for freelancers, coaches, 2-5 person teams.",
+  "painPoint": "Tool chaos; nothing in one place.",
+  "solution": "Custom Notion workspace setup for a freelancer/small team.",
+  "proofPoints": [
+    "Fixed scope, fixed price",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "One-page offer",
+      "body": "One-page offer: outcome headline."
+    },
+    {
+      "title": "3 proof points",
+      "body": "3 proof points."
+    },
+    {
+      "title": "Fixed scope",
+      "body": "fixed scope."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "FAQ",
+      "body": "FAQ."
+    },
+    {
+      "title": "Stripe link + booking form",
+      "body": "Stripe link + booking form."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "productized service"
+    },
+    {
+      "k": "Price",
+      "v": "$149"
+    },
+    {
+      "k": "Turnaround",
+      "v": "48–72 hours"
+    },
+    {
+      "k": "Monetization",
+      "v": "Stripe/Calendly"
+    },
+    {
+      "k": "Channel",
+      "v": "Notion subreddit"
+    }
+  ],
+  "pricing": {
+    "note": "One fixed price. No retainers, no surprises.",
+    "tiers": [
+      {
+        "name": "The package",
+        "price": "$149",
+        "summary": "Custom Notion workspace setup for a freelancer/small team.",
+        "features": [
+          "One-page offer: outcome headline",
+          "3 proof points",
+          "fixed scope",
+          "price",
+          "FAQ"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "payment",
+    "label": "Book it now",
+    "href": "#",
+    "note": "Fixed price. Stripe secure checkout. 48–72h turnaround."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "NotionFit — Custom Notion workspace setup for a freelancer/small team",
+  "seoDescription": "Custom Notion workspace setup for a freelancer/small team. Built for freelancers, coaches, 2-5 person teams. From $149.",
+  "keywords": [
+    "notionfit",
+    "notion subreddit",
+    "twitter",
+    "productized service"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Freelancers, coaches, 2-5 person teams. If that's you and \"tool chaos; nothing in one place\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Calm, organized ops without DIY hours."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Within 48–72 hours of ordering. You'll get a confirmation immediately and the deliverable by email."
+    },
+    {
+      "q": "What if I'm not happy?",
+      "a": "One free revision round is included. If the deliverable misses the agreed scope, you get a full refund — no argument."
+    }
+  ],
+  "launchChannel": "Notion subreddit, Twitter, Upwork",
+  "validationMetric": "Send 50 personalised outreach touches; target 1+ paid order or 3+ booked calls in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 20,
+  "frs": 6.8,
+  "revenueSpeed": 7,
+  "profitPotential": 7,
+  "killCriteria": "0 paid orders AND <2 booked calls after 100 outreach touches in 14 days",
+  "biggestRisk": "Fulfillment time caps scale; low cold-reply rates; you trade hours for money until productised further",
+  "first10": "DM/cold-email 30-50 ideal-fit businesses with a free mini-teardown; post the offer in 2 niche communities",
+  "price": "$149"
+}

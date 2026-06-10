@@ -1,0 +1,127 @@
+{
+  "id": 41,
+  "slug": "bulletboost",
+  "name": "BulletBoost",
+  "category": "generator",
+  "renderAs": "tool",
+  "route": "/tools/bulletboost",
+  "accent": "#374151",
+  "accentInk": "#111827",
+  "eyebrow": "generator",
+  "headline": "Resume bullet-point generator (action-verb + metric templates)",
+  "subheadline": "Strong, quantified bullets fast. Built for job seekers.",
+  "painPoint": "Weak, vague resume bullets.",
+  "solution": "Resume bullet-point generator (action-verb + metric templates).",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Generator that returns useful output",
+      "body": "Generator that returns useful output."
+    },
+    {
+      "title": "Copy button",
+      "body": "copy button."
+    },
+    {
+      "title": "1 upsell",
+      "body": "1 upsell."
+    },
+    {
+      "title": "SEO metadata",
+      "body": "SEO metadata."
+    },
+    {
+      "title": "Examples",
+      "body": "examples."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "generator"
+    },
+    {
+      "k": "Price",
+      "v": "Free + $9"
+    },
+    {
+      "k": "Turnaround",
+      "v": "4-6h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Pro pack + resume-service upsell"
+    },
+    {
+      "k": "Channel",
+      "v": "r/resumes"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": [
+      {
+        "name": "Pro unlock",
+        "price": "$9",
+        "summary": "Support the tool, unlock the extras.",
+        "features": [
+          "Everything in free",
+          "Pro presets & exports",
+          "Lifetime license",
+          "Email support"
+        ],
+        "highlighted": false
+      }
+    ]
+  },
+  "cta": {
+    "type": "tool",
+    "label": "Use the free tool",
+    "href": "#tool",
+    "note": "Free. No signup. Runs entirely in your browser."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "tool": "resume-bullets",
+  "seoTitle": "BulletBoost — Resume bullet-point generator (action-verb + metric…",
+  "seoDescription": "Resume bullet-point generator (action-verb + metric templates). Built for job seekers. Free to use.",
+  "keywords": [
+    "bulletboost",
+    "r/resumes",
+    "linkedin",
+    "generator"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Job seekers. If that's you and \"weak, vague resume bullets\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Strong, quantified bullets fast."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    },
+    {
+      "q": "Is my data uploaded anywhere?",
+      "a": "No. The tool runs 100% in your browser — nothing you type or upload ever leaves your device. You can verify in DevTools: zero network calls during use."
+    }
+  ],
+  "launchChannel": "r/resumes, LinkedIn, SEO",
+  "validationMetric": "200+ visits; target 25+ generations & 2+ Pro clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 41,
+  "frs": 6.05,
+  "revenueSpeed": 6,
+  "profitPotential": 6,
+  "killCriteria": "<50 visits AND 0 Pro interest after 14 days",
+  "biggestRisk": "Quality ceiling without an LLM; easy to clone; thin monetisation",
+  "first10": "SEO long-tail + community answers; submit to tool directories; 1 launch post",
+  "price": "Free + $9"
+}

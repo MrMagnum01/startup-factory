@@ -1,0 +1,141 @@
+{
+  "facets": ["Hosting", "Database", "Backend", "Email", "Observability"],
+  "items": [
+    {
+      "name": "Vercel",
+      "category": "Hosting",
+      "tag": "Freemium",
+      "blurb": "Deploys frontend frameworks and serverless functions; free tier covers personal and hobby projects.",
+      "url": "https://vercel.com",
+      "featured": true
+    },
+    {
+      "name": "Netlify",
+      "category": "Hosting",
+      "tag": "Freemium",
+      "blurb": "Static site and serverless platform with a free tier suitable for personal sites and prototypes.",
+      "url": "https://www.netlify.com",
+      "featured": false
+    },
+    {
+      "name": "Cloudflare Pages",
+      "category": "Hosting",
+      "tag": "Free tier",
+      "blurb": "Globally distributed static site hosting with unlimited bandwidth on the free plan.",
+      "url": "https://pages.cloudflare.com",
+      "featured": false
+    },
+    {
+      "name": "Cloudflare Workers",
+      "category": "Backend",
+      "tag": "Free tier",
+      "blurb": "Edge serverless compute platform with a generous free tier for running lightweight functions.",
+      "url": "https://workers.cloudflare.com",
+      "featured": false
+    },
+    {
+      "name": "GitHub Pages",
+      "category": "Hosting",
+      "tag": "Free",
+      "blurb": "Hosts static sites directly from a GitHub repository at no cost for public and private repos.",
+      "url": "https://pages.github.com",
+      "featured": false
+    },
+    {
+      "name": "GitHub Actions",
+      "category": "Backend",
+      "tag": "Freemium",
+      "blurb": "CI/CD automation platform with free compute minutes for public repositories and personal accounts.",
+      "url": "https://github.com/features/actions",
+      "featured": false
+    },
+    {
+      "name": "Supabase",
+      "category": "Database",
+      "tag": "Freemium",
+      "blurb": "Open-source Firebase alternative with Postgres, auth, storage, and edge functions on a free tier.",
+      "url": "https://supabase.com",
+      "featured": false
+    },
+    {
+      "name": "Neon",
+      "category": "Database",
+      "tag": "Freemium",
+      "blurb": "Serverless Postgres with branching; free tier is designed to cover development and small workloads.",
+      "url": "https://neon.tech",
+      "featured": false
+    },
+    {
+      "name": "Turso",
+      "category": "Database",
+      "tag": "Freemium",
+      "blurb": "Edge SQLite database platform with a free tier covering multiple databases for side projects.",
+      "url": "https://turso.tech",
+      "featured": false
+    },
+    {
+      "name": "Railway",
+      "category": "Backend",
+      "tag": "Freemium",
+      "blurb": "App hosting platform with a free usage allowance for deploying backends, databases, and workers.",
+      "url": "https://railway.app",
+      "featured": false
+    },
+    {
+      "name": "Render",
+      "category": "Hosting",
+      "tag": "Freemium",
+      "blurb": "Cloud platform for hosting web services and static sites with a free tier for starter projects.",
+      "url": "https://render.com",
+      "featured": false
+    },
+    {
+      "name": "Fly.io",
+      "category": "Backend",
+      "tag": "Freemium",
+      "blurb": "Container deployment platform with free allowances for running small apps close to users globally.",
+      "url": "https://fly.io",
+      "featured": false
+    },
+    {
+      "name": "Upstash",
+      "category": "Database",
+      "tag": "Freemium",
+      "blurb": "Serverless Redis and Kafka with a free tier suited to low-traffic apps and development use.",
+      "url": "https://upstash.com",
+      "featured": false
+    },
+    {
+      "name": "Resend",
+      "category": "Email",
+      "tag": "Freemium",
+      "blurb": "Transactional email API for developers with a free tier covering small sending volumes per month.",
+      "url": "https://resend.com",
+      "featured": false
+    },
+    {
+      "name": "PostHog",
+      "category": "Observability",
+      "tag": "Freemium",
+      "blurb": "Open-source product analytics platform with a generous free tier and self-hosting option.",
+      "url": "https://posthog.com",
+      "featured": false
+    },
+    {
+      "name": "Sentry",
+      "category": "Observability",
+      "tag": "Freemium",
+      "blurb": "Error tracking and performance monitoring platform with a free tier for small development teams.",
+      "url": "https://sentry.io",
+      "featured": false
+    },
+    {
+      "name": "MongoDB Atlas",
+      "category": "Database",
+      "tag": "Freemium",
+      "blurb": "Managed MongoDB cloud service with a shared free cluster for learning and prototype projects.",
+      "url": "https://www.mongodb.com/atlas",
+      "featured": false
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+import SectionHeader from "./SectionHeader.astro";
+import Faq from "./Faq.astro";
+import EmailCapture from "./EmailCapture.astro";
+import Tag from "./Tag.astro";
+
+interface Props { project: any; }
+const { project } = Astro.props;
+const p = project;
+const items = p.directory?.items ?? [];
+const facets: string[] = Array.from(new Set(items.map((i: any) => i.category).filter(Boolean)));
+const idTag = String(p.id ?? 0).padStart(3, "0");
+const featured = items.filter((i: any) => i.featured);
+---
+<!-- ===================== HERO ===================== -->
+<section class="relative overflow-hidden border-b border-line">
+  <div class="absolute inset-0 grid-lines opacity-[0.5] [mask-image:radial-gradient(70%_60%_at_30%_0%,#000,transparent)]" aria-hidden="true"></div>
+  <div class="container-x relative pt-16 pb-12 lg:pt-24 lg:pb-16">
+    <div class="max-w-3xl reveal">
+      <Eyebrow text={`${idTag} · directory · ${items.length} entries`} />
+      <h1 class="mt-6 text-display !text-[clamp(2.4rem,1.4rem+3.6vw,4.2rem)]">{p.headline}</h1>
+      <p class="lead mt-6">{p.subheadline}</p>
+    </div>
+
+    <!-- search + facets -->
+    <div class="mt-10 reveal" style="transition-delay:100ms">
+      <div class="flex flex-col md:flex-row gap-3 md:items-center">
+        <div class="relative flex-1 max-w-xl">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-muted" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="dir-search" type="search" placeholder={`Search ${items.length} entries…`}
+            class="w-full pl-11 pr-4 py-3 rounded-[11px] border border-line-strong bg-surface focus:outline-none focus-visible:outline-accent"
+            aria-label="Search directory" />
+        </div>
+        <div class="flex flex-wrap gap-2" id="dir-facets" role="group" aria-label="Filter by category">
+          <button type="button" data-facet="" class="tag tag--accent" aria-pressed="true">All</button>
+          {facets.map((f) => <button type="button" data-facet={f} class="tag" aria-pressed="false">{f}</button>)}
+        </div>
+      </div>
+      <p class="mono text-[0.72rem] text-muted mt-3"><span id="dir-count">{items.length}</span> SHOWN</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LIST ===================== -->
+<section>
+  <div class="container-x py-10 lg:py-14">
+    <ol id="dir-list" class="list-none p-0 m-0 grid gap-3">
+      {items.map((it: any, i: number) => (
+        <li class="dir-item card card--hover !p-0 overflow-hidden" data-name={(it.name + " " + it.blurb + " " + it.tag).toLowerCase()} data-cat={it.category}>
+          <a href={it.url} rel="noopener nofollow" target="_blank" class="grid md:grid-cols-[2.6rem_1.2fr_2fr_auto] items-center gap-3 md:gap-5 px-5 py-4">
+            <span class="mono text-[0.72rem] text-muted hidden md:block">{String(i + 1).padStart(2, "0")}</span>
+            <span class="flex items-center gap-2 font-medium text-[1.02rem]">
+              {it.name}
+              {it.featured && <Tag accent={true}>Featured</Tag>}
+            </span>
+            <span class="text-[0.9rem] text-ink-soft">{it.blurb}</span>
+            <span class="flex items-center gap-2 justify-self-start md:justify-self-end">
+              {it.category && <Tag>{it.category}</Tag>}
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ol>
+    <p id="dir-empty" class="hidden text-center text-muted py-14">No matches. Try a different term or clear the filter.</p>
+  </div>
+</section>
+
+<!-- ===================== MONETIZATION BAND ===================== -->
+<section class="container-x py-6">
+  <div class="card card--ink reveal relative overflow-hidden">
+    <div class="absolute inset-0 grid-lines opacity-[0.08]" aria-hidden="true"></div>
+    <div class="relative grid lg:grid-cols-2 gap-8 p-4 lg:p-8 items-center">
+      <div>
+        <p class="eyebrow mb-3" style="color:var(--paper)">For brands & makers</p>
+        <h2 class="text-paper !text-[clamp(1.6rem,1.2rem+1.6vw,2.3rem)]">{p.directory?.sponsorNote ?? "Get featured at the top of this list."}</h2>
+        <p class="text-paper/70 mt-3 max-w-md">Featured slots are limited and clearly labelled. Submissions are reviewed — quality beats payment.</p>
+      </div>
+      <div><EmailCapture project={p} title={p.cta?.label ?? "Submit / feature a listing"} note="Tell us what you'd like to list. We reply within 2 business days." cta="Open submission form" id="submit" /></div>
+    </div>
+  </div>
+</section>
+
+{p.faq?.length > 0 && (
+  <section>
+    <div class="container-x py-16 lg:py-20 grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-16">
+      <SectionHeader num="02" kicker="FAQ" title="About this directory" />
+      <div class="reveal"><Faq items={p.faq} /></div>
+    </div>
+  </section>
+)}
+
+<script is:inline>
+(function(){
+  var q=document.getElementById('dir-search');
+  var list=document.getElementById('dir-list');
+  if(!q||!list)return;
+  var items=[].slice.call(list.querySelectorAll('.dir-item'));
+  var facetWrap=document.getElementById('dir-facets');
+  var count=document.getElementById('dir-count');
+  var empty=document.getElementById('dir-empty');
+  var activeFacet='';
+  function apply(){
+    var term=(q.value||'').toLowerCase().trim();
+    var shown=0;
+    items.forEach(function(el){
+      var okTerm=!term||el.getAttribute('data-name').indexOf(term)>-1;
+      var okFacet=!activeFacet||el.getAttribute('data-cat')===activeFacet;
+      var ok=okTerm&&okFacet;
+      el.style.display=ok?'':'none';
+      if(ok)shown++;
+    });
+    if(count)count.textContent=String(shown);
+    if(empty)empty.classList.toggle('hidden',shown>0);
+    if(window.track)window.track('directory_filter',{term:term,facet:activeFacet});
+  }
+  q.addEventListener('input',apply);
+  if(facetWrap)facetWrap.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-facet]');if(!b)return;
+    activeFacet=b.getAttribute('data-facet')||'';
+    [].slice.call(facetWrap.querySelectorAll('button')).forEach(function(x){
+      var on=x===b;
+      x.classList.toggle('tag--accent',on);
+      x.setAttribute('aria-pressed',on?'true':'false');
+    });
+    apply();
+  });
+})();
+</script>

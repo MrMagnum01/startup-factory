@@ -1,0 +1,17 @@
+---
+interface Props { items?: { q: string; a: string }[]; id?: string; }
+const { items = [], id = "faq" } = Astro.props;
+---
+<div id={id} class="divide-y divide-line border-y border-line">
+  {items.map((it, i) => (
+    <details class="group reveal" name="faq">
+      <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none">
+        <span class="text-[1.05rem] font-medium pr-4">{it.q}</span>
+        <span class="shrink-0 mono text-muted transition-transform duration-200 group-open:rotate-45" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </span>
+      </summary>
+      <p class="text-[0.96rem] text-ink-soft pb-5 -mt-1 max-w-2xl">{it.a}</p>
+    </details>
+  ))}
+</div>

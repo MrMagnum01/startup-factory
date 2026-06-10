@@ -1,0 +1,131 @@
+{
+  "id": 22,
+  "slug": "listingflyer",
+  "name": "ListingFlyer",
+  "category": "template pack",
+  "renderAs": "offer",
+  "route": "/templates/listingflyer",
+  "accent": "#7C3F00",
+  "accentInk": "#2E1800",
+  "eyebrow": "template pack",
+  "headline": "Editable real-estate listing flyer + social templates (Canva)",
+  "subheadline": "Polished listings that win sellers. Built for real-estate agents.",
+  "painPoint": "Marketing materials look amateur.",
+  "solution": "Editable real-estate listing flyer + social templates (Canva).",
+  "proofPoints": [
+    "No signup required",
+    "Instant download",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Product page",
+      "body": "Product page: hero preview."
+    },
+    {
+      "title": "What's-inside list",
+      "body": "what's-inside list."
+    },
+    {
+      "title": "3 screenshots",
+      "body": "3 screenshots."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "Buy button",
+      "body": "buy button."
+    },
+    {
+      "title": "Refund note",
+      "body": "refund note."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "template pack"
+    },
+    {
+      "k": "Price",
+      "v": "$24"
+    },
+    {
+      "k": "Delivery",
+      "v": "Instant download"
+    },
+    {
+      "k": "Monetization",
+      "v": "Gumroad/Etsy"
+    },
+    {
+      "k": "Channel",
+      "v": "Agent FB groups"
+    }
+  ],
+  "pricing": {
+    "note": "Pay once, use forever. Free updates included.",
+    "tiers": [
+      {
+        "name": "Full pack",
+        "price": "$24",
+        "summary": "Everything inside, instant download.",
+        "features": [
+          "Product page: hero preview",
+          "what's-inside list",
+          "3 screenshots",
+          "price",
+          "buy button"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "download",
+    "label": "Get the pack",
+    "href": "#",
+    "note": "Instant download. Free updates. 14-day refund."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "ListingFlyer — Editable real-estate listing flyer + social…",
+  "seoDescription": "Editable real-estate listing flyer + social templates (Canva). Built for real-estate agents. From $24.",
+  "keywords": [
+    "listingflyer",
+    "agent fb groups",
+    "instagram",
+    "template pack"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Real-estate agents. If that's you and \"marketing materials look amateur\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Polished listings that win sellers."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Instantly. The download link arrives the moment payment clears."
+    },
+    {
+      "q": "What's the refund policy?",
+      "a": "14 days, no questions asked. If it doesn't fit your workflow, reply to the receipt email and we refund you."
+    }
+  ],
+  "launchChannel": "Agent FB groups, Instagram",
+  "validationMetric": "Drive 300-500 targeted visits; target 5+ sales in 14 days at list price",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 22,
+  "frs": 6.8,
+  "revenueSpeed": 7,
+  "profitPotential": 7,
+  "killCriteria": "<1% conversion after 500 targeted visits, or <2 sales in 14 days",
+  "biggestRisk": "Commoditised; piracy & refunds; needs constant distribution to keep selling",
+  "first10": "Post a free sample in 3 relevant subreddits/Discords; list on Gumroad Discover; 1 short demo clip",
+  "price": "$24"
+}

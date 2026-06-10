@@ -1,0 +1,42 @@
+---
+const year = new Date().getFullYear();
+const explore = [
+  { href: "/projects", label: "All projects" },
+  { href: "/tools", label: "Micro-tools" },
+  { href: "/directories", label: "Directories" },
+  { href: "/services", label: "Services" },
+  { href: "/templates", label: "Template packs" },
+];
+const resources = [
+  { href: "/dashboard", label: "Build dashboard" },
+  { href: "/about", label: "How this was built" },
+  { href: "https://github.com/MrMagnum01", label: "GitHub", ext: true },
+];
+---
+<footer class="border-t border-line mt-24">
+  <div class="container-x py-14 grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+    <div class="max-w-sm">
+      <div class="flex items-center gap-2.5 mb-4">
+        <svg width="24" height="24" viewBox="0 0 26 26" fill="none" aria-hidden="true"><rect x="1" y="1" width="24" height="24" rx="6" fill="var(--ink)"/><rect x="6.5" y="13" width="3.4" height="6.5" rx="1" fill="var(--accent)"/><rect x="11.3" y="9.5" width="3.4" height="10" rx="1" fill="var(--paper)"/><rect x="16.1" y="6" width="3.4" height="13.5" rx="1" fill="var(--accent)"/></svg>
+        <span class="mono text-[0.72rem] leading-[1.05]">STARTUP<br/>FACTORY</span>
+      </div>
+      <p class="text-[0.9rem] text-ink-soft">One config-driven factory publishing many small, monetizable offers. Built on legal free tiers. Ship fast, validate honestly, kill what doesn't work.</p>
+    </div>
+    <nav aria-label="Explore">
+      <p class="eyebrow mb-4">Explore</p>
+      <ul class="list-none p-0 m-0 grid gap-2">
+        {explore.map((l) => <li><a href={l.href} class="text-[0.92rem] text-ink-soft hover:text-ink transition-colors">{l.label}</a></li>)}
+      </ul>
+    </nav>
+    <nav aria-label="Resources">
+      <p class="eyebrow mb-4">Resources</p>
+      <ul class="list-none p-0 m-0 grid gap-2">
+        {resources.map((l) => <li><a href={l.href} rel={l.ext ? "noopener" : undefined} target={l.ext ? "_blank" : undefined} class="text-[0.92rem] text-ink-soft hover:text-ink transition-colors">{l.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+  <div class="container-x py-6 border-t border-line flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+    <span class="text-[0.8rem] text-muted">© {year} Startup Factory. Built on free-tier infrastructure.</span>
+    <span class="mono text-[0.72rem] text-muted tracking-wide">NO GUARANTEED PROFIT · VALIDATE FAST · KILL FASTER</span>
+  </div>
+</footer>

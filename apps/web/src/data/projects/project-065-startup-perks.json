@@ -1,0 +1,240 @@
+{
+  "id": 65,
+  "slug": "startup-perks",
+  "name": "StartupPerks",
+  "category": "directory",
+  "renderAs": "directory",
+  "route": "/directories/startup-perks",
+  "accent": "#B45309",
+  "accentInk": "#3F1D03",
+  "eyebrow": "directory",
+  "headline": "Directory of startup discounts/credits (affiliate)",
+  "subheadline": "Save thousands on tools. Built for early founders.",
+  "painPoint": "Missing free credits & deals.",
+  "solution": "Directory of startup discounts/credits (affiliate).",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Seeded list (40-100 entries)",
+      "body": "Seeded list (40-100 entries)."
+    },
+    {
+      "title": "Search + 2 filters",
+      "body": "search + 2 filters."
+    },
+    {
+      "title": "Detail rows",
+      "body": "detail rows."
+    },
+    {
+      "title": "'submit listing' form",
+      "body": "'submit listing' form."
+    },
+    {
+      "title": "1 sponsor slot",
+      "body": "1 sponsor slot."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "directory"
+    },
+    {
+      "k": "Price",
+      "v": "Free; affiliate"
+    },
+    {
+      "k": "Turnaround",
+      "v": "6-10h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Affiliate + featured"
+    },
+    {
+      "k": "Channel",
+      "v": "Indie Hackers"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": []
+  },
+  "cta": {
+    "type": "waitlist",
+    "label": "Submit a listing",
+    "href": "#",
+    "note": "Free submissions reviewed weekly. Featured slots paid."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "directory": {
+    "facets": [
+      "Cloud credits",
+      "SaaS discounts",
+      "Banking/Legal",
+      "Dev tools"
+    ],
+    "items": [
+      {
+        "name": "AWS Activate",
+        "category": "Cloud credits",
+        "tag": "Free credits",
+        "blurb": "Amazon program providing AWS service credits and support to early-stage and funded startups.",
+        "url": "https://aws.amazon.com/activate",
+        "featured": true
+      },
+      {
+        "name": "Google Cloud for Startups",
+        "category": "Cloud credits",
+        "tag": "Free credits",
+        "blurb": "Google program offering GCP credits to startups at various stages from seed to Series A+.",
+        "url": "https://cloud.google.com/startups",
+        "featured": false
+      },
+      {
+        "name": "Microsoft for Startups Founders Hub",
+        "category": "Cloud credits",
+        "tag": "Free credits",
+        "blurb": "Microsoft program offering Azure credits, GitHub, and software benefits to early-stage startups.",
+        "url": "https://foundershub.startups.microsoft.com",
+        "featured": false
+      },
+      {
+        "name": "Stripe Atlas",
+        "category": "Banking/Legal",
+        "tag": "Paid service",
+        "blurb": "Stripe service that incorporates a US company, sets up a bank account, and issues equity documents.",
+        "url": "https://stripe.com/atlas",
+        "featured": false
+      },
+      {
+        "name": "Notion for Startups",
+        "category": "SaaS discounts",
+        "tag": "Discounted",
+        "blurb": "Notion's startup program offering discounted or free Plus plan access to early-stage companies.",
+        "url": "https://www.notion.com/startups",
+        "featured": false
+      },
+      {
+        "name": "HubSpot for Startups",
+        "category": "SaaS discounts",
+        "tag": "Discounted",
+        "blurb": "HubSpot program providing CRM and marketing software at a discount for eligible seed-stage startups.",
+        "url": "https://www.hubspot.com/startups",
+        "featured": false
+      },
+      {
+        "name": "Segment Startup Program",
+        "category": "SaaS discounts",
+        "tag": "Free credits",
+        "blurb": "Twilio Segment program offering customer data platform credits to qualifying early-stage startups.",
+        "url": "https://segment.com/industry/startups",
+        "featured": false
+      },
+      {
+        "name": "Airtable for Startups",
+        "category": "SaaS discounts",
+        "tag": "Discounted",
+        "blurb": "Airtable startup program offering discounted access to its database and workflow platform.",
+        "url": "https://www.airtable.com/lp/startups",
+        "featured": false
+      },
+      {
+        "name": "Intercom Early Stage",
+        "category": "SaaS discounts",
+        "tag": "Discounted",
+        "blurb": "Intercom program offering discounted customer messaging platform access to early-stage startups.",
+        "url": "https://www.intercom.com/early-stage",
+        "featured": false
+      },
+      {
+        "name": "GitHub for Startups",
+        "category": "Dev tools",
+        "tag": "Free access",
+        "blurb": "GitHub program giving eligible startups free access to GitHub Team for their entire organization.",
+        "url": "https://github.com/solutions/startups",
+        "featured": false
+      },
+      {
+        "name": "Brex for Startups",
+        "category": "Banking/Legal",
+        "tag": "Free tier",
+        "blurb": "Corporate card and banking platform built for startups with no personal guarantee required.",
+        "url": "https://www.brex.com/solutions/startups",
+        "featured": false
+      },
+      {
+        "name": "Salesforce for Startups",
+        "category": "SaaS discounts",
+        "tag": "Discounted",
+        "blurb": "Salesforce program offering CRM credits and resources to early-stage venture-backed startups.",
+        "url": "https://www.salesforce.com/solutions/small-business-solutions/startup",
+        "featured": false
+      },
+      {
+        "name": "Freshworks for Startups",
+        "category": "SaaS discounts",
+        "tag": "Free credits",
+        "blurb": "Freshworks startup program offering CRM and support software credits to qualifying companies.",
+        "url": "https://www.freshworks.com/freshworks-for-startups",
+        "featured": false
+      },
+      {
+        "name": "Cloudflare for Startups",
+        "category": "Dev tools",
+        "tag": "Free credits",
+        "blurb": "Cloudflare program providing service credits to startups accepted through partner accelerators.",
+        "url": "https://www.cloudflare.com/forstartups",
+        "featured": false
+      },
+      {
+        "name": "MongoDB for Startups",
+        "category": "Dev tools",
+        "tag": "Free credits",
+        "blurb": "MongoDB Atlas credit program for early-stage startups to build on its cloud database platform.",
+        "url": "https://www.mongodb.com/startups",
+        "featured": false
+      }
+    ],
+    "sponsorNote": "Get featured at the top of this list."
+  },
+  "seoTitle": "StartupPerks — Directory of startup discounts/credits (affiliate)",
+  "seoDescription": "Directory of startup discounts/credits (affiliate). Built for early founders. Free to use.",
+  "keywords": [
+    "startupperks",
+    "indie hackers",
+    "founder slacks",
+    "directory"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Early founders. If that's you and \"missing free credits & deals\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Save thousands on tools."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    }
+  ],
+  "launchChannel": "Indie Hackers, founder Slacks",
+  "validationMetric": "Index + 200 visits; target 1 paid/featured listing or 3 affiliate clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 65,
+  "frs": 5.5,
+  "revenueSpeed": 5,
+  "profitPotential": 6,
+  "killCriteria": "<150 visits AND 0 listing/affiliate revenue interest after 14 days",
+  "biggestRisk": "Cold-start (needs both content and traffic); affiliate payouts are thin early",
+  "first10": "Seed great entries, then tell each listed brand they're featured (warm outreach for upgrades)",
+  "price": "Free; affiliate"
+}

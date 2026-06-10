@@ -1,0 +1,125 @@
+{
+  "facets": ["DevTools", "SaaS", "Consumer", "Infrastructure", "HR/Fintech"],
+  "items": [
+    {
+      "name": "GitLab",
+      "category": "DevTools",
+      "tag": "All-remote",
+      "blurb": "DevOps platform company that pioneered the all-remote model with a publicly documented handbook.",
+      "url": "https://about.gitlab.com/jobs",
+      "featured": true
+    },
+    {
+      "name": "Automattic",
+      "category": "SaaS",
+      "tag": "Distributed",
+      "blurb": "Fully distributed company behind WordPress.com, WooCommerce, and Tumblr with no headquarters.",
+      "url": "https://automattic.com/work-with-us",
+      "featured": false
+    },
+    {
+      "name": "Zapier",
+      "category": "SaaS",
+      "tag": "All-remote",
+      "blurb": "Workflow automation platform that has operated as a fully remote company since its founding.",
+      "url": "https://zapier.com/jobs",
+      "featured": false
+    },
+    {
+      "name": "Buffer",
+      "category": "SaaS",
+      "tag": "All-remote",
+      "blurb": "Social media scheduling tool known for radical transparency and fully distributed team structure.",
+      "url": "https://buffer.com/journey",
+      "featured": false
+    },
+    {
+      "name": "Doist",
+      "category": "SaaS",
+      "tag": "Async-first",
+      "blurb": "Creator of Todoist and Twist, operating as an async-first remote company across many countries.",
+      "url": "https://doist.com/jobs",
+      "featured": false
+    },
+    {
+      "name": "Toggl",
+      "category": "SaaS",
+      "tag": "All-remote",
+      "blurb": "Time tracking and project planning company fully distributed across dozens of countries.",
+      "url": "https://toggl.com/jobs",
+      "featured": false
+    },
+    {
+      "name": "Hotjar",
+      "category": "SaaS",
+      "tag": "All-remote",
+      "blurb": "Behavior analytics tool company that operates fully remotely, acquired by Contentsquare.",
+      "url": "https://www.hotjar.com/careers",
+      "featured": false
+    },
+    {
+      "name": "DuckDuckGo",
+      "category": "Consumer",
+      "tag": "All-remote",
+      "blurb": "Privacy-focused search engine and browser operating as a fully remote distributed company.",
+      "url": "https://duckduckgo.com/hiring",
+      "featured": false
+    },
+    {
+      "name": "Wikimedia Foundation",
+      "category": "Consumer",
+      "tag": "Distributed",
+      "blurb": "Nonprofit supporting Wikipedia and other free knowledge projects with a remote-distributed team.",
+      "url": "https://wikimediafoundation.org/about/jobs",
+      "featured": false
+    },
+    {
+      "name": "Grafana Labs",
+      "category": "Infrastructure",
+      "tag": "Remote-first",
+      "blurb": "Observability company behind Grafana OSS operating as a remote-first organization globally.",
+      "url": "https://grafana.com/about/careers",
+      "featured": false
+    },
+    {
+      "name": "Sourcegraph",
+      "category": "DevTools",
+      "tag": "All-remote",
+      "blurb": "Code intelligence platform that operates as an all-remote company with an open employee handbook.",
+      "url": "https://sourcegraph.com/careers",
+      "featured": false
+    },
+    {
+      "name": "Remote.com",
+      "category": "HR/Fintech",
+      "tag": "All-remote",
+      "blurb": "Employer of record and HR platform for global teams, itself fully remote by design.",
+      "url": "https://remote.com/careers",
+      "featured": false
+    },
+    {
+      "name": "Deel",
+      "category": "HR/Fintech",
+      "tag": "Distributed",
+      "blurb": "Global payroll and compliance platform for remote teams, employing a distributed workforce.",
+      "url": "https://www.deel.com/careers",
+      "featured": false
+    },
+    {
+      "name": "Oyster HR",
+      "category": "HR/Fintech",
+      "tag": "All-remote",
+      "blurb": "Global employment platform enabling remote hiring, itself structured as an all-remote company.",
+      "url": "https://www.oysterhr.com/about/careers",
+      "featured": false
+    },
+    {
+      "name": "1Password",
+      "category": "SaaS",
+      "tag": "Remote-first",
+      "blurb": "Password manager and secrets management platform that operates with a remote-first culture.",
+      "url": "https://1password.com/jobs",
+      "featured": false
+    }
+  ]
+}

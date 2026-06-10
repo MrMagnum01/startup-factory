@@ -1,0 +1,72 @@
+---
+// Mortgage extra-payment payoff calculator — exact amortization, client-side.
+---
+<div class="grid lg:grid-cols-[1fr_0.9fr] gap-8">
+  <form class="grid sm:grid-cols-2 gap-4" autocomplete="off">
+    <div class="grid gap-1.5">
+      <label for="mp-bal" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Remaining balance ($)</label>
+      <input id="mp-bal" type="number" min="1000" step="1000" value="280000" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="mp-apr" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Interest rate % (APR)</label>
+      <input id="mp-apr" type="number" min="0.1" max="20" step="0.05" value="6.25" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="mp-years" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Years remaining</label>
+      <input id="mp-years" type="number" min="1" max="40" value="25" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="mp-extra" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Extra payment $/mo</label>
+      <input id="mp-extra" type="number" min="0" step="25" value="200" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+  </form>
+
+  <div class="card !bg-surface-2 self-start" aria-live="polite">
+    <p class="eyebrow mb-5">With your extra payment</p>
+    <div class="spec">
+      <div class="spec-row"><span class="k">Monthly payment</span><span class="dot"></span><span class="v tnum" id="mp-pay">—</span></div>
+      <div class="spec-row"><span class="k">Paid off</span><span class="dot"></span><span class="v tnum" id="mp-when">—</span></div>
+      <div class="spec-row"><span class="k">Time saved</span><span class="dot"></span><span class="v text-display !text-[1.6rem]" id="mp-saved-t">—</span></div>
+      <div class="spec-row"><span class="k">Interest saved</span><span class="dot"></span><span class="v text-display !text-[1.6rem] tnum" id="mp-saved-i">—</span></div>
+      <div class="spec-row"><span class="k">Total interest (was)</span><span class="dot"></span><span class="v tnum" id="mp-int-was">—</span></div>
+      <div class="spec-row"><span class="k">Total interest (now)</span><span class="dot"></span><span class="v tnum" id="mp-int-now">—</span></div>
+    </div>
+    <p class="text-[0.78rem] text-muted mt-4 mb-0">Estimates only — check prepayment terms with your lender. Not financial advice.</p>
+  </div>
+</div>
+
+<script>
+  const el = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const usd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
+  function amortize(bal: number, r: number, pay: number, extra: number) {
+    let months = 0, interest = 0, b = bal;
+    const cap = 12 * 80;
+    while (b > 0 && months < cap) {
+      const i = b * r; interest += i;
+      b = b + i - (pay + extra);
+      months++;
+    }
+    return { months, interest };
+  }
+  function run() {
+    const bal = +el("mp-bal").value || 0;
+    const apr = (+el("mp-apr").value || 0) / 100;
+    const years = Math.max(1, +el("mp-years").value || 1);
+    const extra = +el("mp-extra").value || 0;
+    const r = apr / 12, n = years * 12;
+    const pay = r > 0 ? (bal * r) / (1 - Math.pow(1 + r, -n)) : bal / n;
+    const base = amortize(bal, r, pay, 0);
+    const plus = amortize(bal, r, pay, extra);
+    const savedM = Math.max(0, base.months - plus.months);
+    const d = new Date(); d.setMonth(d.getMonth() + plus.months);
+    el("mp-pay").textContent = usd(pay + extra) + ` (${usd(pay)} + ${usd(extra)} extra)`;
+    el("mp-when").textContent = d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+    el("mp-saved-t").textContent = `${Math.floor(savedM / 12)}y ${savedM % 12}m`;
+    el("mp-saved-i").textContent = usd(Math.max(0, base.interest - plus.interest));
+    el("mp-int-was").textContent = usd(base.interest);
+    el("mp-int-now").textContent = usd(plus.interest);
+    try { (window as any).track && (window as any).track("tool_used", { tool: "mortgage-payoff" }); } catch {}
+  }
+  ["mp-bal","mp-apr","mp-years","mp-extra"].forEach((i) => el(i)?.addEventListener("input", run));
+  run();
+</script>

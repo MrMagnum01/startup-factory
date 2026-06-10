@@ -1,0 +1,125 @@
+{
+  "facets": ["Research lab", "Infrastructure", "Applied AI", "Data platform"],
+  "items": [
+    {
+      "name": "Anthropic",
+      "category": "Research lab",
+      "tag": "AI safety",
+      "blurb": "AI safety company developing the Claude family of models with strong AI research hiring.",
+      "url": "https://www.anthropic.com/careers",
+      "featured": true
+    },
+    {
+      "name": "OpenAI",
+      "category": "Research lab",
+      "tag": "Frontier AI",
+      "blurb": "Creator of GPT and ChatGPT hiring researchers and engineers across safety, models, and products.",
+      "url": "https://openai.com/careers",
+      "featured": false
+    },
+    {
+      "name": "DeepMind",
+      "category": "Research lab",
+      "tag": "Google",
+      "blurb": "Google DeepMind researches AGI and publishes widely; hiring spans research science and engineering.",
+      "url": "https://deepmind.google/about/careers",
+      "featured": false
+    },
+    {
+      "name": "Hugging Face",
+      "category": "Infrastructure",
+      "tag": "Open source",
+      "blurb": "ML platform and model hub company hiring ML engineers, researchers, and developer advocates.",
+      "url": "https://apply.workable.com/huggingface",
+      "featured": false
+    },
+    {
+      "name": "Mistral AI",
+      "category": "Research lab",
+      "tag": "European",
+      "blurb": "Paris-based frontier model company releasing open-weight models and hiring research talent.",
+      "url": "https://mistral.ai/careers",
+      "featured": false
+    },
+    {
+      "name": "Cohere",
+      "category": "Applied AI",
+      "tag": "Enterprise AI",
+      "blurb": "Enterprise AI platform for language models and RAG, actively hiring ML and platform engineers.",
+      "url": "https://cohere.com/about/careers",
+      "featured": false
+    },
+    {
+      "name": "Scale AI",
+      "category": "Data platform",
+      "tag": "Data labeling",
+      "blurb": "AI data infrastructure company providing training data and evaluation services at enterprise scale.",
+      "url": "https://scale.com/careers",
+      "featured": false
+    },
+    {
+      "name": "Databricks",
+      "category": "Data platform",
+      "tag": "Data+AI",
+      "blurb": "Data lakehouse platform company with strong ML and AI hiring across engineering and research.",
+      "url": "https://www.databricks.com/company/careers",
+      "featured": false
+    },
+    {
+      "name": "NVIDIA",
+      "category": "Infrastructure",
+      "tag": "Hardware+Software",
+      "blurb": "GPU and accelerated computing company central to AI infrastructure, hiring broadly in AI/ML.",
+      "url": "https://www.nvidia.com/en-us/about-nvidia/careers",
+      "featured": false
+    },
+    {
+      "name": "Weights & Biases",
+      "category": "Infrastructure",
+      "tag": "MLOps",
+      "blurb": "ML experiment tracking and model management platform hiring ML engineers and developer advocates.",
+      "url": "https://wandb.ai/site/careers",
+      "featured": false
+    },
+    {
+      "name": "Runway",
+      "category": "Applied AI",
+      "tag": "Generative media",
+      "blurb": "Generative video and creative AI company hiring ML researchers and applied AI engineers.",
+      "url": "https://runwayml.com/careers",
+      "featured": false
+    },
+    {
+      "name": "Perplexity AI",
+      "category": "Applied AI",
+      "tag": "AI search",
+      "blurb": "AI-powered answer engine actively hiring across ML engineering, research, and product roles.",
+      "url": "https://www.perplexity.ai/careers",
+      "featured": false
+    },
+    {
+      "name": "Together AI",
+      "category": "Infrastructure",
+      "tag": "Cloud inference",
+      "blurb": "Cloud platform for running and fine-tuning open-source models, hiring ML and systems engineers.",
+      "url": "https://www.together.ai/careers",
+      "featured": false
+    },
+    {
+      "name": "Stability AI",
+      "category": "Research lab",
+      "tag": "Open models",
+      "blurb": "Developer of Stable Diffusion and other open generative models across image, audio, and language.",
+      "url": "https://stability.ai/careers",
+      "featured": false
+    },
+    {
+      "name": "Midjourney",
+      "category": "Applied AI",
+      "tag": "Generative image",
+      "blurb": "Independent AI image generation research lab with selective hiring in ML research and engineering.",
+      "url": "https://www.midjourney.com/jobs",
+      "featured": false
+    }
+  ]
+}

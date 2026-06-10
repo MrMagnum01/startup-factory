@@ -1,0 +1,36 @@
+---
+interface Props {
+  href?: string;
+  variant?: "primary" | "accent" | "ghost";
+  size?: "md" | "lg";
+  type?: "button" | "submit";
+  class?: string;
+  external?: boolean;
+  rel?: string;
+  target?: string;
+  id?: string;
+  dataAttrs?: Record<string, string>;
+  ariaLabel?: string;
+}
+const {
+  href, variant = "primary", size = "md", type = "button",
+  class: cls = "", external = false, rel, target, id, dataAttrs = {}, ariaLabel,
+} = Astro.props;
+const klass = [
+  "btn",
+  variant === "accent" ? "btn--accent" : variant === "ghost" ? "btn--ghost" : "",
+  size === "lg" ? "btn--lg" : "",
+  cls,
+].filter(Boolean).join(" ");
+const rl = rel ?? (external ? "noopener" : undefined);
+const tg = target ?? (external ? "_blank" : undefined);
+---
+{href ? (
+  <a id={id} href={href} class={klass} rel={rl} target={tg} aria-label={ariaLabel} {...dataAttrs}>
+    <slot />
+  </a>
+) : (
+  <button id={id} type={type} class={klass} aria-label={ariaLabel} {...dataAttrs}>
+    <slot />
+  </button>
+)}

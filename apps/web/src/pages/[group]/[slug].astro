@@ -1,0 +1,23 @@
+---
+import Base from "../../layouts/Base.astro";
+import OfferTemplate from "@factory/ui/OfferTemplate.astro";
+import DirectoryTemplate from "@factory/ui/DirectoryTemplate.astro";
+import ToolTemplate from "@factory/ui/ToolTemplate.astro";
+import { projects } from "../../lib/projects";
+
+export function getStaticPaths() {
+  return projects.map((p: any) => {
+    const [, group, slug] = (p.route as string).split("/");
+    return { params: { group, slug }, props: { project: p } };
+  });
+}
+
+const { project } = Astro.props as { project: any };
+const Template =
+  project.renderAs === "directory" ? DirectoryTemplate :
+  project.renderAs === "tool" ? ToolTemplate :
+  OfferTemplate;
+---
+<Base title={project.seoTitle} description={project.seoDescription} project={project} type={project.renderAs === "offer" ? "product" : "website"}>
+  <Template project={project} />
+</Base>

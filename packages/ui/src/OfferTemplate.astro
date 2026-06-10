@@ -1,0 +1,139 @@
+---
+import Eyebrow from "./Eyebrow.astro";
+import Button from "./Button.astro";
+import SpecList from "./SpecList.astro";
+import FeatureGrid from "./FeatureGrid.astro";
+import SectionHeader from "./SectionHeader.astro";
+import Pricing from "./Pricing.astro";
+import Faq from "./Faq.astro";
+import PaymentCTA from "./PaymentCTA.astro";
+import EmailCapture from "./EmailCapture.astro";
+import LeadForm from "./LeadForm.astro";
+
+interface Props { project: any; }
+const { project } = Astro.props;
+const p = project;
+const t = p.cta?.type;
+const hasPricing = (p.pricing?.tiers?.length ?? 0) > 0;
+const idTag = String(p.id ?? 0).padStart(3, "0");
+const heroSpecs = (p.specs ?? []).slice(0, 5);
+---
+<!-- ===================== HERO (asymmetric, editorial) ===================== -->
+<section class="relative overflow-hidden border-b border-line">
+  <div class="absolute inset-0 grid-lines opacity-[0.5] [mask-image:radial-gradient(70%_60%_at_30%_0%,#000,transparent)]" aria-hidden="true"></div>
+  <div class="container-x relative grid lg:grid-cols-[1.35fr_0.9fr] gap-10 lg:gap-16 pt-16 pb-14 lg:pt-24 lg:pb-20 items-start">
+    <div class="reveal">
+      <Eyebrow text={`${idTag} · ${p.category}`} />
+      <h1 class="mt-6 text-display !text-[clamp(2.5rem,1.4rem+4vw,4.7rem)]">{p.headline}</h1>
+      <p class="lead mt-6 max-w-xl">{p.subheadline}</p>
+      <div class="flex flex-wrap items-center gap-3 mt-8">
+        <PaymentCTA project={p} />
+        <Button href="#details" variant="ghost" size="lg">How it works</Button>
+      </div>
+      {p.proofPoints?.length > 0 && (
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 mt-8 list-none p-0 m-0">
+          {p.proofPoints.map((pt: string) => (
+            <li class="flex items-center gap-2 text-[0.86rem] text-ink-soft">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {pt}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+    <aside class="reveal card lg:sticky lg:top-24" style="transition-delay:120ms">
+      <p class="eyebrow mb-4">The offer</p>
+      <SpecList rows={heroSpecs.length ? heroSpecs : [
+        { k: "Price", v: p.pricing?.tiers?.[0]?.price ?? "See pricing" },
+        { k: "Format", v: p.category },
+        { k: "Delivery", v: p.deploymentTarget?.split("—")[0] ?? "Online" },
+      ]} />
+      <div class="mt-6">
+        <PaymentCTA project={p} block={true} variant="primary" size="md" />
+      </div>
+      <p class="text-[0.76rem] text-muted mt-3">{p.cta?.note ?? "Secure checkout. No account needed."}</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ===================== PROBLEM ===================== -->
+<section class="bg-surface-2 border-b border-line">
+  <div class="container-x py-16 lg:py-20 grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-16">
+    <SectionHeader num="01" kicker="The problem" />
+    <div class="reveal">
+      <p class="font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.2rem)] leading-[1.18] text-ink">{p.painPoint}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOLUTION / FEATURES ===================== -->
+<section id="details">
+  <div class="container-x py-16 lg:py-24">
+    <div class="grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-16 mb-12">
+      <SectionHeader num="02" kicker="What you get" title="The solution" />
+      <div class="reveal">
+        <p class="lead text-ink-soft">{p.solution}</p>
+      </div>
+    </div>
+    {p.features?.length > 0 && <FeatureGrid features={p.features} />}
+  </div>
+</section>
+
+<!-- ===================== SPEC SHEET ===================== -->
+{p.specs?.length > 0 && (
+  <section class="border-y border-line bg-surface">
+    <div class="container-x py-16 lg:py-20 grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-16">
+      <SectionHeader num="03" kicker="Spec sheet" title="Exactly what's included" />
+      <div class="reveal max-w-2xl w-full"><SpecList rows={p.specs} /></div>
+    </div>
+  </section>
+)}
+
+<!-- ===================== PRICING ===================== -->
+{hasPricing && (t === "payment" || t === "download") && (
+  <section id="pricing">
+    <div class="container-x py-16 lg:py-24">
+      <SectionHeader num="04" kicker="Pricing" title="Simple, one-time" align="center" class="mb-12" />
+      <Pricing project={p} />
+    </div>
+  </section>
+)}
+
+<!-- ===================== CONVERSION BAND ===================== -->
+<section class="container-x py-6">
+  <div class="card card--ink reveal overflow-hidden relative">
+    <div class="absolute inset-0 grid-lines opacity-[0.08]" aria-hidden="true"></div>
+    <div class="relative grid lg:grid-cols-2 gap-10 p-4 lg:p-8 items-center">
+      <div>
+        <p class="eyebrow mb-4" style="color:var(--paper)">Ready when you are</p>
+        <h2 class="text-paper !text-[clamp(1.8rem,1.3rem+1.8vw,2.6rem)]">{
+          t === "waitlist" ? "Be first in line." :
+          t === "leadform" ? "Tell us what you need." :
+          "Start today."
+        }</h2>
+        <p class="text-paper/70 mt-3 max-w-md">{p.cta?.note ?? p.solution}</p>
+      </div>
+      <div>
+        {t === "waitlist" && <EmailCapture project={p} />}
+        {t === "leadform" && <LeadForm project={p} />}
+        {(t === "payment" || t === "download" || t === "tool") && (
+          <div class="flex flex-col gap-3">
+            <PaymentCTA project={p} block={true} />
+            <a href="#faq" class="text-[0.85rem] text-paper/60 hover:text-paper transition-colors">Questions? Read the FAQ ↓</a>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+{p.faq?.length > 0 && (
+  <section>
+    <div class="container-x py-16 lg:py-24 grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-16">
+      <SectionHeader num="05" kicker="FAQ" title="Good to know" />
+      <div class="reveal"><Faq items={p.faq} /></div>
+    </div>
+  </section>
+)}

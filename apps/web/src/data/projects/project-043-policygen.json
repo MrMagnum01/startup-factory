@@ -1,0 +1,127 @@
+{
+  "id": 43,
+  "slug": "policygen",
+  "name": "PolicyGen",
+  "category": "generator",
+  "renderAs": "tool",
+  "route": "/tools/policygen",
+  "accent": "#7C3F00",
+  "accentInk": "#2E1800",
+  "eyebrow": "generator",
+  "headline": "Privacy policy + terms generator (template-based)",
+  "subheadline": "Compliant-ish docs in minutes. Built for indie devs, small sites, app makers.",
+  "painPoint": "App stores/ads require policies.",
+  "solution": "Privacy policy + terms generator (template-based).",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Generator that returns useful output",
+      "body": "Generator that returns useful output."
+    },
+    {
+      "title": "Copy button",
+      "body": "copy button."
+    },
+    {
+      "title": "1 upsell",
+      "body": "1 upsell."
+    },
+    {
+      "title": "SEO metadata",
+      "body": "SEO metadata."
+    },
+    {
+      "title": "Examples",
+      "body": "examples."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "generator"
+    },
+    {
+      "k": "Price",
+      "v": "Free + $19"
+    },
+    {
+      "k": "Turnaround",
+      "v": "5-8h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Pro (custom clauses) + affiliate"
+    },
+    {
+      "k": "Channel",
+      "v": "Dev communities"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": [
+      {
+        "name": "Pro unlock",
+        "price": "$19",
+        "summary": "Support the tool, unlock the extras.",
+        "features": [
+          "Everything in free",
+          "Pro presets & exports",
+          "Lifetime license",
+          "Email support"
+        ],
+        "highlighted": false
+      }
+    ]
+  },
+  "cta": {
+    "type": "tool",
+    "label": "Use the free tool",
+    "href": "#tool",
+    "note": "Free. No signup. Runs entirely in your browser."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "tool": "policy-generator",
+  "seoTitle": "PolicyGen — Privacy policy + terms generator (template-based)",
+  "seoDescription": "Privacy policy + terms generator (template-based). Built for indie devs, small sites, app makers. Free to use.",
+  "keywords": [
+    "policygen",
+    "dev communities",
+    "seo",
+    "generator"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Indie devs, small sites, app makers. If that's you and \"app stores/ads require policies\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Compliant-ish docs in minutes."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    },
+    {
+      "q": "Is my data uploaded anywhere?",
+      "a": "No. The tool runs 100% in your browser — nothing you type or upload ever leaves your device. You can verify in DevTools: zero network calls during use."
+    }
+  ],
+  "launchChannel": "Dev communities, SEO",
+  "validationMetric": "200+ visits; target 25+ generations & 2+ Pro clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 43,
+  "frs": 5.95,
+  "revenueSpeed": 6,
+  "profitPotential": 6,
+  "killCriteria": "<50 visits AND 0 Pro interest after 14 days",
+  "biggestRisk": "Quality ceiling without an LLM; easy to clone; thin monetisation",
+  "first10": "SEO long-tail + community answers; submit to tool directories; 1 launch post",
+  "price": "Free + $19"
+}

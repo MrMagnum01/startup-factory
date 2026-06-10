@@ -1,0 +1,27 @@
+{
+  "name": "startup-factory",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Config-driven factory that publishes 50 monetizable project pages/tools from JSON configs. Astro static, Vercel-first, free-tier only.",
+  "packageManager": "pnpm@9.7.0",
+  "engines": {
+    "node": ">=18.17.1"
+  },
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm run generate && pnpm --filter web build",
+    "build:web": "pnpm --filter web build",
+    "preview": "pnpm --filter web preview",
+    "generate": "node scripts/generate-projects.mjs",
+    "validate": "node scripts/validate-configs.mjs",
+    "check-links": "node scripts/check-links.mjs",
+    "assess": "python3 scripts/assessment.py",
+    "test": "playwright test",
+    "test:install": "playwright install --with-deps chromium",
+    "lh": "lhci autorun"
+  },
+  "devDependencies": {
+    "zod": "^3.23.8",
+    "@playwright/test": "^1.47.2"
+  }
+}

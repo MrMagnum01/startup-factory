@@ -1,0 +1,131 @@
+{
+  "id": 8,
+  "slug": "coldswipe-100",
+  "name": "ColdSwipe 100",
+  "category": "template pack",
+  "renderAs": "offer",
+  "route": "/templates/coldswipe-100",
+  "accent": "#B45309",
+  "accentInk": "#3F1D03",
+  "eyebrow": "template pack",
+  "headline": "100 proven cold-email templates by use-case",
+  "subheadline": "Faster pipeline from swipeable copy. Built for founders, agencies, sdrs.",
+  "painPoint": "Blank-page paralysis writing outreach.",
+  "solution": "100 proven cold-email templates by use-case.",
+  "proofPoints": [
+    "No signup required",
+    "Instant download",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Product page",
+      "body": "Product page: hero preview."
+    },
+    {
+      "title": "What's-inside list",
+      "body": "what's-inside list."
+    },
+    {
+      "title": "3 screenshots",
+      "body": "3 screenshots."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "Buy button",
+      "body": "buy button."
+    },
+    {
+      "title": "Refund note",
+      "body": "refund note."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "template pack"
+    },
+    {
+      "k": "Price",
+      "v": "$39"
+    },
+    {
+      "k": "Delivery",
+      "v": "Instant download"
+    },
+    {
+      "k": "Monetization",
+      "v": "Gumroad/Lemon Squeezy"
+    },
+    {
+      "k": "Channel",
+      "v": "Indie Hackers"
+    }
+  ],
+  "pricing": {
+    "note": "Pay once, use forever. Free updates included.",
+    "tiers": [
+      {
+        "name": "Full pack",
+        "price": "$39",
+        "summary": "Everything inside, instant download.",
+        "features": [
+          "Product page: hero preview",
+          "what's-inside list",
+          "3 screenshots",
+          "price",
+          "buy button"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "download",
+    "label": "Get the pack",
+    "href": "#",
+    "note": "Instant download. Free updates. 14-day refund."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "ColdSwipe 100 — 100 proven cold-email templates by use-case",
+  "seoDescription": "100 proven cold-email templates by use-case. Built for founders, agencies, sdrs. From $39.",
+  "keywords": [
+    "coldswipe 100",
+    "indie hackers",
+    "linkedin",
+    "template pack"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Founders, agencies, SDRs. If that's you and \"blank-page paralysis writing outreach\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Faster pipeline from swipeable copy."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Instantly. The download link arrives the moment payment clears."
+    },
+    {
+      "q": "What's the refund policy?",
+      "a": "14 days, no questions asked. If it doesn't fit your workflow, reply to the receipt email and we refund you."
+    }
+  ],
+  "launchChannel": "Indie Hackers, LinkedIn, B2B Discord",
+  "validationMetric": "Drive 300-500 targeted visits; target 5+ sales in 14 days at list price",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 8,
+  "frs": 7.25,
+  "revenueSpeed": 8,
+  "profitPotential": 8,
+  "killCriteria": "<1% conversion after 500 targeted visits, or <2 sales in 14 days",
+  "biggestRisk": "Commoditised; piracy & refunds; needs constant distribution to keep selling",
+  "first10": "Post a free sample in 3 relevant subreddits/Discords; list on Gumroad Discover; 1 short demo clip",
+  "price": "$39"
+}

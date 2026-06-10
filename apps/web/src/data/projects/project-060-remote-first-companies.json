@@ -1,0 +1,241 @@
+{
+  "id": 60,
+  "slug": "remote-first-companies",
+  "name": "RemoteFirst",
+  "category": "directory",
+  "renderAs": "directory",
+  "route": "/directories/remote-first-companies",
+  "accent": "#3F6212",
+  "accentInk": "#1A2A06",
+  "eyebrow": "directory",
+  "headline": "Directory of genuinely remote-first companies hiring",
+  "subheadline": "Find real remote employers fast. Built for remote job seekers.",
+  "painPoint": "Fake-remote listings everywhere.",
+  "solution": "Directory of genuinely remote-first companies hiring.",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Seeded list (40-100 entries)",
+      "body": "Seeded list (40-100 entries)."
+    },
+    {
+      "title": "Search + 2 filters",
+      "body": "search + 2 filters."
+    },
+    {
+      "title": "Detail rows",
+      "body": "detail rows."
+    },
+    {
+      "title": "'submit listing' form",
+      "body": "'submit listing' form."
+    },
+    {
+      "title": "1 sponsor slot",
+      "body": "1 sponsor slot."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "directory"
+    },
+    {
+      "k": "Price",
+      "v": "Free; $79 post"
+    },
+    {
+      "k": "Turnaround",
+      "v": "8-12h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Job-post fees + affiliate"
+    },
+    {
+      "k": "Channel",
+      "v": "r/remotework"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": []
+  },
+  "cta": {
+    "type": "waitlist",
+    "label": "Submit a listing",
+    "href": "#",
+    "note": "Free submissions reviewed weekly. Featured slots paid."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "directory": {
+    "facets": [
+      "DevTools",
+      "SaaS",
+      "Consumer",
+      "Infrastructure",
+      "HR/Fintech"
+    ],
+    "items": [
+      {
+        "name": "GitLab",
+        "category": "DevTools",
+        "tag": "All-remote",
+        "blurb": "DevOps platform company that pioneered the all-remote model with a publicly documented handbook.",
+        "url": "https://about.gitlab.com/jobs",
+        "featured": true
+      },
+      {
+        "name": "Automattic",
+        "category": "SaaS",
+        "tag": "Distributed",
+        "blurb": "Fully distributed company behind WordPress.com, WooCommerce, and Tumblr with no headquarters.",
+        "url": "https://automattic.com/work-with-us",
+        "featured": false
+      },
+      {
+        "name": "Zapier",
+        "category": "SaaS",
+        "tag": "All-remote",
+        "blurb": "Workflow automation platform that has operated as a fully remote company since its founding.",
+        "url": "https://zapier.com/jobs",
+        "featured": false
+      },
+      {
+        "name": "Buffer",
+        "category": "SaaS",
+        "tag": "All-remote",
+        "blurb": "Social media scheduling tool known for radical transparency and fully distributed team structure.",
+        "url": "https://buffer.com/journey",
+        "featured": false
+      },
+      {
+        "name": "Doist",
+        "category": "SaaS",
+        "tag": "Async-first",
+        "blurb": "Creator of Todoist and Twist, operating as an async-first remote company across many countries.",
+        "url": "https://doist.com/jobs",
+        "featured": false
+      },
+      {
+        "name": "Toggl",
+        "category": "SaaS",
+        "tag": "All-remote",
+        "blurb": "Time tracking and project planning company fully distributed across dozens of countries.",
+        "url": "https://toggl.com/jobs",
+        "featured": false
+      },
+      {
+        "name": "Hotjar",
+        "category": "SaaS",
+        "tag": "All-remote",
+        "blurb": "Behavior analytics tool company that operates fully remotely, acquired by Contentsquare.",
+        "url": "https://www.hotjar.com/careers",
+        "featured": false
+      },
+      {
+        "name": "DuckDuckGo",
+        "category": "Consumer",
+        "tag": "All-remote",
+        "blurb": "Privacy-focused search engine and browser operating as a fully remote distributed company.",
+        "url": "https://duckduckgo.com/hiring",
+        "featured": false
+      },
+      {
+        "name": "Wikimedia Foundation",
+        "category": "Consumer",
+        "tag": "Distributed",
+        "blurb": "Nonprofit supporting Wikipedia and other free knowledge projects with a remote-distributed team.",
+        "url": "https://wikimediafoundation.org/about/jobs",
+        "featured": false
+      },
+      {
+        "name": "Grafana Labs",
+        "category": "Infrastructure",
+        "tag": "Remote-first",
+        "blurb": "Observability company behind Grafana OSS operating as a remote-first organization globally.",
+        "url": "https://grafana.com/about/careers",
+        "featured": false
+      },
+      {
+        "name": "Sourcegraph",
+        "category": "DevTools",
+        "tag": "All-remote",
+        "blurb": "Code intelligence platform that operates as an all-remote company with an open employee handbook.",
+        "url": "https://sourcegraph.com/careers",
+        "featured": false
+      },
+      {
+        "name": "Remote.com",
+        "category": "HR/Fintech",
+        "tag": "All-remote",
+        "blurb": "Employer of record and HR platform for global teams, itself fully remote by design.",
+        "url": "https://remote.com/careers",
+        "featured": false
+      },
+      {
+        "name": "Deel",
+        "category": "HR/Fintech",
+        "tag": "Distributed",
+        "blurb": "Global payroll and compliance platform for remote teams, employing a distributed workforce.",
+        "url": "https://www.deel.com/careers",
+        "featured": false
+      },
+      {
+        "name": "Oyster HR",
+        "category": "HR/Fintech",
+        "tag": "All-remote",
+        "blurb": "Global employment platform enabling remote hiring, itself structured as an all-remote company.",
+        "url": "https://www.oysterhr.com/about/careers",
+        "featured": false
+      },
+      {
+        "name": "1Password",
+        "category": "SaaS",
+        "tag": "Remote-first",
+        "blurb": "Password manager and secrets management platform that operates with a remote-first culture.",
+        "url": "https://1password.com/jobs",
+        "featured": false
+      }
+    ],
+    "sponsorNote": "Get featured at the top of this list."
+  },
+  "seoTitle": "RemoteFirst — Directory of genuinely remote-first companies hiring",
+  "seoDescription": "Directory of genuinely remote-first companies hiring. Built for remote job seekers. Free to use.",
+  "keywords": [
+    "remotefirst",
+    "r/remotework",
+    "seo",
+    "directory"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Remote job seekers. If that's you and \"fake-remote listings everywhere\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Find real remote employers fast."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    }
+  ],
+  "launchChannel": "r/remotework, SEO, LinkedIn",
+  "validationMetric": "Index + 200 visits; target 1 paid/featured listing or 3 affiliate clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 60,
+  "frs": 5.55,
+  "revenueSpeed": 5,
+  "profitPotential": 7,
+  "killCriteria": "<150 visits AND 0 listing/affiliate revenue interest after 14 days",
+  "biggestRisk": "Cold-start (needs both content and traffic); affiliate payouts are thin early",
+  "first10": "Seed great entries, then tell each listed brand they're featured (warm outreach for upgrades)",
+  "price": "Free; $79 post"
+}

@@ -1,0 +1,93 @@
+---
+// UTM link builder + QR (QR lazy-loaded from CDN; UTM works fully offline).
+---
+<div class="grid lg:grid-cols-[1fr_0.9fr] gap-8">
+  <form class="grid gap-4" autocomplete="off">
+    <div class="grid gap-1.5">
+      <label for="ut-url" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Destination URL *</label>
+      <input id="ut-url" type="url" placeholder="https://yoursite.com/page" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]" />
+    </div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="grid gap-1.5">
+        <label for="ut-source" class="mono text-[0.7rem] uppercase tracking-widest text-muted">utm_source *</label>
+        <input id="ut-source" placeholder="newsletter, twitter, reddit" list="ut-src-l" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]" />
+        <datalist id="ut-src-l"><option value="newsletter"/><option value="twitter"/><option value="linkedin"/><option value="reddit"/><option value="facebook"/><option value="google"/></datalist>
+      </div>
+      <div class="grid gap-1.5">
+        <label for="ut-medium" class="mono text-[0.7rem] uppercase tracking-widest text-muted">utm_medium *</label>
+        <input id="ut-medium" placeholder="email, social, cpc" list="ut-med-l" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]" />
+        <datalist id="ut-med-l"><option value="email"/><option value="social"/><option value="cpc"/><option value="referral"/><option value="qr"/></datalist>
+      </div>
+      <div class="grid gap-1.5">
+        <label for="ut-campaign" class="mono text-[0.7rem] uppercase tracking-widest text-muted">utm_campaign *</label>
+        <input id="ut-campaign" placeholder="spring_launch" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="ut-content" class="mono text-[0.7rem] uppercase tracking-widest text-muted">utm_content</label>
+        <input id="ut-content" placeholder="cta_top (optional)" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper text-[0.92rem]" />
+      </div>
+    </div>
+    <label class="flex items-center gap-3 card !py-3 cursor-pointer">
+      <input id="ut-lower" type="checkbox" checked class="accent-[var(--accent)] w-4 h-4" />
+      <span class="text-[0.9rem]">Force lowercase <span class="text-muted">(prevents GA splitting "Email" vs "email")</span></span>
+    </label>
+  </form>
+
+  <div class="grid gap-4 content-start">
+    <div class="card" aria-live="polite">
+      <p class="eyebrow mb-3">Tracked link</p>
+      <p class="mono text-[0.82rem] break-all bg-surface-2 border border-line rounded-[10px] p-3 min-h-[3.4rem]" id="ut-out">Fill the required fields…</p>
+      <div class="flex gap-2">
+        <button type="button" id="ut-copy" class="btn btn--accent flex-1" aria-disabled="true">Copy link</button>
+        <button type="button" id="ut-qr-btn" class="btn btn--ghost" aria-disabled="true">QR</button>
+      </div>
+    </div>
+    <div id="ut-qr-card" class="card hidden text-center">
+      <p class="eyebrow mb-3 justify-center">QR code</p>
+      <div id="ut-qr" class="grid place-items-center [&_canvas]:rounded-[8px] [&_img]:rounded-[8px]"></div>
+      <p class="text-[0.78rem] text-muted mt-3 mb-0">Right-click → save image. Generated locally after a one-time library load.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const f = (id: string) => document.getElementById(id) as HTMLInputElement;
+  let current = "";
+  function build() {
+    const lower = (f("ut-lower") as any).checked;
+    const clean = (s: string) => { s = s.trim().replace(/\s+/g, "_"); return lower ? s.toLowerCase() : s; };
+    const url = f("ut-url").value.trim();
+    const src = clean(f("ut-source").value), med = clean(f("ut-medium").value), cam = clean(f("ut-campaign").value), con = clean(f("ut-content").value);
+    const out = f("ut-out"), copyB = document.getElementById("ut-copy")!, qrB = document.getElementById("ut-qr-btn")!;
+    current = "";
+    if (!url || !src || !med || !cam) { out.textContent = "Fill the required fields…"; copyB.setAttribute("aria-disabled","true"); qrB.setAttribute("aria-disabled","true"); return; }
+    try {
+      const u = new URL(url);
+      u.searchParams.set("utm_source", src); u.searchParams.set("utm_medium", med); u.searchParams.set("utm_campaign", cam);
+      if (con) u.searchParams.set("utm_content", con);
+      current = u.toString();
+      out.textContent = current;
+      copyB.removeAttribute("aria-disabled"); qrB.removeAttribute("aria-disabled");
+    } catch { out.textContent = "That URL doesn't look valid (include https://)."; }
+  }
+  ["ut-url","ut-source","ut-medium","ut-campaign","ut-content","ut-lower"].forEach((i) => f(i).addEventListener("input", build));
+  document.getElementById("ut-copy")!.addEventListener("click", async () => {
+    if (!current) return;
+    try { await navigator.clipboard.writeText(current); const b = document.getElementById("ut-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy link"), 1500); (window as any).track && (window as any).track("tool_used", { tool: "utm-builder" }); } catch {}
+  });
+  let qrLib: any = null;
+  document.getElementById("ut-qr-btn")!.addEventListener("click", async () => {
+    if (!current) return;
+    const card = document.getElementById("ut-qr-card")!, box = document.getElementById("ut-qr")!;
+    card.classList.remove("hidden");
+    box.innerHTML = '<span class="mono text-[0.75rem] text-muted">loading…</span>';
+    try {
+      if (!qrLib) {
+        await new Promise((res, rej) => { const s = document.createElement("script"); s.src = "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+        qrLib = (window as any).qrcode;
+      }
+      const qr = qrLib(0, "M"); qr.addData(current); qr.make();
+      box.innerHTML = qr.createImgTag(5, 8);
+    } catch { box.innerHTML = '<span class="text-[0.85rem] text-ink-soft">QR library unavailable offline — the tracked link still works. Try again online.</span>'; }
+  });
+</script>

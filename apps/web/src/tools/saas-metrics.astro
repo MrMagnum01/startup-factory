@@ -1,0 +1,76 @@
+---
+// SaaS metrics calculator — LTV, LTV:CAC, payback. Client-side only.
+---
+<div class="grid lg:grid-cols-[1fr_0.9fr] gap-8">
+  <form class="grid sm:grid-cols-2 gap-4" autocomplete="off">
+    <div class="grid gap-1.5">
+      <label for="sm-arpu" class="mono text-[0.7rem] uppercase tracking-widest text-muted">ARPU $/mo</label>
+      <input id="sm-arpu" type="number" min="0" step="1" value="29" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="sm-churn" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Monthly churn %</label>
+      <input id="sm-churn" type="number" min="0.1" max="50" step="0.1" value="4" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="sm-margin" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Gross margin %</label>
+      <input id="sm-margin" type="number" min="1" max="100" value="80" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="sm-cac" class="mono text-[0.7rem] uppercase tracking-widest text-muted">CAC $</label>
+      <input id="sm-cac" type="number" min="0" value="120" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="sm-cust" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Current customers</label>
+      <input id="sm-cust" type="number" min="0" value="120" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+    <div class="grid gap-1.5">
+      <label for="sm-growth" class="mono text-[0.7rem] uppercase tracking-widest text-muted">New customers / mo</label>
+      <input id="sm-growth" type="number" min="0" value="15" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper tnum" />
+    </div>
+  </form>
+
+  <div class="card !bg-surface-2 self-start" aria-live="polite">
+    <p class="eyebrow mb-5">Unit economics</p>
+    <div class="spec">
+      <div class="spec-row"><span class="k">MRR</span><span class="dot"></span><span class="v tnum" id="sm-mrr">—</span></div>
+      <div class="spec-row"><span class="k">Avg lifetime</span><span class="dot"></span><span class="v tnum" id="sm-life">—</span></div>
+      <div class="spec-row"><span class="k">LTV</span><span class="dot"></span><span class="v text-display !text-[1.6rem] tnum" id="sm-ltv">—</span></div>
+      <div class="spec-row"><span class="k">LTV : CAC</span><span class="dot"></span><span class="v tnum" id="sm-ratio">—</span></div>
+      <div class="spec-row"><span class="k">CAC payback</span><span class="dot"></span><span class="v tnum" id="sm-payback">—</span></div>
+      <div class="spec-row"><span class="k">12-mo MRR run-rate</span><span class="dot"></span><span class="v tnum" id="sm-proj">—</span></div>
+    </div>
+    <p class="text-[0.82rem] text-ink-soft mt-4 mb-0" id="sm-verdict">—</p>
+  </div>
+</div>
+
+<script>
+  const g = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const money = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
+  function run() {
+    const arpu = +g("sm-arpu").value || 0;
+    const churn = Math.max(0.001, (+g("sm-churn").value || 0) / 100);
+    const margin = (+g("sm-margin").value || 0) / 100;
+    const cac = +g("sm-cac").value || 0;
+    const cust = +g("sm-cust").value || 0;
+    const grow = +g("sm-growth").value || 0;
+    const life = 1 / churn;
+    const ltv = arpu * margin * life;
+    const ratio = cac > 0 ? ltv / cac : Infinity;
+    const payback = arpu * margin > 0 ? cac / (arpu * margin) : Infinity;
+    let c = cust;
+    for (let m = 0; m < 12; m++) c = c * (1 - churn) + grow;
+    g("sm-mrr").textContent = money(arpu * cust);
+    g("sm-life").textContent = life.toFixed(1) + " months";
+    g("sm-ltv").textContent = money(ltv);
+    g("sm-ratio").textContent = isFinite(ratio) ? ratio.toFixed(1) + " : 1" : "∞";
+    g("sm-payback").textContent = isFinite(payback) ? payback.toFixed(1) + " months" : "—";
+    g("sm-proj").textContent = money(arpu * c) + "/mo";
+    g("sm-verdict").textContent =
+      ratio >= 3 && payback <= 12 ? "Healthy: LTV:CAC ≥ 3 and payback under a year. Scaling spend is defensible."
+      : ratio >= 3 ? "LTV:CAC is fine but payback is slow — watch cash."
+      : "Under 3:1 — fix churn or pricing before buying growth.";
+    try { (window as any).track && (window as any).track("tool_used", { tool: "saas-metrics" }); } catch {}
+  }
+  ["sm-arpu","sm-churn","sm-margin","sm-cac","sm-cust","sm-growth"].forEach((i) => g(i)?.addEventListener("input", run));
+  run();
+</script>

@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate project configs
+        run: node scripts/generate-projects.mjs
+
+      - name: Validate configs
+        run: node scripts/validate-configs.mjs
+
+      - name: Generate OG images
+        run: pip install pillow -q && python3 scripts/generate-og.py
+
+      - name: Build (static)
+        run: pnpm --filter web build
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://startup-factory.vercel.app' }}
+
+      - name: Link / SEO audit over dist
+        run: node scripts/check-links.mjs
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Smoke tests (Playwright)
+        run: pnpm exec playwright test
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: build-test
+    # Soft quality gate — measures, never blocks a deploy.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/generate-projects.mjs && pnpm --filter web build
+      - name: Lighthouse CI
+        run: |
+          npm i -g @lhci/cli@0.14.x
+          lhci autorun || echo "LHCI soft-failed (non-blocking)"

@@ -1,0 +1,109 @@
+{
+  "id": 45,
+  "slug": "buildinpublic-kit",
+  "name": "BuildInPublic Kit",
+  "category": "landing page",
+  "renderAs": "offer",
+  "route": "/projects/buildinpublic-kit",
+  "accent": "#9D174D",
+  "accentInk": "#3D0A20",
+  "eyebrow": "landing page",
+  "headline": "Pre-order page for a build-in-public content system",
+  "subheadline": "A system to post consistently. Built for creators/founders building in public.",
+  "painPoint": "Inconsistent BIP content.",
+  "solution": "Pre-order page for a build-in-public content system.",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Clear promise",
+      "body": "Clear promise."
+    },
+    {
+      "title": "Who-it's-for",
+      "body": "who-it's-for."
+    },
+    {
+      "title": "3 benefits",
+      "body": "3 benefits."
+    },
+    {
+      "title": "Social proof placeholder",
+      "body": "social proof placeholder."
+    },
+    {
+      "title": "Email capture or pre-order",
+      "body": "email capture or pre-order."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "landing page"
+    },
+    {
+      "k": "Price",
+      "v": "$24 pre-order"
+    },
+    {
+      "k": "Turnaround",
+      "v": "2-4h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Pre-order via Gumroad"
+    },
+    {
+      "k": "Channel",
+      "v": "Twitter"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": []
+  },
+  "cta": {
+    "type": "waitlist",
+    "label": "Join the waitlist",
+    "href": "#",
+    "note": "Early-bird price locked for the first 50."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "BuildInPublic Kit — Pre-order page for a build-in-public content…",
+  "seoDescription": "Pre-order page for a build-in-public content system. Built for creators/founders building in public. From $24 pre.",
+  "keywords": [
+    "buildinpublic kit",
+    "twitter",
+    "creator communities",
+    "landing page"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Creators/founders building in public. If that's you and \"inconsistent bip content\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "A system to post consistently."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    }
+  ],
+  "launchChannel": "Twitter, creator communities",
+  "validationMetric": "150+ visits; target 30+ waitlist emails or 3 pre-orders in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 45,
+  "frs": 5.95,
+  "revenueSpeed": 5,
+  "profitPotential": 6,
+  "killCriteria": "<10 waitlist emails AND 0 pre-orders after 150 visits",
+  "biggestRisk": "Waitlist signups != revenue; intent can be soft; you still have to build it",
+  "first10": "Post the promise in 3 niche communities; 10 warm DMs; 1 Product Hunt 'coming soon'",
+  "price": "$24 pre-order"
+}

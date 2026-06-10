@@ -1,0 +1,127 @@
+{
+  "id": 49,
+  "slug": "coldgen",
+  "name": "ColdGen",
+  "category": "generator",
+  "renderAs": "tool",
+  "route": "/tools/coldgen",
+  "accent": "#B45309",
+  "accentInk": "#3F1D03",
+  "eyebrow": "generator",
+  "headline": "Cold-email generator: fill inputs -> ready sequence (templates)",
+  "subheadline": "Ready-to-send sequences fast. Built for founders, sdrs, agencies.",
+  "painPoint": "Writing cold email from scratch.",
+  "solution": "Cold-email generator: fill inputs -> ready sequence (templates).",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Generator that returns useful output",
+      "body": "Generator that returns useful output."
+    },
+    {
+      "title": "Copy button",
+      "body": "copy button."
+    },
+    {
+      "title": "1 upsell",
+      "body": "1 upsell."
+    },
+    {
+      "title": "SEO metadata",
+      "body": "SEO metadata."
+    },
+    {
+      "title": "Examples",
+      "body": "examples."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "generator"
+    },
+    {
+      "k": "Price",
+      "v": "Free + $19"
+    },
+    {
+      "k": "Turnaround",
+      "v": "5-8h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Pro pack + service upsell"
+    },
+    {
+      "k": "Channel",
+      "v": "B2B communities"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": [
+      {
+        "name": "Pro unlock",
+        "price": "$19",
+        "summary": "Support the tool, unlock the extras.",
+        "features": [
+          "Everything in free",
+          "Pro presets & exports",
+          "Lifetime license",
+          "Email support"
+        ],
+        "highlighted": false
+      }
+    ]
+  },
+  "cta": {
+    "type": "tool",
+    "label": "Use the free tool",
+    "href": "#tool",
+    "note": "Free. No signup. Runs entirely in your browser."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "tool": "cold-email-generator",
+  "seoTitle": "ColdGen — Cold-email generator: fill inputs -> ready sequence…",
+  "seoDescription": "Cold-email generator: fill inputs -> ready sequence (templates). Built for founders, sdrs, agencies. Free to use.",
+  "keywords": [
+    "coldgen",
+    "b2b communities",
+    "linkedin",
+    "generator"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Founders, SDRs, agencies. If that's you and \"writing cold email from scratch\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Ready-to-send sequences fast."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    },
+    {
+      "q": "Is my data uploaded anywhere?",
+      "a": "No. The tool runs 100% in your browser — nothing you type or upload ever leaves your device. You can verify in DevTools: zero network calls during use."
+    }
+  ],
+  "launchChannel": "B2B communities, LinkedIn",
+  "validationMetric": "200+ visits; target 25+ generations & 2+ Pro clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 49,
+  "frs": 5.85,
+  "revenueSpeed": 6,
+  "profitPotential": 6,
+  "killCriteria": "<50 visits AND 0 Pro interest after 14 days",
+  "biggestRisk": "Quality ceiling without an LLM; easy to clone; thin monetisation",
+  "first10": "SEO long-tail + community answers; submit to tool directories; 1 launch post",
+  "price": "Free + $19"
+}

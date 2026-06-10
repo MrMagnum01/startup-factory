@@ -1,0 +1,131 @@
+{
+  "id": 1,
+  "slug": "resume-rewrite",
+  "name": "ResumeRev",
+  "category": "productized service",
+  "renderAs": "offer",
+  "route": "/services/resume-rewrite",
+  "accent": "#15634C",
+  "accentInk": "#0B2A20",
+  "eyebrow": "productized service",
+  "headline": "ATS-optimized resume rewrite with a 48h turnaround",
+  "subheadline": "More interviews; concrete keyword/format fixes. Built for job seekers (mid-career, tech, new grads).",
+  "painPoint": "Resumes get auto-rejected; no replies.",
+  "solution": "ATS-optimized resume rewrite with a 48h turnaround.",
+  "proofPoints": [
+    "Fixed scope, fixed price",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "One-page offer",
+      "body": "One-page offer: outcome headline."
+    },
+    {
+      "title": "3 proof points",
+      "body": "3 proof points."
+    },
+    {
+      "title": "Fixed scope",
+      "body": "fixed scope."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "FAQ",
+      "body": "FAQ."
+    },
+    {
+      "title": "Stripe link + booking form",
+      "body": "Stripe link + booking form."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "productized service"
+    },
+    {
+      "k": "Price",
+      "v": "$79-129"
+    },
+    {
+      "k": "Turnaround",
+      "v": "48–72 hours"
+    },
+    {
+      "k": "Monetization",
+      "v": "Stripe/Gumroad"
+    },
+    {
+      "k": "Channel",
+      "v": "Reddit r/resumes"
+    }
+  ],
+  "pricing": {
+    "note": "One fixed price. No retainers, no surprises.",
+    "tiers": [
+      {
+        "name": "The package",
+        "price": "$79",
+        "summary": "ATS-optimized resume rewrite with a 48h turnaround.",
+        "features": [
+          "One-page offer: outcome headline",
+          "3 proof points",
+          "fixed scope",
+          "price",
+          "FAQ"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "payment",
+    "label": "Book it now",
+    "href": "#",
+    "note": "Fixed price. Stripe secure checkout. 48–72h turnaround."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "ResumeRev — ATS-optimized resume rewrite with a 48h turnaround",
+  "seoDescription": "ATS-optimized resume rewrite with a 48h turnaround. Built for job seekers (mid-career, tech, new grads). From $79.",
+  "keywords": [
+    "resumerev",
+    "reddit r/resumes",
+    "linkedin",
+    "productized service"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Job seekers (mid-career, tech, new grads). If that's you and \"resumes get auto-rejected; no replies\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "More interviews; concrete keyword/format fixes."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Within 48–72 hours of ordering. You'll get a confirmation immediately and the deliverable by email."
+    },
+    {
+      "q": "What if I'm not happy?",
+      "a": "One free revision round is included. If the deliverable misses the agreed scope, you get a full refund — no argument."
+    }
+  ],
+  "launchChannel": "Reddit r/resumes, LinkedIn, Upwork",
+  "validationMetric": "Send 50 personalised outreach touches; target 1+ paid order or 3+ booked calls in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 1,
+  "frs": 7.7,
+  "revenueSpeed": 9,
+  "profitPotential": 7,
+  "killCriteria": "0 paid orders AND <2 booked calls after 100 outreach touches in 14 days",
+  "biggestRisk": "Fulfillment time caps scale; low cold-reply rates; you trade hours for money until productised further",
+  "first10": "DM/cold-email 30-50 ideal-fit businesses with a free mini-teardown; post the offer in 2 niche communities",
+  "price": "$79-129"
+}

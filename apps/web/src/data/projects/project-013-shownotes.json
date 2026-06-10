@@ -1,0 +1,131 @@
+{
+  "id": 13,
+  "slug": "shownotes",
+  "name": "ShowNotes",
+  "category": "productized service",
+  "renderAs": "offer",
+  "route": "/services/shownotes",
+  "accent": "#1D4ED8",
+  "accentInk": "#0B1E4B",
+  "eyebrow": "productized service",
+  "headline": "Podcast show notes + timestamps + 3 social clips per episode",
+  "subheadline": "Recurring time savings; more discoverability. Built for indie podcasters, b2b podcast teams.",
+  "painPoint": "Editing/notes eat hours every week.",
+  "solution": "Podcast show notes + timestamps + 3 social clips per episode.",
+  "proofPoints": [
+    "Fixed scope, fixed price",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "One-page offer",
+      "body": "One-page offer: outcome headline."
+    },
+    {
+      "title": "3 proof points",
+      "body": "3 proof points."
+    },
+    {
+      "title": "Fixed scope",
+      "body": "fixed scope."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "FAQ",
+      "body": "FAQ."
+    },
+    {
+      "title": "Stripe link + booking form",
+      "body": "Stripe link + booking form."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "productized service"
+    },
+    {
+      "k": "Price",
+      "v": "$39/ep or $129/mo"
+    },
+    {
+      "k": "Turnaround",
+      "v": "48–72 hours"
+    },
+    {
+      "k": "Monetization",
+      "v": "Stripe subscription/per-episode"
+    },
+    {
+      "k": "Channel",
+      "v": "Podcast FB groups"
+    }
+  ],
+  "pricing": {
+    "note": "One fixed price. No retainers, no surprises.",
+    "tiers": [
+      {
+        "name": "The package",
+        "price": "$39",
+        "summary": "Podcast show notes + timestamps + 3 social clips per episode.",
+        "features": [
+          "One-page offer: outcome headline",
+          "3 proof points",
+          "fixed scope",
+          "price",
+          "FAQ"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "payment",
+    "label": "Book it now",
+    "href": "#",
+    "note": "Fixed price. Stripe secure checkout. 48–72h turnaround."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "ShowNotes — Podcast show notes + timestamps + 3 social clips per…",
+  "seoDescription": "Podcast show notes + timestamps + 3 social clips per episode. Built for indie podcasters, b2b podcast teams. From $39/ep or $129/mo.",
+  "keywords": [
+    "shownotes",
+    "podcast fb groups",
+    "twitter",
+    "productized service"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Indie podcasters, B2B podcast teams. If that's you and \"editing/notes eat hours every week\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Recurring time savings; more discoverability."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Within 48–72 hours of ordering. You'll get a confirmation immediately and the deliverable by email."
+    },
+    {
+      "q": "What if I'm not happy?",
+      "a": "One free revision round is included. If the deliverable misses the agreed scope, you get a full refund — no argument."
+    }
+  ],
+  "launchChannel": "Podcast FB groups, Twitter",
+  "validationMetric": "Send 50 personalised outreach touches; target 1+ paid order or 3+ booked calls in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 13,
+  "frs": 7.1,
+  "revenueSpeed": 8,
+  "profitPotential": 7,
+  "killCriteria": "0 paid orders AND <2 booked calls after 100 outreach touches in 14 days",
+  "biggestRisk": "Fulfillment time caps scale; low cold-reply rates; you trade hours for money until productised further",
+  "first10": "DM/cold-email 30-50 ideal-fit businesses with a free mini-teardown; post the offer in 2 niche communities",
+  "price": "$39/ep or $129/mo"
+}

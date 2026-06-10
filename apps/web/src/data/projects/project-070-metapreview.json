@@ -1,0 +1,127 @@
+{
+  "id": 70,
+  "slug": "metapreview",
+  "name": "MetaPreview",
+  "category": "micro-tool",
+  "renderAs": "tool",
+  "route": "/tools/metapreview",
+  "accent": "#BE123C",
+  "accentInk": "#45041A",
+  "eyebrow": "micro-tool",
+  "headline": "Meta/OpenGraph tag generator + social preview",
+  "subheadline": "Perfect previews & tags in 1 min. Built for devs, marketers, seos.",
+  "painPoint": "Bad link previews; missing tags.",
+  "solution": "Meta/OpenGraph tag generator + social preview.",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Working tool",
+      "body": "Working tool."
+    },
+    {
+      "title": "Privacy note ('runs in your browser')",
+      "body": "privacy note ('runs in your browser')."
+    },
+    {
+      "title": "1 upsell CTA",
+      "body": "1 upsell CTA."
+    },
+    {
+      "title": "SEO metadata",
+      "body": "SEO metadata."
+    },
+    {
+      "title": "Share button",
+      "body": "share button."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "micro-tool"
+    },
+    {
+      "k": "Price",
+      "v": "Free + $9"
+    },
+    {
+      "k": "Turnaround",
+      "v": "4-6h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Affiliate (SEO tools) + Pro"
+    },
+    {
+      "k": "Channel",
+      "v": "SEO"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": [
+      {
+        "name": "Pro unlock",
+        "price": "$9",
+        "summary": "Support the tool, unlock the extras.",
+        "features": [
+          "Everything in free",
+          "Pro presets & exports",
+          "Lifetime license",
+          "Email support"
+        ],
+        "highlighted": false
+      }
+    ]
+  },
+  "cta": {
+    "type": "tool",
+    "label": "Use the free tool",
+    "href": "#tool",
+    "note": "Free. No signup. Runs entirely in your browser."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "tool": "meta-tags",
+  "seoTitle": "MetaPreview — Meta/OpenGraph tag generator + social preview",
+  "seoDescription": "Meta/OpenGraph tag generator + social preview. Built for devs, marketers, seos. Free to use.",
+  "keywords": [
+    "metapreview",
+    "seo",
+    "dev communities",
+    "micro-tool"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Devs, marketers, SEOs. If that's you and \"bad link previews; missing tags\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Perfect previews & tags in 1 min."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    },
+    {
+      "q": "Is my data uploaded anywhere?",
+      "a": "No. The tool runs 100% in your browser — nothing you type or upload ever leaves your device. You can verify in DevTools: zero network calls during use."
+    }
+  ],
+  "launchChannel": "SEO, dev communities",
+  "validationMetric": "200+ visits; target 25+ successful uses & 2+ Pro clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 70,
+  "frs": 5.35,
+  "revenueSpeed": 5,
+  "profitPotential": 5,
+  "killCriteria": "<50 visits AND 0 Pro interest after 14 days",
+  "biggestRisk": "Commodity space, hard to rank; free alternatives everywhere",
+  "first10": "SEO long-tail + answer 5 forum threads; submit to tool directories; 1 launch post",
+  "price": "Free + $9"
+}

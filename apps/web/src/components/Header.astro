@@ -1,0 +1,47 @@
+---
+const nav = [
+  { href: "/projects", label: "Projects" },
+  { href: "/tools", label: "Tools" },
+  { href: "/directories", label: "Directories" },
+  { href: "/templates", label: "Templates" },
+  { href: "/services", label: "Services" },
+];
+const path = Astro.url.pathname;
+const active = (h: string) => (h === "/" ? path === "/" : path.startsWith(h));
+---
+<header class="sticky top-0 z-40 border-b border-line bg-paper/80 backdrop-blur-md">
+  <div class="container-x flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-2.5" aria-label="Startup Factory — home">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="24" height="24" rx="6" fill="var(--ink)" />
+        <rect x="6.5" y="13" width="3.4" height="6.5" rx="1" fill="var(--accent)" />
+        <rect x="11.3" y="9.5" width="3.4" height="10" rx="1" fill="var(--paper)" />
+        <rect x="16.1" y="6" width="3.4" height="13.5" rx="1" fill="var(--accent)" />
+      </svg>
+      <span class="mono text-[0.7rem] leading-[1.05] tracking-wide text-ink">STARTUP<br />FACTORY</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-0.5" aria-label="Primary">
+      {nav.map((n) => (
+        <a href={n.href} class:list={["px-3 py-2 rounded-[9px] text-[0.92rem] transition-colors hover:bg-ink/5", active(n.href) ? "text-accent" : "text-ink-soft"]}>{n.label}</a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href="/dashboard" class="hidden sm:inline-flex tag" aria-label="Build dashboard">● Dashboard</a>
+      <button id="theme-toggle" type="button" class="grid place-items-center w-9 h-9 rounded-[9px] border border-line-strong hover:border-ink transition-colors" aria-label="Toggle dark mode">
+        <svg class="dark:hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+        <svg class="hidden dark:block" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
+      </button>
+      <details class="md:hidden relative">
+        <summary class="grid place-items-center w-9 h-9 rounded-[9px] border border-line-strong cursor-pointer list-none" aria-label="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </summary>
+        <div class="absolute right-0 mt-2 w-52 card !p-2 shadow-lg z-50">
+          {nav.map((n) => <a href={n.href} class="block px-3 py-2 rounded-[8px] text-[0.95rem] hover:bg-ink/5">{n.label}</a>)}
+          <a href="/dashboard" class="block px-3 py-2 rounded-[8px] text-[0.95rem] hover:bg-ink/5 text-accent">Dashboard</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

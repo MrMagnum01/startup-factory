@@ -1,0 +1,131 @@
+{
+  "id": 9,
+  "slug": "coldseq",
+  "name": "ColdSeq",
+  "category": "productized service",
+  "renderAs": "offer",
+  "route": "/services/coldseq",
+  "accent": "#BE123C",
+  "accentInk": "#45041A",
+  "eyebrow": "productized service",
+  "headline": "5 ready-to-send cold email sequences written for your offer",
+  "subheadline": "Booked meetings from proven frameworks. Built for b2b founders, agencies, sdrs.",
+  "painPoint": "Their cold email gets ignored.",
+  "solution": "5 ready-to-send cold email sequences written for your offer.",
+  "proofPoints": [
+    "Fixed scope, fixed price",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "One-page offer",
+      "body": "One-page offer: outcome headline."
+    },
+    {
+      "title": "3 proof points",
+      "body": "3 proof points."
+    },
+    {
+      "title": "Fixed scope",
+      "body": "fixed scope."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "FAQ",
+      "body": "FAQ."
+    },
+    {
+      "title": "Stripe link + booking form",
+      "body": "Stripe link + booking form."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "productized service"
+    },
+    {
+      "k": "Price",
+      "v": "$99"
+    },
+    {
+      "k": "Turnaround",
+      "v": "48–72 hours"
+    },
+    {
+      "k": "Monetization",
+      "v": "Gumroad/Stripe"
+    },
+    {
+      "k": "Channel",
+      "v": "Indie Hackers"
+    }
+  ],
+  "pricing": {
+    "note": "One fixed price. No retainers, no surprises.",
+    "tiers": [
+      {
+        "name": "The package",
+        "price": "$99",
+        "summary": "5 ready-to-send cold email sequences written for your offer.",
+        "features": [
+          "One-page offer: outcome headline",
+          "3 proof points",
+          "fixed scope",
+          "price",
+          "FAQ"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "payment",
+    "label": "Book it now",
+    "href": "#",
+    "note": "Fixed price. Stripe secure checkout. 48–72h turnaround."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "ColdSeq — 5 ready-to-send cold email sequences written for your offer",
+  "seoDescription": "5 ready-to-send cold email sequences written for your offer. Built for b2b founders, agencies, sdrs. From $99.",
+  "keywords": [
+    "coldseq",
+    "indie hackers",
+    "b2b slack/discord",
+    "productized service"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "B2B founders, agencies, SDRs. If that's you and \"their cold email gets ignored\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Booked meetings from proven frameworks."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Within 48–72 hours of ordering. You'll get a confirmation immediately and the deliverable by email."
+    },
+    {
+      "q": "What if I'm not happy?",
+      "a": "One free revision round is included. If the deliverable misses the agreed scope, you get a full refund — no argument."
+    }
+  ],
+  "launchChannel": "Indie Hackers, B2B Slack/Discord",
+  "validationMetric": "Send 50 personalised outreach touches; target 1+ paid order or 3+ booked calls in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 9,
+  "frs": 7.15,
+  "revenueSpeed": 8,
+  "profitPotential": 7,
+  "killCriteria": "0 paid orders AND <2 booked calls after 100 outreach touches in 14 days",
+  "biggestRisk": "Fulfillment time caps scale; low cold-reply rates; you trade hours for money until productised further",
+  "first10": "DM/cold-email 30-50 ideal-fit businesses with a free mini-teardown; post the offer in 2 niche communities",
+  "price": "$99"
+}

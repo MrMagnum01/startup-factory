@@ -1,0 +1,131 @@
+{
+  "id": 11,
+  "slug": "hostbook",
+  "name": "HostBook",
+  "category": "template pack",
+  "renderAs": "offer",
+  "route": "/templates/hostbook",
+  "accent": "#15634C",
+  "accentInk": "#0B2A20",
+  "eyebrow": "template pack",
+  "headline": "Airbnb host welcome-book + house-manual template",
+  "subheadline": "Better reviews, fewer messages. Built for airbnb/str hosts.",
+  "painPoint": "Repeating the same guest info; bad reviews.",
+  "solution": "Airbnb host welcome-book + house-manual template.",
+  "proofPoints": [
+    "No signup required",
+    "Instant download",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Product page",
+      "body": "Product page: hero preview."
+    },
+    {
+      "title": "What's-inside list",
+      "body": "what's-inside list."
+    },
+    {
+      "title": "3 screenshots",
+      "body": "3 screenshots."
+    },
+    {
+      "title": "Price",
+      "body": "price."
+    },
+    {
+      "title": "Buy button",
+      "body": "buy button."
+    },
+    {
+      "title": "Refund note",
+      "body": "refund note."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "template pack"
+    },
+    {
+      "k": "Price",
+      "v": "$19"
+    },
+    {
+      "k": "Delivery",
+      "v": "Instant download"
+    },
+    {
+      "k": "Monetization",
+      "v": "Gumroad/Etsy"
+    },
+    {
+      "k": "Channel",
+      "v": "STR host FB groups"
+    }
+  ],
+  "pricing": {
+    "note": "Pay once, use forever. Free updates included.",
+    "tiers": [
+      {
+        "name": "Full pack",
+        "price": "$19",
+        "summary": "Everything inside, instant download.",
+        "features": [
+          "Product page: hero preview",
+          "what's-inside list",
+          "3 screenshots",
+          "price",
+          "buy button"
+        ],
+        "highlighted": true
+      }
+    ]
+  },
+  "cta": {
+    "type": "download",
+    "label": "Get the pack",
+    "href": "#",
+    "note": "Instant download. Free updates. 14-day refund."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "seoTitle": "HostBook — Airbnb host welcome-book + house-manual template",
+  "seoDescription": "Airbnb host welcome-book + house-manual template. Built for airbnb/str hosts. From $19.",
+  "keywords": [
+    "hostbook",
+    "str host fb groups",
+    "reddit",
+    "template pack"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Airbnb/STR hosts. If that's you and \"repeating the same guest info; bad reviews\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Better reviews, fewer messages."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Instantly. The download link arrives the moment payment clears."
+    },
+    {
+      "q": "What's the refund policy?",
+      "a": "14 days, no questions asked. If it doesn't fit your workflow, reply to the receipt email and we refund you."
+    }
+  ],
+  "launchChannel": "STR host FB groups, Reddit",
+  "validationMetric": "Drive 300-500 targeted visits; target 5+ sales in 14 days at list price",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 11,
+  "frs": 7.15,
+  "revenueSpeed": 8,
+  "profitPotential": 7,
+  "killCriteria": "<1% conversion after 500 targeted visits, or <2 sales in 14 days",
+  "biggestRisk": "Commoditised; piracy & refunds; needs constant distribution to keep selling",
+  "first10": "Post a free sample in 3 relevant subreddits/Discords; list on Gumroad Discover; 1 short demo clip",
+  "price": "$19"
+}

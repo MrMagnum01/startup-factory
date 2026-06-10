@@ -1,0 +1,15 @@
+---
+import Base from "../layouts/Base.astro";
+import Button from "@factory/ui/Button.astro";
+---
+<Base title="404 — Page not found · Startup Factory" description="That page doesn't exist. Browse 50 live micro-projects instead.">
+  <section class="container-x py-28 lg:py-40 text-center">
+    <p class="mono text-[0.78rem] tracking-[0.3em] text-muted uppercase mb-6">Error 404</p>
+    <h1 class="text-display">Dead end.<br /><em class="italic-display text-accent">Plenty of live ones, though.</em></h1>
+    <p class="lead mt-6 max-w-md mx-auto">This page was either killed for missing its validation metric, or it never existed.</p>
+    <div class="flex justify-center gap-3 mt-9">
+      <Button href="/projects" variant="accent" size="lg">Browse projects</Button>
+      <Button href="/" variant="ghost" size="lg">Home</Button>
+    </div>
+  </section>
+</Base>

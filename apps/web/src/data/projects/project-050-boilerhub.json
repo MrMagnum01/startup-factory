@@ -1,0 +1,241 @@
+{
+  "id": 50,
+  "slug": "boilerhub",
+  "name": "BoilerHub",
+  "category": "directory",
+  "renderAs": "directory",
+  "route": "/directories/boilerhub",
+  "accent": "#BE123C",
+  "accentInk": "#45041A",
+  "eyebrow": "directory",
+  "headline": "Directory of SaaS boilerplates & starter kits (affiliate)",
+  "subheadline": "Save weeks; pick the right kit. Built for indie devs, founders.",
+  "painPoint": "Which boilerplate to buy?.",
+  "solution": "Directory of SaaS boilerplates & starter kits (affiliate).",
+  "proofPoints": [
+    "No signup required",
+    "Free-tier friendly",
+    "14-day honest validation"
+  ],
+  "features": [
+    {
+      "title": "Seeded list (40-100 entries)",
+      "body": "Seeded list (40-100 entries)."
+    },
+    {
+      "title": "Search + 2 filters",
+      "body": "search + 2 filters."
+    },
+    {
+      "title": "Detail rows",
+      "body": "detail rows."
+    },
+    {
+      "title": "'submit listing' form",
+      "body": "'submit listing' form."
+    },
+    {
+      "title": "1 sponsor slot",
+      "body": "1 sponsor slot."
+    }
+  ],
+  "specs": [
+    {
+      "k": "Format",
+      "v": "directory"
+    },
+    {
+      "k": "Price",
+      "v": "Free; affiliate"
+    },
+    {
+      "k": "Turnaround",
+      "v": "6-10h build effort"
+    },
+    {
+      "k": "Monetization",
+      "v": "Affiliate (boilerplate sales)"
+    },
+    {
+      "k": "Channel",
+      "v": "Indie Hackers"
+    }
+  ],
+  "pricing": {
+    "note": "",
+    "tiers": []
+  },
+  "cta": {
+    "type": "waitlist",
+    "label": "Submit a listing",
+    "href": "#",
+    "note": "Free submissions reviewed weekly. Featured slots paid."
+  },
+  "paymentLinkPlaceholder": "https://buy.stripe.com/TODO_REPLACE_ME",
+  "emailCapturePlaceholder": "https://tally.so/r/TODO_REPLACE_ME",
+  "directory": {
+    "facets": [
+      "Next.js",
+      "Rails",
+      "Laravel",
+      "Django",
+      "Multi-stack"
+    ],
+    "items": [
+      {
+        "name": "create-t3-app",
+        "category": "Next.js",
+        "tag": "Open source",
+        "blurb": "Opinionated full-stack Next.js starter with TypeScript, tRPC, Tailwind, and Prisma.",
+        "url": "https://create.t3.gg",
+        "featured": true
+      },
+      {
+        "name": "ShipFast",
+        "category": "Next.js",
+        "tag": "Paid",
+        "blurb": "Next.js boilerplate with auth, payments, email, and SEO wired up for fast SaaS launches.",
+        "url": "https://shipfa.st",
+        "featured": false
+      },
+      {
+        "name": "Supastarter",
+        "category": "Next.js",
+        "tag": "Paid",
+        "blurb": "Next.js and Nuxt SaaS starter kit with Supabase, billing, i18n, and a component library.",
+        "url": "https://supastarter.dev",
+        "featured": false
+      },
+      {
+        "name": "Next.js SaaS Starter",
+        "category": "Next.js",
+        "tag": "Open source",
+        "blurb": "Vercel-maintained starter with Postgres, Stripe, and shadcn/ui for building SaaS products.",
+        "url": "https://github.com/nextjs/saas-starter",
+        "featured": false
+      },
+      {
+        "name": "Divjoy",
+        "category": "Next.js",
+        "tag": "Paid",
+        "blurb": "Codebase generator for React SaaS apps supporting multiple auth, database, and UI choices.",
+        "url": "https://divjoy.com",
+        "featured": false
+      },
+      {
+        "name": "Open SaaS by Wasp",
+        "category": "Multi-stack",
+        "tag": "Open source",
+        "blurb": "Free, open-source SaaS boilerplate built with Wasp, React, and Node.js including auth and billing.",
+        "url": "https://opensaas.sh",
+        "featured": false
+      },
+      {
+        "name": "Refine",
+        "category": "Multi-stack",
+        "tag": "Open source",
+        "blurb": "React meta-framework for building internal tools, admin panels, and CRUD-heavy SaaS apps.",
+        "url": "https://refine.dev",
+        "featured": false
+      },
+      {
+        "name": "Volca",
+        "category": "Multi-stack",
+        "tag": "Paid",
+        "blurb": "Node.js and React SaaS starter with AWS infrastructure, Stripe billing, and user management.",
+        "url": "https://volca.io",
+        "featured": false
+      },
+      {
+        "name": "SaaS Pegasus",
+        "category": "Django",
+        "tag": "Paid",
+        "blurb": "Django boilerplate with teams, subscriptions, React or HTMX front-end, and Celery support.",
+        "url": "https://www.saaspegasus.com",
+        "featured": false
+      },
+      {
+        "name": "Gravity",
+        "category": "Django",
+        "tag": "Paid",
+        "blurb": "Django SaaS starter kit providing auth, billing, teams, and a React front-end out of the box.",
+        "url": "https://usegravity.app",
+        "featured": false
+      },
+      {
+        "name": "Jumpstart Rails",
+        "category": "Rails",
+        "tag": "Paid",
+        "blurb": "Rails SaaS template by Chris Oliver with Stripe billing, multitenancy, and Hotwire front-end.",
+        "url": "https://jumpstartrails.com",
+        "featured": false
+      },
+      {
+        "name": "Bullet Train",
+        "category": "Rails",
+        "tag": "Open source",
+        "blurb": "Open-source Rails SaaS framework with teams, roles, permissions, and API scaffolding built in.",
+        "url": "https://bullettrain.co",
+        "featured": false
+      },
+      {
+        "name": "Laravel Spark",
+        "category": "Laravel",
+        "tag": "Paid",
+        "blurb": "Official Laravel package providing subscription billing scaffolding backed by Stripe or Paddle.",
+        "url": "https://spark.laravel.com",
+        "featured": false
+      },
+      {
+        "name": "Wave",
+        "category": "Laravel",
+        "tag": "Open source",
+        "blurb": "Laravel SaaS boilerplate with subscription billing, user profiles, and a Filament admin panel.",
+        "url": "https://devdojo.com/wave",
+        "featured": false
+      },
+      {
+        "name": "Makerkit",
+        "category": "Next.js",
+        "tag": "Paid",
+        "blurb": "Next.js and Remix SaaS starter with Supabase or Firebase, multi-tenancy, and Stripe billing.",
+        "url": "https://makerkit.dev",
+        "featured": false
+      }
+    ],
+    "sponsorNote": "Get featured at the top of this list."
+  },
+  "seoTitle": "BoilerHub — Directory of SaaS boilerplates & starter kits (affiliate)",
+  "seoDescription": "Directory of SaaS boilerplates & starter kits (affiliate). Built for indie devs, founders. Free to use.",
+  "keywords": [
+    "boilerhub",
+    "indie hackers",
+    "dev twitter",
+    "directory"
+  ],
+  "faq": [
+    {
+      "q": "Who is this for?",
+      "a": "Indie devs, founders. If that's you and \"which boilerplate to buy?\" sounds familiar, this was built for your exact situation."
+    },
+    {
+      "q": "Why would I pay for this?",
+      "a": "Save weeks; pick the right kit."
+    },
+    {
+      "q": "How fast do I get it?",
+      "a": "Right now — everything on this page works immediately, free."
+    }
+  ],
+  "launchChannel": "Indie Hackers, dev Twitter, SEO",
+  "validationMetric": "Index + 200 visits; target 1 paid/featured listing or 3 affiliate clicks in 14 days",
+  "deploymentTarget": "Vercel (static) — primary; Cloudflare Pages / Netlify alternates",
+  "rank": 50,
+  "frs": 5.85,
+  "revenueSpeed": 5,
+  "profitPotential": 7,
+  "killCriteria": "<150 visits AND 0 listing/affiliate revenue interest after 14 days",
+  "biggestRisk": "Cold-start (needs both content and traffic); affiliate payouts are thin early",
+  "first10": "Seed great entries, then tell each listed brand they're featured (warm outreach for upgrades)",
+  "price": "Free; affiliate"
+}

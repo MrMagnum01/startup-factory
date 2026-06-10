@@ -1,0 +1,73 @@
+---
+// Cold email sequence generator — proven frameworks, template engine, client-side.
+---
+<div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8">
+  <form class="grid gap-4 content-start" autocomplete="off">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="grid gap-1.5">
+        <label for="ce-role" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Who are you emailing? *</label>
+        <input id="ce-role" placeholder="dental clinic owners" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="ce-pain" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Their pain *</label>
+        <input id="ce-pain" placeholder="invisible on Google Maps vs competitors" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="ce-offer" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Your offer *</label>
+        <input id="ce-offer" placeholder="a fixed-price local SEO audit" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="ce-proof" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Proof / credibility</label>
+        <input id="ce-proof" placeholder="helped 12 clinics reach map pack top-3" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="ce-cta" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Ask (CTA) *</label>
+        <input id="ce-cta" placeholder="worth a 10-min look this week?" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+      <div class="grid gap-1.5">
+        <label for="ce-name" class="mono text-[0.7rem] uppercase tracking-widest text-muted">Your first name *</label>
+        <input id="ce-name" placeholder="Sam" class="px-4 py-3 rounded-[11px] border border-line-strong bg-paper" />
+      </div>
+    </div>
+    <button type="button" id="ce-gen" class="btn btn--accent justify-self-start">Generate 3-email sequence</button>
+    <p class="text-[0.78rem] text-muted m-0">Personalize {`{{first_line}}`} per recipient before sending — generic blasts get ignored and hurt your domain. Follow CAN-SPAM/GDPR: real identity, working unsubscribe, no deception.</p>
+  </form>
+
+  <div class="grid gap-3 content-start">
+    <div class="flex items-center gap-2">
+      <p class="eyebrow !mb-0">Sequence</p>
+      <button type="button" id="ce-copy" class="btn btn--ghost !py-1.5 !px-3 text-[0.8rem] ml-auto">Copy all</button>
+    </div>
+    <div id="ce-out" class="grid gap-3">
+      <p class="text-muted text-[0.92rem] card m-0">Fill the form — you'll get an opener (PAS), a value follow-up, and a polite breakup email.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const I = (id: string) => (document.getElementById(id) as HTMLInputElement).value.trim();
+  const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  function card(subject: string, body: string, day: string) {
+    return `<div class="card"><p class="mono text-[0.64rem] uppercase tracking-widest text-muted mb-2">${day}</p><p class="font-medium text-[0.95rem] mb-3">Subject: ${esc(subject)}</p><pre class="m-0 whitespace-pre-wrap font-sans text-[0.9rem] leading-relaxed text-ink-soft">${esc(body)}</pre></div>`;
+  }
+  let full = "";
+  function gen() {
+    const role = I("ce-role"), pain = I("ce-pain"), offer = I("ce-offer"), proof = I("ce-proof"), cta = I("ce-cta"), name = I("ce-name");
+    const out = document.getElementById("ce-out")!;
+    if (!role || !pain || !offer || !cta || !name) { out.innerHTML = '<p class="text-muted text-[0.92rem] card m-0">All fields except proof are required.</p>'; return; }
+    const e1s = `quick question about ${pain.split(" ").slice(0, 4).join(" ")}`;
+    const e1 = `Hi {{first_name}},\n\n{{first_line — one specific, researched sentence about THEIR business}}\n\nMost ${role} I talk to are losing customers because they're ${pain}. It usually isn't their fault — it's a handful of fixable issues nobody has pointed out.\n\nI run ${offer}.${proof ? ` So far: ${proof}.` : ""}\n\n${cta.charAt(0).toUpperCase() + cta.slice(1)}\n\n${name}`;
+    const e2s = `re: ${e1s}`;
+    const e2 = `Hi {{first_name}},\n\nIn case it's useful even if we never work together — the three things I'd check first for any ${role.replace(/s$/, "")}:\n\n1. {{specific check #1 for ${pain}}}\n2. {{specific check #2}}\n3. {{specific check #3}}\n\nIf you'd rather I just do it: ${offer}. ${cta}\n\n${name}`;
+    const e3s = `closing the loop`;
+    const e3 = `Hi {{first_name}},\n\nI'll stop here — last thing from me.\n\nIf ${pain} becomes a priority this quarter, the door's open and the details are below my signature. If not, genuinely no worries, and good luck with the season ahead.\n\n${name}\n\n—\n${offer}${proof ? ` · ${proof}` : ""}`;
+    out.innerHTML = card(e1s, e1, "Email 1 · Day 0 — opener (PAS)") + card(e2s, e2, "Email 2 · Day 3 — give value first") + card(e3s, e3, "Email 3 · Day 7 — polite breakup");
+    full = `EMAIL 1 (Day 0)\nSubject: ${e1s}\n\n${e1}\n\n---\n\nEMAIL 2 (Day 3)\nSubject: ${e2s}\n\n${e2}\n\n---\n\nEMAIL 3 (Day 7)\nSubject: ${e3s}\n\n${e3}`;
+    try { (window as any).track && (window as any).track("tool_used", { tool: "cold-email-generator" }); } catch {}
+  }
+  document.getElementById("ce-gen")!.addEventListener("click", gen);
+  document.getElementById("ce-copy")!.addEventListener("click", async () => {
+    if (!full) return;
+    try { await navigator.clipboard.writeText(full); const b = document.getElementById("ce-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy all"), 1500); } catch {}
+  });
+</script>

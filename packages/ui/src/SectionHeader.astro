@@ -1,0 +1,15 @@
+---
+interface Props { num?: string; kicker?: string; title?: string; align?: "left" | "center"; class?: string; }
+const { num = "", kicker = "", title = "", align = "left", class: cls = "" } = Astro.props;
+---
+<header class:list={["reveal", cls, align === "center" && "text-center mx-auto max-w-2xl"]}>
+  {num && (
+    <div class="srule mb-5">
+      <span class="num">{num}</span>
+      <span class="ln"></span>
+    </div>
+  )}
+  {kicker && <p class:list={["eyebrow mb-3", align === "center" && "justify-center"]}>{kicker}</p>}
+  {title && <h2>{title}</h2>}
+  <slot />
+</header>

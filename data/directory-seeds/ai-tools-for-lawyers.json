@@ -1,0 +1,125 @@
+{
+  "facets": ["Research", "Contracts", "Drafting", "Litigation", "Practice management"],
+  "items": [
+    {
+      "name": "Harvey",
+      "category": "Drafting",
+      "tag": "Enterprise",
+      "blurb": "AI platform built for law firms that assists with drafting, research, and document analysis.",
+      "url": "https://harvey.ai",
+      "featured": true
+    },
+    {
+      "name": "CoCounsel by Casetext",
+      "category": "Research",
+      "tag": "Enterprise",
+      "blurb": "Thomson Reuters AI legal assistant for case research, document review, and deposition prep.",
+      "url": "https://casetext.com/cocounsel",
+      "featured": false
+    },
+    {
+      "name": "Spellbook",
+      "category": "Contracts",
+      "tag": "Freemium",
+      "blurb": "AI contract drafting and review tool that works inside Microsoft Word using GPT-4.",
+      "url": "https://www.spellbook.legal",
+      "featured": false
+    },
+    {
+      "name": "Lexis+ AI",
+      "category": "Research",
+      "tag": "Subscription",
+      "blurb": "LexisNexis AI assistant with conversational legal research grounded in its proprietary database.",
+      "url": "https://www.lexisnexis.com/en-us/products/lexis-plus-ai.page",
+      "featured": false
+    },
+    {
+      "name": "Westlaw AI",
+      "category": "Research",
+      "tag": "Subscription",
+      "blurb": "Thomson Reuters AI features within Westlaw for faster case law research and brief summarization.",
+      "url": "https://legal.thomsonreuters.com/en/products/westlaw",
+      "featured": false
+    },
+    {
+      "name": "Luminance",
+      "category": "Contracts",
+      "tag": "Enterprise",
+      "blurb": "AI platform for legal document review and due diligence used by law firms and corporates.",
+      "url": "https://www.luminance.com",
+      "featured": false
+    },
+    {
+      "name": "Ironclad",
+      "category": "Contracts",
+      "tag": "Subscription",
+      "blurb": "Contract lifecycle management platform with AI-assisted redlining, approvals, and analytics.",
+      "url": "https://ironcladapp.com",
+      "featured": false
+    },
+    {
+      "name": "Juro",
+      "category": "Contracts",
+      "tag": "Freemium",
+      "blurb": "Browser-native contract management platform with AI drafting and workflow automation.",
+      "url": "https://juro.com",
+      "featured": false
+    },
+    {
+      "name": "Clearbrief",
+      "category": "Litigation",
+      "tag": "Subscription",
+      "blurb": "AI tool that verifies legal citations in briefs and links factual claims to supporting documents.",
+      "url": "https://www.clearbrief.ai",
+      "featured": false
+    },
+    {
+      "name": "Briefpoint",
+      "category": "Litigation",
+      "tag": "Subscription",
+      "blurb": "Automates drafting of discovery responses and objections from uploaded opposition documents.",
+      "url": "https://briefpoint.ai",
+      "featured": false
+    },
+    {
+      "name": "EvenUp",
+      "category": "Litigation",
+      "tag": "Subscription",
+      "blurb": "AI-generated demand letters for plaintiff personal injury cases using medical records and evidence.",
+      "url": "https://www.evenuplaw.com",
+      "featured": false
+    },
+    {
+      "name": "Diligen",
+      "category": "Contracts",
+      "tag": "Enterprise",
+      "blurb": "AI contract review tool for due diligence that extracts and categorizes key clauses at scale.",
+      "url": "https://www.diligen.com",
+      "featured": false
+    },
+    {
+      "name": "Kira Systems",
+      "category": "Contracts",
+      "tag": "Enterprise",
+      "blurb": "Machine learning contract analysis software used for due diligence and contract management.",
+      "url": "https://kirasystems.com",
+      "featured": false
+    },
+    {
+      "name": "Clio",
+      "category": "Practice management",
+      "tag": "Subscription",
+      "blurb": "Cloud-based practice management suite with AI features for time tracking, billing, and intake.",
+      "url": "https://www.clio.com",
+      "featured": false
+    },
+    {
+      "name": "MyCase",
+      "category": "Practice management",
+      "tag": "Subscription",
+      "blurb": "Legal practice management software with an AI assistant for drafting and case management tasks.",
+      "url": "https://www.mycase.com",
+      "featured": false
+    }
+  ]
+}
