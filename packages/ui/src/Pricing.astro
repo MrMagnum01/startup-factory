@@ -30,8 +30,12 @@ const cols = tiers.length >= 3 ? "lg:grid-cols-3" : tiers.length === 2 ? "sm:gri
             </li>
           ))}
         </ul>
-        <Button href={c.href} external={c.external} rel={c.rel} target={c.target}
-          variant={t.highlighted ? "accent" : "primary"} class="w-full" dataAttrs={data}>{c.label}</Button>
+        {c.comingSoon ? (
+          <Button variant="ghost" class="w-full" dataAttrs={{ "data-cta": c.type, "data-placeholder": "true", "aria-disabled": "true" }}>Coming soon</Button>
+        ) : (
+          <Button href={c.href} external={c.external} rel={c.rel} target={c.target}
+            variant={t.highlighted ? "accent" : "primary"} class="w-full" dataAttrs={data}>{c.label}</Button>
+        )}
       </div>
     );
   })}
