@@ -5,16 +5,13 @@ import FeatureGrid from "./FeatureGrid.astro";
 import Faq from "./Faq.astro";
 import PaymentCTA from "./PaymentCTA.astro";
 
-// Dynamic render of the matching tool. Each tool ships its logic as a
-// <script is:inline>, so it runs with the rendered HTML regardless of Astro's
-// hoisted-script analysis (which does not track dynamically-selected components).
-const tools = import.meta.glob("/src/tools/*.astro", { eager: true });
-
 interface Props { project: any; }
 const { project } = Astro.props;
 const p = project;
 const idTag = String(p.id ?? 0).padStart(3, "0");
-const ToolImpl: any = (tools as any)[`/src/tools/${p.tool}.astro`]?.default;
+const tools = import.meta.glob("/src/tools/*.astro", { eager: true });
+const key = `/src/tools/${p.tool}.astro`;
+const ToolImpl: any = (tools as any)[key]?.default;
 const hasPro = (p.pricing?.tiers?.length ?? 0) > 0;
 ---
 <!-- ===================== HERO (compact; tool is the hero) ===================== -->
@@ -51,8 +48,8 @@ const hasPro = (p.pricing?.tiers?.length ?? 0) > 0;
       <div class="p-5 lg:p-8">
         {ToolImpl ? <ToolImpl project={p} /> : (
           <div class="text-center py-16">
-            <p class="mono text-[0.75rem] tracking-widest text-muted uppercase mb-2">Tool module not found</p>
-            <p class="text-ink-soft">Add the matching component under <code class="mono text-[0.85rem]">src/tools/</code>.</p>
+            <p class="mono text-[0.75rem] tracking-widest text-muted uppercase mb-2">Tool module “{p.tool}” not found</p>
+            <p class="text-ink-soft">Add <code class="mono text-[0.85rem]">src/tools/{p.tool}.astro</code> to mount it here.</p>
           </div>
         )}
       </div>
@@ -102,4 +99,9 @@ const hasPro = (p.pricing?.tiers?.length ?? 0) > 0;
 
 {p.faq?.length > 0 && (
   <section>
-    <div class="container-x py-16 lg:py-20 grid lg:grid-col
+    <div class="container-x py-16 lg:py-20 grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-16">
+      <SectionHeader num="02" kicker="FAQ" title="Good to know" />
+      <div class="reveal"><Faq items={p.faq} /></div>
+    </div>
+  </section>
+)}
