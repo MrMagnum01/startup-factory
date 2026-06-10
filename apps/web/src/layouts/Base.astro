@@ -72,6 +72,8 @@ const jsonld = [siteJsonLd({ site }), ...(project ? [buildJsonLd({ site, path, p
         <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${analytics.id}');`}></script>
       </Fragment>
     )}
+    {/* Vercel Web Analytics (static deploys need the explicit snippet; no-op off-Vercel) */}
+    <script defer src="/_vercel/insights/script.js"></script>
     <slot name="head" />
   </head>
   <body>
