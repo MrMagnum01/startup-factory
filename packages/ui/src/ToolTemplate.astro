@@ -59,16 +59,16 @@ const missing = !known.includes(p.tool);
         <span class="mono text-[0.66rem] text-muted ml-auto hidden sm:block">LOCAL · PRIVATE</span>
       </div>
       <div class="p-5 lg:p-8">
-        {p.tool === "rate-calculator" && <RateCalculator project={p} />}
-        {p.tool === "saas-metrics" && <SaasMetrics project={p} />}
-        {p.tool === "mortgage-payoff" && <MortgagePayoff project={p} />}
-        {p.tool === "quote-estimator" && <QuoteEstimator project={p} />}
-        {p.tool === "invoice-generator" && <InvoiceGenerator project={p} />}
-        {p.tool === "meta-tags" && <MetaTags project={p} />}
-        {p.tool === "utm-builder" && <UtmBuilder project={p} />}
-        {p.tool === "resume-bullets" && <ResumeBullets project={p} />}
-        {p.tool === "policy-generator" && <PolicyGenerator project={p} />}
-        {p.tool === "cold-email-generator" && <ColdEmailGenerator project={p} />}
+        {p.tool === "rate-calculator" && (<RateCalculator project={p} />)}
+        {p.tool === "saas-metrics" && (<SaasMetrics project={p} />)}
+        {p.tool === "mortgage-payoff" && (<MortgagePayoff project={p} />)}
+        {p.tool === "quote-estimator" && (<QuoteEstimator project={p} />)}
+        {p.tool === "invoice-generator" && (<InvoiceGenerator project={p} />)}
+        {p.tool === "meta-tags" && (<MetaTags project={p} />)}
+        {p.tool === "utm-builder" && (<UtmBuilder project={p} />)}
+        {p.tool === "resume-bullets" && (<ResumeBullets project={p} />)}
+        {p.tool === "policy-generator" && (<PolicyGenerator project={p} />)}
+        {p.tool === "cold-email-generator" && (<ColdEmailGenerator project={p} />)}
         {missing && (
           <div class="text-center py-16">
             <p class="mono text-[0.75rem] tracking-widest text-muted uppercase mb-2">Tool module “{p.tool}” not found</p>
