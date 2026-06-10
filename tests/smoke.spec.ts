@@ -12,7 +12,8 @@ const projects = readdirSync(CFG)
 test("home page renders with hero + nav", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("h1")).toBeVisible();
-  await expect(page.locator("header nav")).toBeVisible();
+  await expect(page.locator("header")).toBeVisible();
+  expect(await page.locator("header a[href='/projects']").count()).toBeGreaterThan(0);
   expect(await page.title()).not.toEqual("");
 });
 
