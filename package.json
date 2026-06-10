@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "description": "Config-driven factory that publishes 50 monetizable project pages/tools from JSON configs. Astro static, Vercel-first, free-tier only.",
+  "type": "module",
   "packageManager": "pnpm@9.7.0",
   "engines": {
     "node": ">=18.17.1"
