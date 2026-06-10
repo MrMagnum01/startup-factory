@@ -45,6 +45,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('ce-gen'))return;
   const I = (id: string) => (document.getElementById(id) as HTMLInputElement).value.trim();
   const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
   function card(subject: string, body: string, day: string) {
@@ -70,4 +71,5 @@
     if (!full) return;
     try { await navigator.clipboard.writeText(full); const b = document.getElementById("ce-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy all"), 1500); } catch {}
   });
+})();
 </script>

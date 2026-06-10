@@ -53,6 +53,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('mt-title'))return;
   const $$ = (id: string) => document.getElementById(id) as HTMLInputElement;
   const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
   function gen() {
@@ -94,4 +95,5 @@
     } catch {}
   });
   gen();
+})();
 </script>

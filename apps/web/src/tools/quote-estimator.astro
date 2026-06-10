@@ -51,6 +51,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('qe-rate'))return;
   const q = (id: string) => document.getElementById(id) as HTMLInputElement;
   const usd = (n: number) => "$" + (Math.round(n / 5) * 5).toLocaleString("en-US");
   let summary = "";
@@ -77,4 +78,5 @@
     try { await navigator.clipboard.writeText(summary); const b = document.getElementById("qe-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy quote summary"), 1600); } catch {}
   });
   run();
+})();
 </script>

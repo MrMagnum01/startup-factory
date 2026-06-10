@@ -71,6 +71,7 @@
 </style>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('iv-add'))return;
   const E = (id: string) => document.getElementById(id) as HTMLInputElement;
   const linesBox = document.getElementById("iv-lines")!;
   function addLine(desc = "", qty = 1, price = 0) {
@@ -130,4 +131,5 @@
   const today = new Date().toISOString().slice(0, 10);
   E("iv-date").value = today;
   addLine("Design & development", 1, 500);
+})();
 </script>

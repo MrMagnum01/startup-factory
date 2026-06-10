@@ -47,6 +47,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('pg-gen'))return;
   const V = (id: string) => (document.getElementById(id) as HTMLInputElement);
   let docs = { privacy: "", terms: "" }; let tab: "privacy" | "terms" = "privacy";
   const today = () => new Date().toISOString().slice(0, 10);
@@ -98,4 +99,5 @@
     if (!docs[tab]) return;
     try { await navigator.clipboard.writeText(docs[tab]); const b = document.getElementById("pg-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy"), 1500); } catch {}
   });
+})();
 </script>

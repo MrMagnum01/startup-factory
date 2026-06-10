@@ -51,6 +51,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('ut-url'))return;
   const f = (id: string) => document.getElementById(id) as HTMLInputElement;
   let current = "";
   function build() {
@@ -90,4 +91,5 @@
       box.innerHTML = qr.createImgTag(5, 8);
     } catch { box.innerHTML = '<span class="text-[0.85rem] text-ink-soft">QR library unavailable offline — the tracked link still works. Try again online.</span>'; }
   });
+})();
 </script>

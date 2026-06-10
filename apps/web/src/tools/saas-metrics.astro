@@ -44,6 +44,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('sm-arpu'))return;
   const g = (id: string) => document.getElementById(id) as HTMLInputElement;
   const money = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
   function run() {
@@ -73,4 +74,5 @@
   }
   ["sm-arpu","sm-churn","sm-margin","sm-cac","sm-cust","sm-growth"].forEach((i) => g(i)?.addEventListener("input", run));
   run();
+})();
 </script>

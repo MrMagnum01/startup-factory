@@ -36,6 +36,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('mp-bal'))return;
   const el = (id: string) => document.getElementById(id) as HTMLInputElement;
   const usd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
   function amortize(bal: number, r: number, pay: number, extra: number) {
@@ -69,4 +70,5 @@
   }
   ["mp-bal","mp-apr","mp-years","mp-extra"].forEach((i) => el(i)?.addEventListener("input", run));
   run();
+})();
 </script>

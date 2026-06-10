@@ -45,6 +45,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('rb-gen'))return;
   const v = (id: string) => (document.getElementById(id) as HTMLInputElement).value.trim();
   const VERBS: Record<string, string[]> = {
     impact: ["Drove", "Boosted", "Increased", "Accelerated", "Delivered"],
@@ -77,4 +78,5 @@
     if (!text.includes("•")) return;
     try { await navigator.clipboard.writeText(text); const b = document.getElementById("rb-copy")!; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = "Copy all"), 1500); } catch {}
   });
+})();
 </script>

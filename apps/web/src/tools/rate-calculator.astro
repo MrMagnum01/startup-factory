@@ -41,6 +41,7 @@
 </div>
 
 <script>
+/*__guard__*/(function(){if(!document.getElementById('rc-income'))return;
   const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
   const fmt = (n: number) => "$" + Math.ceil(n).toLocaleString("en-US");
   function calc() {
@@ -62,4 +63,5 @@
   }
   ["rc-income","rc-hours","rc-weeks","rc-overhead","rc-tax"].forEach((id) => $(id)?.addEventListener("input", calc));
   calc();
+})();
 </script>
