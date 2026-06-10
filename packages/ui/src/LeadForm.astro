@@ -9,6 +9,12 @@ const data: Record<string, string> = {};
 if (f.placeholder) data["data-placeholder"] = "true";
 const action = f.mode === "post" ? f.endpoint : "#";
 ---
+{f.placeholder ? (
+  <div id="lead" class="card reveal" {...data}>
+    <h3 class="text-[1.2rem] mb-1">{title}</h3>
+    <p class="text-[0.9rem] text-ink-soft mt-2 mb-0">Request form opens at launch. <span class="text-muted">(not yet connected)</span></p>
+  </div>
+) : (
 <form id="lead" action={action} method="POST" class="card reveal grid gap-3" data-lead {...data}>
   <h3 class="text-[1.2rem] mb-1">{title}</h3>
   {hidden.map((h) => <input type="hidden" name={h.name} value={h.value} />)}
@@ -44,3 +50,4 @@ const action = f.mode === "post" ? f.endpoint : "#";
   <Button type="submit" variant="accent" class="justify-self-start mt-1">Send request</Button>
   <p class="text-[0.78rem] text-muted m-0">We reply within one business day. Your details are never sold.</p>
 </form>
+)}

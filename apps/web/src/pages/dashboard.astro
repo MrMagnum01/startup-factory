@@ -35,12 +35,37 @@ const kpi = {
 };
 const phases: { name: string; state: string }[] = s.phases ?? [];
 const generated = s.generatedAt ?? "—";
+const dashKey = import.meta.env.PUBLIC_DASHBOARD_KEY || "factory-2026";
 const B = (ok: boolean, okTxt: string, badTxt: string) => ok
   ? `<span class="inline-flex items-center gap-1.5 text-[0.78rem]"><span class="w-1.5 h-1.5 rounded-full" style="background:var(--accent)"></span>${okTxt}</span>`
   : `<span class="inline-flex items-center gap-1.5 text-[0.78rem] opacity-70"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>${badTxt}</span>`;
 ---
 <Base title="Build dashboard — Startup Factory" description="Internal control tower: build, SEO, payment and deployment status for all factory projects.">
   <Fragment slot="head"><meta name="robots" content="noindex,nofollow" /></Fragment>
+
+  <div id="db-gate" data-key={dashKey} class="fixed inset-0 z-[100] grid place-items-center bg-paper px-4">
+    <form id="db-gate-form" class="card max-w-sm w-full">
+      <p class="eyebrow mb-3">Internal · restricted</p>
+      <h2 class="!text-[1.4rem] mb-2">Dashboard access</h2>
+      <p class="text-[0.9rem] text-ink-soft mb-4">This is an internal control panel. Enter the access key.</p>
+      <input id="db-key" type="password" autofocus placeholder="Access key" class="w-full px-4 py-3 rounded-[11px] border border-line-strong bg-paper mb-3" />
+      <button type="submit" class="btn btn--accent w-full">Unlock</button>
+      <p id="db-err" class="text-[0.8rem] text-red-600 mt-3 hidden">Incorrect key.</p>
+    </form>
+  </div>
+  <script is:inline>
+    (function(){
+      var gate=document.getElementById('db-gate'); if(!gate) return;
+      if(sessionStorage.getItem('db-ok')==='1'){gate.remove();return;}
+      document.documentElement.style.overflow='hidden';
+      var KEY=gate.getAttribute('data-key');
+      document.getElementById('db-gate-form').addEventListener('submit',function(e){
+        e.preventDefault();
+        if(document.getElementById('db-key').value===KEY){sessionStorage.setItem('db-ok','1');gate.remove();document.documentElement.style.overflow='';}
+        else{document.getElementById('db-err').classList.remove('hidden');}
+      });
+    })();
+  </script>
 
   <section class="border-b border-line bg-surface-2">
     <div class="container-x pt-12 pb-10 lg:pt-16">

@@ -14,18 +14,16 @@ const data: Record<string, string> = { "data-cta": c.type };
 if (c.placeholder) data["data-placeholder"] = "true";
 ---
 <div class:list={["flex flex-col gap-2", block && "w-full"]}>
-  <Button
-    href={c.href}
-    variant={variant}
-    size={size}
-    external={c.external}
-    rel={c.rel}
-    target={c.target}
-    class={block ? "w-full" : ""}
-    dataAttrs={data}
-  >
-    {label || c.label}
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-  </Button>
-  {c.note && <span class="text-[0.8rem] text-muted">{c.note}</span>}
+  {c.comingSoon ? (
+    <Button variant="ghost" size={size} class={block ? "w-full" : ""} dataAttrs={{ "data-cta": c.type, "data-placeholder": "true", "aria-disabled": "true" }}>
+      Coming soon
+    </Button>
+  ) : (
+    <Button href={c.href} variant={variant} size={size} external={c.external} rel={c.rel} target={c.target} class={block ? "w-full" : ""} dataAttrs={data}>
+      {label || c.label}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </Button>
+  )}
+  {c.note && !c.comingSoon && <span class="text-[0.8rem] text-muted">{c.note}</span>}
+  {c.comingSoon && <span class="text-[0.8rem] text-muted">Activates when this project's checkout link is added.</span>}
 </div>

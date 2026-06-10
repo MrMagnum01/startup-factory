@@ -42,6 +42,7 @@ export function resolveCta(project) {
     note: cta.note,
     external,
     placeholder,
+    comingSoon: placeholder,
     ...(external ? { rel: "noopener", target: "_blank" } : {}),
   };
 }

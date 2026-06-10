@@ -28,7 +28,6 @@ const active = (h: string) => (h === "/" ? path === "/" : path.startsWith(h));
     </nav>
 
     <div class="flex items-center gap-2">
-      <a href="/dashboard" class="hidden sm:inline-flex tag" aria-label="Build dashboard">● Dashboard</a>
       <button id="theme-toggle" type="button" class="grid place-items-center w-9 h-9 rounded-[9px] border border-line-strong hover:border-ink transition-colors" aria-label="Toggle dark mode">
         <svg class="dark:hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
         <svg class="hidden dark:block" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg>
@@ -39,7 +38,6 @@ const active = (h: string) => (h === "/" ? path === "/" : path.startsWith(h));
         </summary>
         <div class="absolute right-0 mt-2 w-52 card !p-2 shadow-lg z-50">
           {nav.map((n) => <a href={n.href} class="block px-3 py-2 rounded-[8px] text-[0.95rem] hover:bg-ink/5">{n.label}</a>)}
-          <a href="/dashboard" class="block px-3 py-2 rounded-[8px] text-[0.95rem] hover:bg-ink/5 text-accent">Dashboard</a>
         </div>
       </details>
     </div>

@@ -12,7 +12,12 @@ if (f.placeholder) data["data-placeholder"] = "true";
   <h3 class="text-[1.15rem] mb-1">{title}</h3>
   <p class="text-[0.92rem] text-ink-soft mb-4">{note}</p>
 
-  {f.mode === "post" ? (
+  {f.placeholder ? (
+    <div class="flex items-center gap-3" data-capture="soon">
+      <span class="btn btn--ghost" aria-disabled="true">Coming soon</span>
+      <span class="text-[0.8rem] text-muted">Sign-up opens at launch.</span>
+    </div>
+  ) : f.mode === "post" ? (
     <form action={f.endpoint} method="POST" class="flex flex-col sm:flex-row gap-3" data-capture="post">
       {hidden.map((h) => <input type="hidden" name={h.name} value={h.value} />)}
       <label class="sr-only" for={`${id}-email`}>Email address</label>
