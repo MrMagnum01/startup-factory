@@ -40,26 +40,27 @@
   </div>
 </div>
 
-<script>
-  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
-  const fmt = (n: number) => "$" + Math.ceil(n).toLocaleString("en-US");
-  function calc() {
-    const income = +$("rc-income").value || 0;
-    const hours = Math.max(1, +$("rc-hours").value || 1);
-    const weeksOff = Math.min(51, +$("rc-weeks").value || 0);
-    const overhead = (+$("rc-overhead").value || 0) / 100;
-    const tax = (+$("rc-tax").value || 0) / 100;
-    $("rc-tax-v")!.textContent = String(Math.round(tax * 100));
-    const billableHours = hours * (52 - weeksOff);
-    const grossNeeded = income * (1 + overhead) / Math.max(0.05, 1 - tax);
-    const hourly = grossNeeded / billableHours;
-    ($("rc-hourly") as any).textContent = fmt(hourly) + "/h";
-    ($("rc-day") as any).textContent = fmt(hourly * 7);
-    ($("rc-week") as any).textContent = fmt(hourly * hours);
-    ($("rc-proj") as any).textContent = fmt(hourly * 10);
-    ($("rc-note") as any).textContent = `Based on ${billableHours.toLocaleString()} billable hours/year. Quote projects, not hours, where you can.`;
-    try { (window as any).track && (window as any).track("tool_used", { tool: "rate-calculator" }); } catch {}
-  }
-  ["rc-income","rc-hours","rc-weeks","rc-overhead","rc-tax"].forEach((id) => $(id)?.addEventListener("input", calc));
-  calc();
-</script>
+<script is:inline>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    if (!$("rc-income")) return;
+    var fmt = function (n) { return "$" + Math.ceil(n).toLocaleString("en-US"); };
+    function calc() {
+      var income = +$("rc-income").value || 0;
+      var hours = Math.max(1, +$("rc-hours").value || 1);
+      var weeksOff = Math.min(51, +$("rc-weeks").value || 0);
+      var overhead = (+$("rc-overhead").value || 0) / 100;
+      var tax = (+$("rc-tax").value || 0) / 100;
+      $("rc-tax-v").textContent = String(Math.round(tax * 100));
+      var billableHours = hours * (52 - weeksOff);
+      var grossNeeded = (income * (1 + overhead)) / Math.max(0.05, 1 - tax);
+      var hourly = grossNeeded / billableHours;
+      $("rc-hourly").textContent = fmt(hourly) + "/h";
+      $("rc-day").textContent = fmt(hourly * 7);
+      $("rc-week").textContent = fmt(hourly * hours);
+      $("rc-proj").textContent = fmt(hourly * 10);
+      $("rc-note").textContent = "Based on " + billableHours.toLocaleString() + " billable hours/year. Quote projects, not hours, where you can.";
+      try { if (window.track) window.track("tool_used", { tool: "rate-calculator" }); } catch (e) {}
+    }
+    ["rc-income", "rc-hours", "rc-weeks", "rc-overhead", "rc-tax"].forEach(function (id) {
+      var el = $(id)
