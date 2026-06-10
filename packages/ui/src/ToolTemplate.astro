@@ -5,14 +5,27 @@ import FeatureGrid from "./FeatureGrid.astro";
 import Faq from "./Faq.astro";
 import PaymentCTA from "./PaymentCTA.astro";
 
+// Static imports so Astro reliably hoists EACH tool's <script> only on the page
+// where that tool actually renders. (A dynamic <ToolImpl/> breaks Astro's script
+// hoisting — the bundle ships but the init never runs.)
+import RateCalculator from "/src/tools/rate-calculator.astro";
+import SaasMetrics from "/src/tools/saas-metrics.astro";
+import MortgagePayoff from "/src/tools/mortgage-payoff.astro";
+import QuoteEstimator from "/src/tools/quote-estimator.astro";
+import InvoiceGenerator from "/src/tools/invoice-generator.astro";
+import MetaTags from "/src/tools/meta-tags.astro";
+import UtmBuilder from "/src/tools/utm-builder.astro";
+import ResumeBullets from "/src/tools/resume-bullets.astro";
+import PolicyGenerator from "/src/tools/policy-generator.astro";
+import ColdEmailGenerator from "/src/tools/cold-email-generator.astro";
+
 interface Props { project: any; }
 const { project } = Astro.props;
 const p = project;
 const idTag = String(p.id ?? 0).padStart(3, "0");
-const tools = import.meta.glob("/src/tools/*.astro", { eager: true });
-const key = `/src/tools/${p.tool}.astro`;
-const ToolImpl: any = (tools as any)[key]?.default;
 const hasPro = (p.pricing?.tiers?.length ?? 0) > 0;
+const known = ["rate-calculator","saas-metrics","mortgage-payoff","quote-estimator","invoice-generator","meta-tags","utm-builder","resume-bullets","policy-generator","cold-email-generator"];
+const missing = !known.includes(p.tool);
 ---
 <!-- ===================== HERO (compact; tool is the hero) ===================== -->
 <section class="relative overflow-hidden border-b border-line">
@@ -46,10 +59,20 @@ const hasPro = (p.pricing?.tiers?.length ?? 0) > 0;
         <span class="mono text-[0.66rem] text-muted ml-auto hidden sm:block">LOCAL · PRIVATE</span>
       </div>
       <div class="p-5 lg:p-8">
-        {ToolImpl ? <ToolImpl project={p} /> : (
+        {p.tool === "rate-calculator" && <RateCalculator project={p} />}
+        {p.tool === "saas-metrics" && <SaasMetrics project={p} />}
+        {p.tool === "mortgage-payoff" && <MortgagePayoff project={p} />}
+        {p.tool === "quote-estimator" && <QuoteEstimator project={p} />}
+        {p.tool === "invoice-generator" && <InvoiceGenerator project={p} />}
+        {p.tool === "meta-tags" && <MetaTags project={p} />}
+        {p.tool === "utm-builder" && <UtmBuilder project={p} />}
+        {p.tool === "resume-bullets" && <ResumeBullets project={p} />}
+        {p.tool === "policy-generator" && <PolicyGenerator project={p} />}
+        {p.tool === "cold-email-generator" && <ColdEmailGenerator project={p} />}
+        {missing && (
           <div class="text-center py-16">
             <p class="mono text-[0.75rem] tracking-widest text-muted uppercase mb-2">Tool module “{p.tool}” not found</p>
-            <p class="text-ink-soft">Add <code class="mono text-[0.85rem]">src/tools/{p.tool}.astro</code> to mount it here.</p>
+            <p class="text-ink-soft">Add <code class="mono text-[0.85rem]">src/tools/{p.tool}.astro</code> and map it in ToolTemplate.</p>
           </div>
         )}
       </div>
@@ -73,35 +96,3 @@ const hasPro = (p.pricing?.tiers?.length ?? 0) > 0;
 <!-- ===================== PRO UPSELL ===================== -->
 {hasPro && (
   <section class="container-x py-6">
-    <div class="card card--ink reveal relative overflow-hidden">
-      <div class="absolute inset-0 grid-lines opacity-[0.08]" aria-hidden="true"></div>
-      <div class="relative grid lg:grid-cols-[1.4fr_auto] gap-8 p-4 lg:p-8 items-center">
-        <div>
-          <p class="eyebrow mb-3" style="color:var(--paper)">{p.pricing.tiers[0].name}</p>
-          <h2 class="text-paper !text-[clamp(1.5rem,1.2rem+1.4vw,2.2rem)]">{p.pricing.tiers[0].summary ?? "Unlock the Pro version"}</h2>
-          <ul class="flex flex-wrap gap-x-6 gap-y-2 mt-4 list-none p-0 m-0">
-            {p.pricing.tiers[0].features.map((f: string) => (
-              <li class="flex items-center gap-2 text-[0.88rem] text-paper/80">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div class="flex flex-col gap-2 lg:items-end">
-          <span class="text-display !text-[2.6rem] !leading-none text-paper tnum">{p.pricing.tiers[0].price}</span>
-          <PaymentCTA project={p} size="md" label={`Get ${p.pricing.tiers[0].name}`} />
-        </div>
-      </div>
-    </div>
-  </section>
-)}
-
-{p.faq?.length > 0 && (
-  <section>
-    <div class="container-x py-16 lg:py-20 grid lg:grid-cols-[0.5fr_1fr] gap-8 lg:gap-16">
-      <SectionHeader num="02" kicker="FAQ" title="Good to know" />
-      <div class="reveal"><Faq items={p.faq} /></div>
-    </div>
-  </section>
-)}
